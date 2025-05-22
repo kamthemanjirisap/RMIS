@@ -1,0 +1,17 @@
+projection implementation in class ZBP_C_TGRC_LOCATION unique;
+strict ( 2 );
+use draft;
+define behavior for ZC_TGRC_LOCATION alias ZcTgrcLocation
+use etag
+
+{
+  use create;
+  use update;
+  use delete;
+
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+}

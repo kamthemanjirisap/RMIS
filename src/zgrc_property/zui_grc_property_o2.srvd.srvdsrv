@@ -1,0 +1,9 @@
+@EndUserText.label: 'Service Definition for ZC_GRC_PROPERTY V2'
+define service ZUI_GRC_PROPERTY_O2 {
+  expose ZC_GRC_PROPERTY;
+  expose ZC_GRC_PROP_RECM;
+  expose ZC_GRC_PROP_LOG;
+  expose ZR_GRC_PROPERTY;
+  expose ZR_GRC_PROP_RECM;
+  expose ZR_GRC_PROP_LOG;
+}

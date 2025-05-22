@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Service Definition for ZC_GRC_OCCURENCE'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZC_GRC_OCCURENCE'
+  }
+}
+define service ZUI_GRC_OCCURENCE_O4 provider contracts odata_v4_ui {
+  expose ZC_GRC_OCCURENCE;
+}

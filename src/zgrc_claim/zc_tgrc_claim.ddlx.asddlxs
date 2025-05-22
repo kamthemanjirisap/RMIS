@@ -1,0 +1,7241 @@
+@Metadata.layer: #CORE
+@UI.headerInfo.title.type: #STANDARD
+@UI.headerInfo.title.value: 'ClaimExternalId'
+@UI.headerInfo.description.type: #STANDARD
+@UI.headerInfo.description.value: 'ClaimExternalId'
+annotate view ZC_TGRC_CLAIM with
+{
+  @EndUserText.label: 'ClaimUuid'
+  @UI.facet: [ {
+    label: 'Claim : General Information', 
+    id: 'GeneralInfo', 
+    purpose: #STANDARD, 
+    position: 10 , 
+    type: #IDENTIFICATION_REFERENCE
+  },
+  {
+    label: 'Claim Transaction', 
+    id: 'Items', 
+    purpose: #STANDARD, 
+    position: 11 , 
+    type: #LINEITEM_REFERENCE, 
+    targetElement: '_claim_trn'
+  }  ]
+  
+  
+  @UI.identification: [ {
+    position: 10 , 
+    label: 'ClaimUuid'
+  } 
+ // { type: #FOR_ACTION, dataAction: 'copyAsset', label: 'Copy Claim' }
+   ,
+   { type: #FOR_ACTION, dataAction: 'closeClaim', label: 'Close' },
+                            { type: #FOR_ACTION, dataAction: 'copyClaim', label: 'Clone' } 
+   
+   ]
+  @UI.lineItem: [ {
+    position: 10 , 
+    label: 'ClaimUuid'
+    
+  }
+  
+ ]
+//   ,
+//  { position: 11, type: #FOR_ACTION, label: 'Payment', dataAction: 'Payment' }
+//  { type: #FOR_ACTION, dataAction: 'closeClaim', label: 'Close' } 
+  @UI.selectionField: [ {
+    position: 10 
+        
+  } ]
+   
+     
+          
+   @UI: { hidden: true }
+  ClaimUuid;
+  
+//   @UI.lineItem: [{ position: 11 },
+//                 { type: #FOR_ACTION,
+//                   dataAction: 'payment' ,
+//                   label: 'Payment'}]
+//  @UI.selectionField: [{ position: 11 }]
+//  @UI.textArrangement: #TEXT_ONLY
+//  @UI.dataPoint: { qualifier: 'payment', title: 'Payment' }
+//  flag ;
+  
+    
+   
+  @EndUserText.label: 'Claim External Id'
+  @UI.identification: [ {
+    position: 20 , 
+    label:  'Claim External Id'
+  } ]
+  @UI.lineItem: [ {
+    position: 20 , 
+    label:  'Claim External Id'
+  } ]
+  @UI.selectionField: [ {
+    position: 20 
+  } ]
+  ClaimExternalId;
+  
+  @EndUserText.label: 'Record type'
+  @UI.identification: [ {
+    position: 30 ,
+    label: 'Record type'
+  } ]
+  @UI.lineItem: [ {
+    position: 30 ,
+    label: 'Record type'
+  } ]
+  @UI.selectionField: [ {
+    position: 30 
+  } ]
+  ClaimRecType;
+  
+  @EndUserText.label: '2nd Witness'
+  @UI.identification: [ {
+    position: 40 , 
+    label: '2nd Witness'
+  } ]
+  @UI.lineItem: [ {
+    position: 40 , 
+    label: '2nd Witness'
+  } ]
+  @UI.selectionField: [ {
+    position: 40 
+  } ]
+  X2ndWitness;
+  
+  @EndUserText.label: '3rd Party Claim Submitted to'
+  @UI.identification: [ {
+    position: 50 , 
+    label: '3rd Party Claim Submitted to'
+  } ]
+  @UI.lineItem: [ {
+    position: 50 , 
+    label: '3rd Party Claim Submitted to'
+  } ]
+  @UI.selectionField: [ {
+    position: 50 
+  } ]
+  X3rdPartyClaimSubmittedTo;
+  
+  @EndUserText.label: '3rd Party Claims Received (Total)'
+  @UI.identification: [ {
+    position: 60 , 
+    label: '3rd Party Claims Received (Total)'
+  } ]
+  @UI.lineItem: [ {
+    position: 60 , 
+    label: '3rd Party Claims Received (Total)'
+  } ]
+  @UI.selectionField: [ {
+    position: 60 
+  } ]
+  X3rdPartyClaimsReceivedTtl;
+  
+  @EndUserText.label: '3rd Party Claims Settled (Total)'
+  @UI.identification: [ {
+    position: 70 , 
+    label: '3rd Party Claims Settled (Total)'
+  } ]
+  @UI.lineItem: [ {
+    position: 70 , 
+    label: '3rd Party Claims Settled (Total)'
+  } ]
+  @UI.selectionField: [ {
+    position: 70 
+  } ]
+  X3rdPartyClaimsSettledTtl;
+  
+    @EndUserText.label: '3rd Party Damage'
+  @UI.identification: [ {
+    position: 80 
+  } ]
+  @UI.lineItem: [ {
+    position: 80 
+  } ]
+  @UI.selectionField: [ {
+    position: 80 
+  } ]
+  X3rdPartyPropertyDamage;
+  
+  @EndUserText.label: '3rd Party Liability'
+  @UI.identification: [ {
+    position: 90 
+  } ]
+  @UI.lineItem: [ {
+    position: 90 
+  } ]
+  @UI.selectionField: [ {
+    position: 90 
+  } ]
+  X3rdPartyLiability;
+  
+  @EndUserText.label: '3rd Party Recoveries (USD)'
+  @UI.identification: [ {
+    position: 100 , 
+    label: '3rd Party Recoveries (USD)'
+  } ]
+  @UI.lineItem: [ {
+    position: 100 , 
+    label: '3rd Party Recoveries (USD)'
+  } ]
+  @UI.selectionField: [ {
+    position: 100 
+  } ]
+  X3rdPartyRecoveriesUsd;
+  
+//  @EndUserText.label: '3rd Party Recovery Obtained'
+//  @UI.identification: [ {
+//    position: 110 ,
+//    label: '3rd Party Recovery Obtained'
+//  } ]
+//  @UI.lineItem: [ {
+//    position: 110 ,
+//    label: '3rd Party Recovery Obtained'
+//  } ]
+//  @UI.selectionField: [ {
+//    position: 110 
+//  } ]
+//  X3rdRecoveryObtainedFormula;
+//  
+@EndUserText.label: '3rd Party Recovery Obtained'
+  @UI.identification: [ {
+    position: 120 ,
+     label: '3rd Party Recovery Obtained'
+  } ]
+  @UI.lineItem: [ {
+    position: 120 ,
+     label: '3rd Party Recovery Obtained'
+  } ]
+  @UI.selectionField: [ {
+    position: 120 
+  } ]
+  X3rdRecoveryObtainedz;
+//  
+//  @UI.identification: [ {
+//    position: 130 
+//  } ]
+//  @UI.lineItem: [ {
+//    position: 130 
+//  } ]
+//  @UI.selectionField: [ {
+//    position: 130 
+//  } ]
+//  X3rdRecoveryPursuedFormula;
+  
+@EndUserText.label: '3rd Party Recovery Pursued'  
+  @UI.identification: [ {
+    position: 140 ,
+    label: '3rd Party Recovery Pursued' 
+  } ]
+  @UI.lineItem: [ {
+    position: 140 ,
+    label: '3rd Party Recovery Pursued' 
+  } ]
+  @UI.selectionField: [ {
+    position: 140 
+  } ]
+  X3rdRecoveryPursuedz;
+  
+  @EndUserText.label: '3rd Party type'
+  @UI.identification: [ {
+    position: 150 , 
+    label: '3rd Party type'
+  } ]
+  @UI.lineItem: [ {
+    position: 150 , 
+    label: '3rd Party type'
+  } ]
+  @UI.selectionField: [ {
+    position: 150 
+  } ]
+  PropetyType;
+  
+  @EndUserText.label: 'Above Claim Threshold'
+  @UI.identification: [ {
+    position: 160 ,
+    label: 'Above Claim Threshold'
+  } ]
+  @UI.lineItem: [ {
+    position: 160 ,
+    label: 'Above Claim Threshold'
+  } ]
+  @UI.selectionField: [ {
+    position: 160 
+  } ]
+  AboveClaimThreshold;
+  
+  @EndUserText.label: 'Above Deductible Claim'
+  @UI.identification: [ {
+    position: 170 ,
+    label:  'Above Deductible Claim'
+  } ]
+  @UI.lineItem: [ {
+    position: 170 ,
+    label:  'Above Deductible Claim'
+  } ]
+  @UI.selectionField: [ {
+    position: 170 
+  } ]
+  AboveDeductibleClaim;
+  
+  @EndUserText.label: 'Accident type'
+  @UI.identification: [ {
+    position: 180 ,
+    label: 'Accident type'
+  } ]
+  @UI.lineItem: [ {
+    position: 180 ,
+    label: 'Accident type'
+  } ]
+  @UI.selectionField: [ {
+    position: 180 
+  } ]
+  AccidentType;
+  
+  @EndUserText.label: 'Activity'
+  @UI.identification: [ {
+    position: 190 ,
+    label: 'Activity'
+  } ]
+  @UI.lineItem: [ {
+    position: 190 ,
+    label: 'Activity'
+  } ]
+  @UI.selectionField: [ {
+    position: 190 
+  } ]
+  Activity;
+  
+  @EndUserText.label: 'Adjuster Branch'
+  @UI.identification: [ {
+    position: 200 , 
+    label: 'Adjuster Branch'
+  } ]
+  @UI.lineItem: [ {
+    position: 200 , 
+    label: 'Adjuster Branch'
+  } ]
+  @UI.selectionField: [ {
+    position: 200 
+  } ]
+  AdjusterBranch;
+  
+  @EndUserText.label: 'Adjuster Claim'
+  @UI.identification: [ {
+    position: 210 , 
+    label: 'Adjuster Claim'
+  } ]
+  @UI.lineItem: [ {
+    position: 210 , 
+    label: 'Adjuster Claim'
+  } ]
+  @UI.selectionField: [ {
+    position: 210 
+  } ]
+  AdjusterClaim;
+  
+  @EndUserText.label: 'Adjuster Email'
+  @UI.identification: [ {
+    position: 220 , 
+    label: 'Adjuster Email'
+  } ]
+  @UI.lineItem: [ {
+    position: 220 , 
+    label: 'Adjuster Email'
+  } ]
+  @UI.selectionField: [ {
+    position: 220 
+  } ]
+  AdjusterEmail;
+  
+  @EndUserText.label: 'Adjuster Name'
+  @UI.identification: [ {
+    position: 230 , 
+    label: 'Adjuster Name'
+  } ]
+  @UI.lineItem: [ {
+    position: 230 , 
+    label: 'Adjuster Name'
+  } ]
+  @UI.selectionField: [ {
+    position: 230 
+  } ]
+  AdjusterName;
+  
+  @EndUserText.label: 'Adjuster Phone'
+  @UI.identification: [ {
+    position: 240 , 
+    label: 'Adjuster Phone'
+  } ]
+  @UI.lineItem: [ { 
+    position: 240 , 
+    label: 'Adjuster Phone'
+  } ]
+  @UI.selectionField: [ {
+    position: 240 
+  } ]
+  AdjusterPhone;
+  
+  @EndUserText.label: 'Agreed Actions'
+  @UI.identification: [ {
+    position: 250 ,
+    label: 'Agreed Actions'
+  } ]
+  @UI.lineItem: [ {
+    position: 250 ,
+    label: 'Agreed Actions'
+  } ]
+  @UI.selectionField: [ {
+    position: 250 
+  } ]
+  AgreedActions;
+  
+  @EndUserText.label: 'Alcohol Test Results'
+  @UI.identification: [ {
+    position: 260 ,
+    label: 'Alcohol Test Results'
+  } ]
+  @UI.lineItem: [ {
+    position: 260 ,
+    label: 'Alcohol Test Results'
+  } ]
+  @UI.selectionField: [ {
+    position: 260 
+  } ]
+  DestinationCountry;
+  
+  @EndUserText.label: 'Alleged/Claimed Unit(s)'
+
+  @UI.identification: [ {
+    position: 270 , 
+    label: 'Alleged/Claimed Unit(s)'
+  } ]
+  @UI.lineItem: [ {
+    position: 270 , 
+    label: 'Alleged/Claimed Unit(s)'
+  } ]
+  @UI.selectionField: [ {
+    position: 270 
+  } ]
+  AllegedClaimedUnitS;
+  
+  @EndUserText.label: 'Alleged Injury/Damage'
+  @UI.identification: [ {
+    position: 280 , 
+   label: 'Alleged Injury/Damage'
+  } ]
+  @UI.lineItem: [ {
+    position: 280 , 
+   label: 'Alleged Injury/Damage'
+  } ]
+  @UI.selectionField: [ {
+    position: 280 
+  } ]
+  InjuryDescription;
+  
+  @EndUserText.label: 'Amount Received'
+  @UI.identification: [ {
+    position: 290 , 
+    label: 'Amount Received'
+  } ]
+  @UI.lineItem: [ {
+    position: 290 , 
+    label: 'Amount Received'
+  } ]
+  @UI.selectionField: [ {
+    position: 290 
+  } ]
+  AmountReceived;
+  
+  @EndUserText.label: 'Amount Submitted'
+  @UI.identification: [ {
+    position: 300 , 
+    label: 'Amount Submitted'
+  } ]
+  @UI.lineItem: [ {
+    position: 300 , 
+    label: 'Amount Submitted'
+  } ]
+  @UI.selectionField: [ {
+    position: 300 
+  } ]
+  AmountSubmitted;
+  
+  @EndUserText.label: 'Area Incident Occurred'
+  @UI.identification: [ {
+    position: 310 , 
+    label:  'Area Incident Occurred'
+  } ]
+  @UI.lineItem: [ {
+    position: 310 , 
+    label:  'Area Incident Occurred'
+  } ]
+  @UI.selectionField: [ {
+    position: 310 
+  } ]
+  AreaIncidentOccurred;
+  
+  @EndUserText.label: 'Arrival Date'
+  @UI.identification: [ {
+    position: 320 , 
+    label: 'Arrival Date'
+  } ]
+  @UI.lineItem: [ {
+    position: 320 , 
+    label: 'Arrival Date'
+  } ]
+  @UI.selectionField: [ {
+    position: 320 
+  } ]
+  ArrivalDate;
+  
+  @EndUserText.label: 'Asset'
+  @UI.identification: [ {
+    position: 330 ,
+    label: 'Asset'
+  } ]
+  @UI.lineItem: [ {
+    position: 330 ,
+    label: 'Asset'
+  } ]
+  @UI.selectionField: [ {
+    position: 330 
+  } ]
+  Asset;
+  
+  @EndUserText.label: 'Asset Category'
+  @UI.identification: [ {
+    position: 340 , 
+    label: 'Asset Category'
+  } ]
+  @UI.lineItem: [ {
+    position: 340 , 
+    label: 'Asset Category'
+  } ]
+  @UI.selectionField: [ {
+    position: 340 
+  } ]
+  AssetCategory;
+  
+  @EndUserText.label: 'Asset Name'
+  @UI.identification: [ {
+    position: 350 ,
+    label: 'Asset Name'
+  } ]
+  @UI.lineItem: [ {
+    position: 350 ,
+    label: 'Asset Name'
+  } ]
+  @UI.selectionField: [ {
+    position: 350 
+  } ]
+  AssetName;
+  
+  @EndUserText.label: 'Asset Name Text'
+  @UI.identification: [ {
+    position: 360 , 
+    label: 'Asset Name Text'
+  } ]
+  @UI.lineItem: [ {
+    position: 360 , 
+    label: 'Asset Name Text'
+  } ]
+  @UI.selectionField: [ {
+    position: 360 
+  } ]
+  AssetNameSrc;
+  
+  @EndUserText.label: 'Asset type'
+  @UI.identification: [ {
+    position: 370 , 
+    label: 'Asset type'
+  } ]
+  @UI.lineItem: [ {
+    position: 370 , 
+    label: 'Asset type'
+  } ]
+  @UI.selectionField: [ {
+    position: 370 
+  } ]
+  AssetType;
+  
+  @EndUserText.label: 'Average Weekly Wage'
+  @UI.identification: [ {
+    position: 380 , 
+    label: 'Average Weekly Wage'
+  } ]
+  @UI.lineItem: [ {
+    position: 380 , 
+    label: 'Average Weekly Wage'
+  } ]
+  @UI.selectionField: [ {
+    position: 380 
+  } ]
+  AverageWeeklyWage;
+  
+  @EndUserText.label: 'B/L'
+  @UI.identification: [ {
+    position: 390 , 
+   label: 'B/L'
+  } ]
+  @UI.lineItem: [ {
+    position: 390 , 
+   label: 'B/L'
+  } ]
+  @UI.selectionField: [ {
+    position: 390 
+  } ]
+  BL;
+  
+  @EndUserText.label: 'Claim Event: Incident Name'
+  @UI.identification: [ {
+    position: 400 , 
+    label: 'Claim Event: Incident Name'
+  } ]
+  @UI.lineItem: [ {
+    position: 400 , 
+    label: 'Claim Event: Incident Name'
+  } ]
+  @UI.selectionField: [ {
+    position: 400 
+  } ]
+  BLNumber;
+  
+  @EndUserText.label: 'Below deductible (Y/N)'  
+  @UI.identification: [ {
+    position: 410 ,
+    label: 'Below deductible (Y/N)'
+  } ]
+  @UI.lineItem: [ {
+    position: 410 ,
+    label: 'Below deductible (Y/N)'
+  } ]
+  @UI.selectionField: [ {
+    position: 410 
+  } ]
+  BelowDeductible;
+  
+  @EndUserText.label:'Below Deductible Claim'  
+  @UI.identification: [ {
+    position: 420 ,
+    label:'Below Deductible Claim'  
+  } ]
+  @UI.lineItem: [ {
+    position: 420 ,
+    label:'Below Deductible Claim'  
+  } ]
+  @UI.selectionField: [ {
+    position: 420 
+  } ]
+  BelowDeductibleClaim;
+  
+  @EndUserText.label: 'Bill Of Lading Number'
+  @UI.identification: [ {
+    position: 430 , 
+    label: 'Bill Of Lading Number'
+  } ]
+  @UI.lineItem: [ {
+    position: 430 , 
+label: 'Bill Of Lading Number'
+  } ]
+  @UI.selectionField: [ {
+    position: 430 
+  } ]
+  BillOfLadingNumber;
+  
+  @EndUserText.label: 'Birth Date'
+  @UI.identification: [ {
+    position: 440 , 
+    label: 'Birth Date'
+  } ]
+  @UI.lineItem: [ {
+    position: 440 , 
+    label: 'Birth Date'
+  } ]
+  @UI.selectionField: [ {
+    position: 440 
+  } ]
+  DateClaimantBorn;
+  
+  @EndUserText.label: 'Body Part'
+  @UI.identification: [ {
+    position: 450 ,
+    label: 'Body Part'
+  } ]
+  @UI.lineItem: [ {
+    position: 450 ,
+    label: 'Body Part'
+  } ]
+  @UI.selectionField: [ {
+    position: 450 
+  } ]
+  BodyPart;
+  
+  @EndUserText.label: 'Brand'
+  @UI.identification: [ {
+    position: 460 , 
+    label: 'Brand'
+  } ]
+  @UI.lineItem: [ {
+    position: 460 , 
+    label: 'Brand'
+  } ]
+  @UI.selectionField: [ {
+    position: 460 
+  } ]
+  Brand;
+  
+  @EndUserText.label: 'Brand (CI Claims)'
+  @UI.identification: [ {
+    position: 470 , 
+    label: 'Brand (CI Claims)'
+  } ]
+  @UI.lineItem: [ {
+    position: 470 , 
+   label: 'Brand (CI Claims)'
+  } ]
+  @UI.selectionField: [ {
+    position: 470 
+  } ]
+  BrandCiClaims;
+  
+  @EndUserText.label: 'Break Bulk type'
+  @UI.identification: [ {
+    position: 480 , 
+    label: 'Break Bulk type'
+  } ]
+  @UI.lineItem: [ {
+    position: 480 , 
+    label: 'Break Bulk type'
+  } ]
+  @UI.selectionField: [ {
+    position: 480 
+  } ]
+  BreakBulkType;
+  
+  @EndUserText.label: 'BU Chargeable'  
+  @UI.identification: [ {
+    position: 490 ,
+    label: 'BU Chargeable'
+  } ]
+  @UI.lineItem: [ {
+    position: 490 ,
+    label: 'BU Chargeable'
+  } ]
+  @UI.selectionField: [ {
+    position: 490 
+  } ]
+  Chargeable;
+  
+@EndUserText.label: 'BU Claims Handler' 
+  @UI.identification: [ {
+    position: 500,
+    label: 'BU Claims Handler'  
+  } ]
+  @UI.lineItem: [ {
+    position: 500 ,
+    label: 'BU Claims Handler' 
+  } ]
+  @UI.selectionField: [ {
+    position: 500 
+  } ]
+  BuClaimsHandler;
+  
+  @EndUserText.label: 'Business Unit'
+  @UI.identification: [ {
+    position: 510 ,
+    label: 'Business Unit'
+  } ]
+  @UI.lineItem: [ {
+    position: 510 ,
+    label: 'Business Unit'
+  } ]
+  @UI.selectionField: [ {
+    position: 510 
+  } ]
+  BusinessUnit2;
+  
+//  @EndUserText.label: 'BusinessUnit'
+//  @UI.identification: [ {
+//    position: 520 , 
+//    label: 'BusinessUnit'
+//  } ]
+//  @UI.lineItem: [ {
+//    position: 520 , 
+//    label: 'BusinessUnit'
+//  } ]
+//  @UI.selectionField: [ {
+//    position: 520 
+//  } ]
+//  BusinessUnit;
+  
+  @EndUserText.label: 'Cargo type / Commodity'
+  @UI.identification: [ {
+    position: 530 , 
+   label: 'Cargo type / Commodity'
+  } ]
+  @UI.lineItem: [ {
+    position: 530 , 
+    label: 'Cargo type / Commodity'
+  } ]
+  @UI.selectionField: [ {
+    position: 530 
+  } ]
+  CargoTypeCommodity;
+  @EndUserText.label: 'Carrier'
+  @UI.identification: [ {
+    position: 540 ,
+    label: 'Carrier'
+  } ]
+  @UI.lineItem: [ {
+    position: 540 ,
+    label: 'Carrier'
+  } ]
+  @UI.selectionField: [ {
+    position: 540 
+  } ]
+  Carrier;
+  
+  @EndUserText.label: 'Carrier BL Number'
+  @UI.identification: [ {
+    position: 550 , 
+    label: 'Carrier BL Number'
+  } ]
+  @UI.lineItem: [ {
+    position: 550 , 
+    label: 'Carrier BL Number'
+  } ]
+  @UI.selectionField: [ {
+    position: 550 
+  } ]
+  CarrierBlNumber;
+  
+  @EndUserText.label: 'case #'
+  @UI.identification: [ {
+    position: 560 , 
+    label: 'case #'
+  } ]
+  @UI.lineItem: [ {
+    position: 560 , 
+    label: 'case #'
+  } ]
+  @UI.selectionField: [ {
+    position: 560 
+  } ]
+  CaseDesc;
+  
+  @EndUserText.label: 'Casualty Year/No.'
+
+  @UI.identification: [ {
+    position: 570 , 
+    label: 'Casualty Year/No.'
+  } ]
+  @UI.lineItem: [ {
+    position: 570 , 
+    label: 'Casualty Year/No.'
+  } ]
+  @UI.selectionField: [ {
+    position: 570 
+  } ]
+  CasualtyYearNo;
+  
+  @EndUserText.label: 'Cause'
+  @UI.identification: [ {
+    position: 580 ,
+    label: 'Cause'
+  } ]
+  @UI.lineItem: [ {
+    position: 580 ,
+    label: 'Cause'
+  } ]
+  @UI.selectionField: [ {
+    position: 580 
+  } ]
+  Cause;
+  
+  @EndUserText.label: 'Cause Src'
+  @UI.identification: [ {
+    position: 590 , 
+    label: 'Cause Src'
+  } ]
+  @UI.lineItem: [ {
+    position: 590 , 
+    label: 'Cause Src'
+  } ]
+  @UI.selectionField: [ {
+    position: 590 
+  } ]
+  CauseSrc;
+  
+  @EndUserText.label: 'Certificate Number'
+  @UI.identification: [ {
+    position: 600 , 
+    label: 'Certificate Number'
+  } ]
+  @UI.lineItem: [ {
+    position: 600 , 
+    label: 'Certificate Number'
+  } ]
+  @UI.selectionField: [ {
+    position: 600 
+  } ]
+  CertificateNumber;
+  
+  @EndUserText.label:'Charge Name'
+  @UI.identification: [ {
+    position: 610 ,
+    label:'Charge Name'
+  } ]
+  @UI.lineItem: [ {
+    position: 610 ,
+    label:'Charge Name'
+  } ]
+  @UI.selectionField: [ {
+    position: 610 
+  } ]
+  ChargeName;
+  
+  @EndUserText.label: 'Chassis'
+  @UI.identification: [ {
+    position: 620 , 
+    label: 'Chassis'
+  } ]
+  @UI.lineItem: [ {
+    position: 620 , 
+    label: 'Chassis'
+  } ]
+  @UI.selectionField: [ {
+    position: 620 
+  } ]
+  Chassis;
+  
+  @EndUserText.label: 'Chassis Owner'
+  @UI.identification: [ {
+    position: 630 , 
+    label: 'Chassis Owner'
+  } ]
+  @UI.lineItem: [ {
+    position: 630 , 
+    label: 'Chassis Owner'
+  } ]
+  @UI.selectionField: [ {
+    position: 630 
+  } ]
+  ChassisOwner;
+  
+  @EndUserText.label: 'Circumstances'
+  @UI.identification: [ {
+    position: 640 ,
+    label: 'Circumstances'
+  } ]
+  @UI.lineItem: [ {
+    position: 640 ,
+    label: 'Circumstances'
+  } ]
+  @UI.selectionField: [ {
+    position: 640 
+  } ]
+  Circumstances;
+  
+  @EndUserText.label: 'Citation type'
+  @UI.identification: [ {
+    position: 650 ,
+    label: 'Citation type'
+  } ]
+  @UI.lineItem: [ {
+    position: 650 ,
+    label: 'Citation type'
+  } ]
+  @UI.selectionField: [ {
+    position: 650 
+  } ]
+  CitationType;
+  
+  @EndUserText.label: 'ClaimAge'
+  @UI.identification: [ {
+    position: 660 ,
+    label: 'ClaimAge'
+  } ]
+  @UI.lineItem: [ {
+    position: 660 ,
+    label: 'ClaimAge'
+  } ]
+  @UI.selectionField: [ {
+    position: 660 
+  } ]
+  ClaimAge;
+  
+  @EndUserText.label: 'Claim Amount'
+  @UI.identification: [ {
+    position: 670 , 
+    label: 'Claim Amount'
+  } ]
+  @UI.lineItem: [ {
+    position: 670 , 
+    label: 'Claim Amount'
+  } ]
+  @UI.selectionField: [ {
+    position: 670 
+  } ]
+  ClaimAmount;
+  
+  @EndUserText.label: 'Claim Asset type'
+  @UI.identification: [ {
+    position: 680 , 
+    label: 'Claim Asset type'
+  } ]
+  @UI.lineItem: [ {
+    position: 680 , 
+    label: 'Claim Asset type'
+  } ]
+  @UI.selectionField: [ {
+    position: 680 
+  } ]
+  ClaimAssetType;
+  
+  @EndUserText.label: 'ClaimCountry'
+  @UI.identification: [ {
+    position: 690 
+  } ]
+  @UI.lineItem: [ {
+    position: 690 
+  } ]
+  @UI.selectionField: [ {
+    position: 690 
+  } ]
+  ConfirmedByTtClub;
+  
+  @UI.identification: [ {
+    position: 700 
+  } ]
+  @UI.lineItem: [ {
+    position: 700 
+  } ]
+  @UI.selectionField: [ {
+    position: 700 
+  } ]
+  StatusCount;
+  
+  @EndUserText.label: 'ClaimCountry'
+  @UI.identification: [ {
+    position: 710 , 
+    label: 'ClaimCountry'
+  } ]
+  @UI.lineItem: [ {
+    position: 710 , 
+    label: 'ClaimCountry'
+  } ]
+  @UI.selectionField: [ {
+    position: 710 
+  } ]
+  ClaimCountry;
+  
+  @UI.identification: [ {
+    position: 720 
+  } ]
+  @UI.lineItem: [ {
+    position: 720 
+  } ]
+  @UI.selectionField: [ {
+    position: 720 
+  } ]
+  ClaimDescriptionMaerskDamco;
+  
+  @EndUserText.label: 'ClaimKey'
+  @UI.identification: [ {
+    position: 730 , 
+    label: 'ClaimKey'
+  } ]
+  @UI.lineItem: [ {
+    position: 730 , 
+    label: 'ClaimKey'
+  } ]
+  @UI.selectionField: [ {
+    position: 730 
+  } ]
+  ClaimKey;
+  
+  @UI.identification: [ {
+    position: 740 
+  } ]
+  @UI.lineItem: [ {
+    position: 740 
+  } ]
+  @UI.selectionField: [ {
+    position: 740 
+  } ]
+  ClaimNature;
+  
+  @EndUserText.label: 'ClaimName'
+  @UI.identification: [ {
+    position: 750 , 
+    label: 'ClaimName'
+  } ]
+  @UI.lineItem: [ {
+    position: 750 , 
+    label: 'ClaimName'
+  } ]
+  @UI.selectionField: [ {
+    position: 750 
+  } ]
+  ClaimName;
+  
+  @UI.identification: [ {
+    position: 760 
+  } ]
+  @UI.lineItem: [ {
+    position: 760 
+  } ]
+  @UI.selectionField: [ {
+    position: 760 
+  } ]
+  ClaimConfirmedByInsurer;
+  
+  @UI.identification: [ {
+    position: 770 
+  } ]
+  @UI.lineItem: [ {
+    position: 770 
+  } ]
+  @UI.selectionField: [ {
+    position: 770 
+  } ]
+  ClaimLocation1;
+  
+  @UI.identification: [ {
+    position: 780 
+  } ]
+  @UI.lineItem: [ {
+    position: 780 
+  } ]
+  @UI.selectionField: [ {
+    position: 780 
+  } ]
+  ClaimTurnaround;
+  
+  @EndUserText.label: 'ClaimantAddressLine1'
+  @UI.identification: [ {
+    position: 790 , 
+    label: 'ClaimantAddressLine1'
+  } ]
+  @UI.lineItem: [ {
+    position: 790 , 
+    label: 'ClaimantAddressLine1'
+  } ]
+  @UI.selectionField: [ {
+    position: 790 
+  } ]
+  ClaimantAddressLine1;
+  
+  @EndUserText.label: 'ClaimantAddressLine2'
+  @UI.identification: [ {
+    position: 800 , 
+    label: 'ClaimantAddressLine2'
+  } ]
+  @UI.lineItem: [ {
+    position: 800 , 
+    label: 'ClaimantAddressLine2'
+  } ]
+  @UI.selectionField: [ {
+    position: 800 
+  } ]
+  ClaimantAddressLine2;
+  
+  @UI.identification: [ {
+    position: 810 
+  } ]
+  @UI.lineItem: [ {
+    position: 810 
+  } ]
+  @UI.selectionField: [ {
+    position: 810 
+  } ]
+  ClaimantAge;
+  
+  @EndUserText.label: 'ClaimantCity'
+  @UI.identification: [ {
+    position: 820 , 
+    label: 'ClaimantCity'
+  } ]
+  @UI.lineItem: [ {
+    position: 820 , 
+    label: 'ClaimantCity'
+  } ]
+  @UI.selectionField: [ {
+    position: 820 
+  } ]
+  ClaimantCity;
+  
+  @UI.identification: [ {
+    position: 830 
+  } ]
+  @UI.lineItem: [ {
+    position: 830 
+  } ]
+  @UI.selectionField: [ {
+    position: 830 
+  } ]
+  ClaimantCountry;
+  
+  @EndUserText.label: 'ClaimantFirstName'
+  @UI.identification: [ {
+    position: 840 , 
+    label: 'ClaimantFirstName'
+  } ]
+  @UI.lineItem: [ {
+    position: 840 , 
+    label: 'ClaimantFirstName'
+  } ]
+  @UI.selectionField: [ {
+    position: 840 
+  } ]
+  ClaimantFirstName;
+  
+  @UI.identification: [ {
+    position: 850 
+  } ]
+  @UI.lineItem: [ {
+    position: 850 
+  } ]
+  @UI.selectionField: [ {
+    position: 850 
+  } ]
+  ClaimantGender;
+  
+  @EndUserText.label: 'ClaimantLastName'
+  @UI.identification: [ {
+    position: 860 , 
+    label: 'ClaimantLastName'
+  } ]
+  @UI.lineItem: [ {
+    position: 860 , 
+    label: 'ClaimantLastName'
+  } ]
+  @UI.selectionField: [ {
+    position: 860 
+  } ]
+  ClaimantLastName;
+  
+  @EndUserText.label: 'ClaimantLengthService'
+  @UI.identification: [ {
+    position: 870 , 
+    label: 'ClaimantLengthService'
+  } ]
+  @UI.lineItem: [ {
+    position: 870 , 
+    label: 'ClaimantLengthService'
+  } ]
+  @UI.selectionField: [ {
+    position: 870 
+  } ]
+  ClaimantLengthService;
+  
+  @UI.identification: [ {
+    position: 880 
+  } ]
+  @UI.lineItem: [ {
+    position: 880 
+  } ]
+  @UI.selectionField: [ {
+    position: 880 
+  } ]
+  ClaimantMaritalStatus;
+  
+  @EndUserText.label: 'ClaimantMaritalStatusSrc'
+  @UI.identification: [ {
+    position: 890 , 
+    label: 'ClaimantMaritalStatusSrc'
+  } ]
+  @UI.lineItem: [ {
+    position: 890 , 
+    label: 'ClaimantMaritalStatusSrc'
+  } ]
+  @UI.selectionField: [ {
+    position: 890 
+  } ]
+  ClaimantMaritalStatusSrc;
+  
+  @EndUserText.label: 'ClaimantMiddleInitial'
+  @UI.identification: [ {
+    position: 900 , 
+    label: 'ClaimantMiddleInitial'
+  } ]
+  @UI.lineItem: [ {
+    position: 900 , 
+    label: 'ClaimantMiddleInitial'
+  } ]
+  @UI.selectionField: [ {
+    position: 900 
+  } ]
+  ClaimantMiddleInitial;
+  
+  @EndUserText.label: 'ClaimantMinor'
+  @UI.identification: [ {
+    position: 910 , 
+    label: 'ClaimantMinor'
+  } ]
+  @UI.lineItem: [ {
+    position: 910 , 
+    label: 'ClaimantMinor'
+  } ]
+  @UI.selectionField: [ {
+    position: 910 
+  } ]
+  ClaimantMinor;
+  
+  @EndUserText.label: 'ClaimantName'
+  @UI.identification: [ {
+    position: 920 , 
+    label: 'ClaimantName'
+  } ]
+  @UI.lineItem: [ {
+    position: 920 , 
+    label: 'ClaimantName'
+  } ]
+  @UI.selectionField: [ {
+    position: 920 
+  } ]
+  ClaimantName;
+  
+  @EndUserText.label: 'ClaimantNameEntry'
+  @UI.identification: [ {
+    position: 930 , 
+    label: 'ClaimantNameEntry'
+  } ]
+  @UI.lineItem: [ {
+    position: 930 , 
+    label: 'ClaimantNameEntry'
+  } ]
+  @UI.selectionField: [ {
+    position: 930 
+  } ]
+  ClaimantNameEntry;
+  
+  @EndUserText.label: 'ClaimantPhone'
+  @UI.identification: [ {
+    position: 940 , 
+    label: 'ClaimantPhone'
+  } ]
+  @UI.lineItem: [ {
+    position: 940 , 
+    label: 'ClaimantPhone'
+  } ]
+  @UI.selectionField: [ {
+    position: 940 
+  } ]
+  ClaimantPhone;
+  
+  @EndUserText.label: 'ClaimantPostalCode'
+  @UI.identification: [ {
+    position: 950 , 
+    label: 'ClaimantPostalCode'
+  } ]
+  @UI.lineItem: [ {
+    position: 950 , 
+    label: 'ClaimantPostalCode'
+  } ]
+  @UI.selectionField: [ {
+    position: 950 
+  } ]
+  ClaimantPostalCode;
+  
+  @EndUserText.label: 'Reference'
+  @UI.identification: [ {
+    position: 960 , 
+    label: 'Reference'
+  } ]
+  @UI.lineItem: [ {
+    position: 960 , 
+    label: 'Reference'
+  } ]
+  @UI.selectionField: [ {
+    position: 960 
+  } ]
+  Reference;
+  
+  @EndUserText.label: 'ClaimantSsn'
+  @UI.identification: [ {
+    position: 970 , 
+    label: 'ClaimantSsn'
+  } ]
+  @UI.lineItem: [ {
+    position: 970 , 
+    label: 'ClaimantSsn'
+  } ]
+  @UI.selectionField: [ {
+    position: 970 
+  } ]
+  ClaimantSsn;
+  
+  @UI.identification: [ {
+    position: 980 
+  } ]
+  @UI.lineItem: [ {
+    position: 980 
+  } ]
+  @UI.selectionField: [ {
+    position: 980 
+  } ]
+  ClaimantState;
+  
+  @EndUserText.label: 'ClaimantWorkPhone'
+  @UI.identification: [ {
+    position: 990 , 
+    label: 'ClaimantWorkPhone'
+  } ]
+  @UI.lineItem: [ {
+    position: 990 , 
+    label: 'ClaimantWorkPhone'
+  } ]
+  @UI.selectionField: [ {
+    position: 990 
+  } ]
+  ClaimantWorkPhone;
+  
+  @EndUserText.label: 'ClaimantSReferenceNumber'
+  @UI.identification: [ {
+    position: 1000 , 
+    label: 'ClaimantSReferenceNumber'
+  } ]
+  @UI.lineItem: [ {
+    position: 1000 , 
+    label: 'ClaimantSReferenceNumber'
+  } ]
+  @UI.selectionField: [ {
+    position: 1000 
+  } ]
+  ClaimantSReferenceNumber;
+  
+  @EndUserText.label: 'ClaimedAmountUsd'
+  @UI.identification: [ {
+    position: 1010 , 
+    label: 'ClaimedAmountUsd'
+  } ]
+  @UI.lineItem: [ {
+    position: 1010 , 
+    label: 'ClaimedAmountUsd'
+  } ]
+  @UI.selectionField: [ {
+    position: 1010 
+  } ]
+  ClaimedAmountUsd;
+  
+  @EndUserText.label: 'ClaimingParty'
+  @UI.identification: [ {
+    position: 1020 , 
+    label: 'ClaimingParty'
+  } ]
+  @UI.lineItem: [ {
+    position: 1020 , 
+    label: 'ClaimingParty'
+  } ]
+  @UI.selectionField: [ {
+    position: 1020 
+  } ]
+  ClaimingParty;
+  
+  @UI.identification: [ {
+    position: 1030 
+  } ]
+  @UI.lineItem: [ {
+    position: 1030 
+  } ]
+  @UI.selectionField: [ {
+    position: 1030 
+  } ]
+  ClientReportLag;
+  
+  @UI.identification: [ {
+    position: 1040 
+  } ]
+  @UI.lineItem: [ {
+    position: 1040 
+  } ]
+  @UI.selectionField: [ {
+    position: 1040 
+  } ]
+  CloseType;
+  
+  @EndUserText.label: 'Commodity'
+  @UI.identification: [ {
+    position: 1050 , 
+    label: 'Commodity'
+  } ]
+  @UI.lineItem: [ {
+    position: 1050 , 
+    label: 'Commodity'
+  } ]
+  @UI.selectionField: [ {
+    position: 1050 
+  } ]
+  Commodity;
+  
+  @UI.identification: [ {
+    position: 1060 
+  } ]
+  @UI.lineItem: [ {
+    position: 1060 
+  } ]
+  @UI.selectionField: [ {
+    position: 1060 
+  } ]
+  CompensationAct;
+  
+  @EndUserText.label: 'CompensationRate'
+  @UI.identification: [ {
+    position: 1070 , 
+    label: 'CompensationRate'
+  } ]
+  @UI.lineItem: [ {
+    position: 1070 , 
+    label: 'CompensationRate'
+  } ]
+  @UI.selectionField: [ {
+    position: 1070 
+  } ]
+  CompensationRate;
+  
+  @UI.identification: [ {
+    position: 1080 
+  } ]
+  @UI.lineItem: [ {
+    position: 1080 
+  } ]
+  @UI.selectionField: [ {
+    position: 1080 
+  } ]
+  CompensationTotal;
+  
+  @UI.identification: [ {
+    position: 1090 
+  } ]
+  @UI.lineItem: [ {
+    position: 1090 
+  } ]
+  @UI.selectionField: [ {
+    position: 1090 
+  } ]
+  ConcurrentClaim;
+  
+  @UI.identification: [ {
+    position: 1100 
+  } ]
+  @UI.lineItem: [ {
+    position: 1100 
+  } ]
+  @UI.selectionField: [ {
+    position: 1100 
+  } ]
+  ConditionOfClassImposed;
+  
+  @EndUserText.label: 'ContainerNumber'
+  @UI.identification: [ {
+    position: 1110 , 
+    label: 'ContainerNumber'
+  } ]
+  @UI.lineItem: [ {
+    position: 1110 , 
+    label: 'ContainerNumber'
+  } ]
+  @UI.selectionField: [ {
+    position: 1110 
+  } ]
+  ContainerNumber;
+  
+  @EndUserText.label: 'XContainerNumber'
+  @UI.identification: [ {
+    position: 1120 , 
+    label: 'XContainerNumber'
+  } ]
+  @UI.lineItem: [ {
+    position: 1120 , 
+    label: 'XContainerNumber'
+  } ]
+  @UI.selectionField: [ {
+    position: 1120 
+  } ]
+  XContainerNumber;
+  
+  @EndUserText.label: 'ContainerOwner'
+  @UI.identification: [ {
+    position: 1130 , 
+    label: 'ContainerOwner'
+  } ]
+  @UI.lineItem: [ {
+    position: 1130 , 
+    label: 'ContainerOwner'
+  } ]
+  @UI.selectionField: [ {
+    position: 1130 
+  } ]
+  ContainerOwner;
+  
+  @EndUserText.label: 'ContainerPosition'
+  @UI.identification: [ {
+    position: 1140 , 
+    label: 'ContainerPosition'
+  } ]
+  @UI.lineItem: [ {
+    position: 1140 , 
+    label: 'ContainerPosition'
+  } ]
+  @UI.selectionField: [ {
+    position: 1140 
+  } ]
+  ContainerPosition;
+  
+  @UI.identification: [ {
+    position: 1150 
+  } ]
+  @UI.lineItem: [ {
+    position: 1150 
+  } ]
+  @UI.selectionField: [ {
+    position: 1150 
+  } ]
+  ContainerSize;
+  
+  @UI.identification: [ {
+    position: 1160 
+  } ]
+  @UI.lineItem: [ {
+    position: 1160 
+  } ]
+  @UI.selectionField: [ {
+    position: 1160 
+  } ]
+  ContainerType;
+  
+  @EndUserText.label: 'ContainersDamagedDestroyed'
+  @UI.identification: [ {
+    position: 1170 , 
+    label: 'ContainersDamagedDestroyed'
+  } ]
+  @UI.lineItem: [ {
+    position: 1170 , 
+    label: 'ContainersDamagedDestroyed'
+  } ]
+  @UI.selectionField: [ {
+    position: 1170 
+  } ]
+  ContainersDamagedDestroyed;
+  
+  @EndUserText.label: 'ContainersLostOverboard'
+  @UI.identification: [ {
+    position: 1180 , 
+    label: 'ContainersLostOverboard'
+  } ]
+  @UI.lineItem: [ {
+    position: 1180 , 
+    label: 'ContainersLostOverboard'
+  } ]
+  @UI.selectionField: [ {
+    position: 1180 
+  } ]
+  ContainersLostOverboard;
+  
+  @UI.identification: [ {
+    position: 1190 
+  } ]
+  @UI.lineItem: [ {
+    position: 1190 
+  } ]
+  @UI.selectionField: [ {
+    position: 1190 
+  } ]
+  ContingentLiability;
+  
+  @UI.identification: [ {
+    position: 1200 
+  } ]
+  @UI.lineItem: [ {
+    position: 1200 
+  } ]
+  @UI.selectionField: [ {
+    position: 1200 
+  } ]
+  ControllingCountry;
+  
+  @EndUserText.label: 'ControllingEntity'
+  @UI.identification: [ {
+    position: 1210 , 
+    label: 'ControllingEntity'
+  } ]
+  @UI.lineItem: [ {
+    position: 1210 , 
+    label: 'ControllingEntity'
+  } ]
+  @UI.selectionField: [ {
+    position: 1210 
+  } ]
+  ControllingEntity;
+  
+  @EndUserText.label: 'ControllingRegion'
+  @UI.identification: [ {
+    position: 1220 , 
+    label: 'ControllingRegion'
+  } ]
+  @UI.lineItem: [ {
+    position: 1220 , 
+    label: 'ControllingRegion'
+  } ]
+  @UI.selectionField: [ {
+    position: 1220 
+  } ]
+  ControllingRegion;
+  
+  @UI.identification: [ {
+    position: 1230 
+  } ]
+  @UI.lineItem: [ {
+    position: 1230 
+  } ]
+  @UI.selectionField: [ {
+    position: 1230 
+  } ]
+  Controverted;
+  
+  @EndUserText.label: 'CountyFiled'
+  @UI.identification: [ {
+    position: 1240 , 
+    label: 'CountyFiled'
+  } ]
+  @UI.lineItem: [ {
+    position: 1240 , 
+    label: 'CountyFiled'
+  } ]
+  @UI.selectionField: [ {
+    position: 1240 
+  } ]
+  CountyFiled;
+  
+  @UI.identification: [ {
+    position: 1250 
+  } ]
+  @UI.lineItem: [ {
+    position: 1250 
+  } ]
+  @UI.selectionField: [ {
+    position: 1250 
+  } ]
+  Court;
+  
+  @UI.identification: [ {
+    position: 1260 
+  } ]
+  @UI.lineItem: [ {
+    position: 1260 
+  } ]
+  @UI.selectionField: [ {
+    position: 1260 
+  } ]
+  CoverageMajor;
+  
+  @EndUserText.label: 'CoverageMajorDescription'
+  @UI.identification: [ {
+    position: 1270 , 
+    label: 'CoverageMajorDescription'
+  } ]
+  @UI.lineItem: [ {
+    position: 1270 , 
+    label: 'CoverageMajorDescription'
+  } ]
+  @UI.selectionField: [ {
+    position: 1270 
+  } ]
+  CoverageMajorDescription;
+  
+  @UI.identification: [ {
+    position: 1280 
+  } ]
+  @UI.lineItem: [ {
+    position: 1280 
+  } ]
+  @UI.selectionField: [ {
+    position: 1280 
+  } ]
+  CoverageMinor;
+  
+  @UI.identification: [ {
+    position: 1290 
+  } ]
+  @UI.lineItem: [ {
+    position: 1290 
+  } ]
+  @UI.selectionField: [ {
+    position: 1290 
+  } ]
+  Createdb;
+  
+  @EndUserText.label: 'CreatedDateSrcC'
+  @UI.identification: [ {
+    position: 1300 , 
+    label: 'CreatedDateSrcC'
+  } ]
+  @UI.lineItem: [ {
+    position: 1300 , 
+    label: 'CreatedDateSrcC'
+  } ]
+  @UI.selectionField: [ {
+    position: 1300 
+  } ]
+  CreatedDateSrcC;
+  
+  @UI.identification: [ {
+    position: 1310 
+  } ]
+  @UI.lineItem: [ {
+    position: 1310 
+  } ]
+  @UI.selectionField: [ {
+    position: 1310 
+  } ]
+  CrewNationality;
+  
+  @UI.identification: [ {
+    position: 1320 
+  } ]
+  @UI.lineItem: [ {
+    position: 1320 
+  } ]
+  @UI.selectionField: [ {
+    position: 1320 
+  } ]
+  Nationality;
+  
+  @UI.identification: [ {
+    position: 1330 
+  } ]
+  @UI.lineItem: [ {
+    position: 1330 
+  } ]
+  @UI.selectionField: [ {
+    position: 1330 
+  } ]
+  CrewRank;
+  
+  @EndUserText.label: 'CrossReference'
+  @UI.identification: [ {
+    position: 1340 , 
+    label: 'CrossReference'
+  } ]
+  @UI.lineItem: [ {
+    position: 1340 , 
+    label: 'CrossReference'
+  } ]
+  @UI.selectionField: [ {
+    position: 1340 
+  } ]
+  CrossReference;
+  
+  @UI.identification: [ {
+    position: 1350 
+  } ]
+  @UI.lineItem: [ {
+    position: 1350 
+  } ]
+  @UI.selectionField: [ {
+    position: 1350 
+  } ]
+  CurrencyGrmUsd;
+  
+  @UI.identification: [ {
+    position: 1360 
+  } ]
+  @UI.lineItem: [ {
+    position: 1360 
+  } ]
+  @UI.selectionField: [ {
+    position: 1360 
+  } ]
+  CurrencyLookup;
+  
+  @EndUserText.label: 'Customer'
+  @UI.identification: [ {
+    position: 1370 , 
+    label: 'Customer'
+  } ]
+  @UI.lineItem: [ {
+    position: 1370 , 
+    label: 'Customer'
+  } ]
+  @UI.selectionField: [ {
+    position: 1370 
+  } ]
+  Customer;
+  
+  @UI.identification: [ {
+    position: 1380 
+  } ]
+  @UI.lineItem: [ {
+    position: 1380 
+  } ]
+  @UI.selectionField: [ {
+    position: 1380 
+  } ]
+  DaAppointed;
+  
+  @EndUserText.label: 'DaAppointedDate'
+  @UI.identification: [ {
+    position: 1390 , 
+    label: 'DaAppointedDate'
+  } ]
+  @UI.lineItem: [ {
+    position: 1390 , 
+    label: 'DaAppointedDate'
+  } ]
+  @UI.selectionField: [ {
+    position: 1390 
+  } ]
+  DaAppointedDate;
+  
+  @EndUserText.label: 'DaEmail'
+  @UI.identification: [ {
+    position: 1400 , 
+    label: 'DaEmail'
+  } ]
+  @UI.lineItem: [ {
+    position: 1400 , 
+    label: 'DaEmail'
+  } ]
+  @UI.selectionField: [ {
+    position: 1400 
+  } ]
+  DaEmail;
+  
+  @UI.identification: [ {
+    position: 1410 
+  } ]
+  @UI.lineItem: [ {
+    position: 1410 
+  } ]
+  @UI.selectionField: [ {
+    position: 1410 
+  } ]
+  DaFirmName;
+  
+  @EndUserText.label: 'DaHourlyRate'
+  @UI.identification: [ {
+    position: 1420 , 
+    label: 'DaHourlyRate'
+  } ]
+  @UI.lineItem: [ {
+    position: 1420 , 
+    label: 'DaHourlyRate'
+  } ]
+  @UI.selectionField: [ {
+    position: 1420 
+  } ]
+  DaHourlyRate;
+  
+  @EndUserText.label: 'DaName'
+  @UI.identification: [ {
+    position: 1430 , 
+    label: 'DaName'
+  } ]
+  @UI.lineItem: [ {
+    position: 1430 , 
+    label: 'DaName'
+  } ]
+  @UI.selectionField: [ {
+    position: 1430 
+  } ]
+  DaName;
+  
+  @EndUserText.label: 'DaPhone'
+  @UI.identification: [ {
+    position: 1440 , 
+    label: 'DaPhone'
+  } ]
+  @UI.lineItem: [ {
+    position: 1440 , 
+    label: 'DaPhone'
+  } ]
+  @UI.selectionField: [ {
+    position: 1440 
+  } ]
+  DaPhone;
+  
+  @UI.identification: [ {
+    position: 1450 
+  } ]
+  @UI.lineItem: [ {
+    position: 1450 
+  } ]
+  @UI.selectionField: [ {
+    position: 1450 
+  } ]
+  Damage;
+  
+  @UI.identification: [ {
+    position: 1460 
+  } ]
+  @UI.lineItem: [ {
+    position: 1460 
+  } ]
+  @UI.selectionField: [ {
+    position: 1460 
+  } ]
+  DamageCausedBy3rdParty;
+  
+  @EndUserText.label: 'DamageEstimate'
+  @UI.identification: [ {
+    position: 1470 , 
+    label: 'DamageEstimate'
+  } ]
+  @UI.lineItem: [ {
+    position: 1470 , 
+    label: 'DamageEstimate'
+  } ]
+  @UI.selectionField: [ {
+    position: 1470 
+  } ]
+  DamageEstimate;
+  
+  @EndUserText.label: 'DateClaimantDied'
+  @UI.identification: [ {
+    position: 1480 , 
+    label: 'DateClaimantDied'
+  } ]
+  @UI.lineItem: [ {
+    position: 1480 , 
+    label: 'DateClaimantDied'
+  } ]
+  @UI.selectionField: [ {
+    position: 1480 
+  } ]
+  DateClaimantDied;
+  
+  @EndUserText.label: 'DateClosed'
+  @UI.identification: [ {
+    position: 1490 , 
+    label: 'DateClosed'
+  } ]
+  @UI.lineItem: [ {
+    position: 1490 , 
+    label: 'DateClosed'
+  } ]
+  @UI.selectionField: [ {
+    position: 1490 
+  } ]
+  DateClosed;
+  
+  @EndUserText.label: 'DateDataLoadInsert'
+  @UI.identification: [ {
+    position: 1500 , 
+    label: 'DateDataLoadInsert'
+  } ]
+  @UI.lineItem: [ {
+    position: 1500 , 
+    label: 'DateDataLoadInsert'
+  } ]
+  @UI.selectionField: [ {
+    position: 1500 
+  } ]
+  DateDataLoadInsert;
+  
+  @EndUserText.label: 'DateDataLoadUpdate'
+  @UI.identification: [ {
+    position: 1510 , 
+    label: 'DateDataLoadUpdate'
+  } ]
+  @UI.lineItem: [ {
+    position: 1510 , 
+    label: 'DateDataLoadUpdate'
+  } ]
+  @UI.selectionField: [ {
+    position: 1510 
+  } ]
+  DateDataLoadUpdate;
+  
+  @EndUserText.label: 'DateHired'
+  @UI.identification: [ {
+    position: 1520 , 
+    label: 'DateHired'
+  } ]
+  @UI.lineItem: [ {
+    position: 1520 , 
+    label: 'DateHired'
+  } ]
+  @UI.selectionField: [ {
+    position: 1520 
+  } ]
+  DateHired;
+  
+  @EndUserText.label: 'DateIndemnityReceived'
+  @UI.identification: [ {
+    position: 1530 , 
+    label: 'DateIndemnityReceived'
+  } ]
+  @UI.lineItem: [ {
+    position: 1530 , 
+    label: 'DateIndemnityReceived'
+  } ]
+  @UI.selectionField: [ {
+    position: 1530 
+  } ]
+  DateIndemnityReceived;
+  
+  @EndUserText.label: 'DateLastWorked'
+  @UI.identification: [ {
+    position: 1540 , 
+    label: 'DateLastWorked'
+  } ]
+  @UI.lineItem: [ {
+    position: 1540 , 
+    label: 'DateLastWorked'
+  } ]
+  @UI.selectionField: [ {
+    position: 1540 
+  } ]
+  DateLastWorked;
+  
+  @EndUserText.label: 'DateLossOfTime'
+  @UI.identification: [ {
+    position: 1550 , 
+    label: 'DateLossOfTime'
+  } ]
+  @UI.lineItem: [ {
+    position: 1550 , 
+    label: 'DateLossOfTime'
+  } ]
+  @UI.selectionField: [ {
+    position: 1550 
+  } ]
+  DateLossOfTime;
+  
+  @EndUserText.label: 'DtOfClaimReportToInsurer'
+  @UI.identification: [ {
+    position: 1560 , 
+    label: 'DtOfClaimReportToInsurer'
+  } ]
+  @UI.lineItem: [ {
+    position: 1560 , 
+    label: 'DtOfClaimReportToInsurer'
+  } ]
+  @UI.selectionField: [ {
+    position: 1560 
+  } ]
+  DtOfClaimReportToInsurer;
+  
+  @EndUserText.label: 'DtOfClaimReportToMskdamco'
+  @UI.identification: [ {
+    position: 1570 , 
+    label: 'DtOfClaimReportToMskdamco'
+  } ]
+  @UI.lineItem: [ {
+    position: 1570 , 
+    label: 'DtOfClaimReportToMskdamco'
+  } ]
+  @UI.selectionField: [ {
+    position: 1570 
+  } ]
+  DtOfClaimReportToMskdamco;
+  
+  @EndUserText.label: 'DateOfLastActivity'
+  @UI.identification: [ {
+    position: 1580 , 
+    label: 'DateOfLastActivity'
+  } ]
+  @UI.lineItem: [ {
+    position: 1580 , 
+    label: 'DateOfLastActivity'
+  } ]
+  @UI.selectionField: [ {
+    position: 1580 
+  } ]
+  DateOfLastActivity;
+  
+  @EndUserText.label: 'DateOfSurvey'
+  @UI.identification: [ {
+    position: 1590 , 
+    label: 'DateOfSurvey'
+  } ]
+  @UI.lineItem: [ {
+    position: 1590 , 
+    label: 'DateOfSurvey'
+  } ]
+  @UI.selectionField: [ {
+    position: 1590 
+  } ]
+  DateOfSurvey;
+  
+  @EndUserText.label: 'DateOfTimeBar3rdParty'
+  @UI.identification: [ {
+    position: 1600 , 
+    label: 'DateOfTimeBar3rdParty'
+  } ]
+  @UI.lineItem: [ {
+    position: 1600 , 
+    label: 'DateOfTimeBar3rdParty'
+  } ]
+  @UI.selectionField: [ {
+    position: 1600 
+  } ]
+  DateOfTimeBar3rdParty;
+  
+  @EndUserText.label: 'DateOfTimeBarClaimant'
+  @UI.identification: [ {
+    position: 1610 , 
+    label: 'DateOfTimeBarClaimant'
+  } ]
+  @UI.lineItem: [ {
+    position: 1610 , 
+    label: 'DateOfTimeBarClaimant'
+  } ]
+  @UI.selectionField: [ {
+    position: 1610 
+  } ]
+  DateOfTimeBarClaimant;
+  
+  @EndUserText.label: 'DateOpened'
+  @UI.identification: [ {
+    position: 1620 , 
+    label: 'DateOpened'
+  } ]
+  @UI.lineItem: [ {
+    position: 1620 , 
+    label: 'DateOpened'
+  } ]
+  @UI.selectionField: [ {
+    position: 1620 
+  } ]
+  DateOpened;
+  
+  @EndUserText.label: 'DateReceived'
+  @UI.identification: [ {
+    position: 1630 , 
+    label: 'DateReceived'
+  } ]
+  @UI.lineItem: [ {
+    position: 1630 , 
+    label: 'DateReceived'
+  } ]
+  @UI.selectionField: [ {
+    position: 1630 
+  } ]
+  DateReceived;
+  
+  @EndUserText.label: 'DateReopened'
+  @UI.identification: [ {
+    position: 1640 , 
+    label: 'DateReopened'
+  } ]
+  @UI.lineItem: [ {
+    position: 1640 , 
+    label: 'DateReopened'
+  } ]
+  @UI.selectionField: [ {
+    position: 1640 
+  } ]
+  DateReopened;
+  
+  @EndUserText.label: 'ReportedToInsurer'
+  @UI.identification: [ {
+    position: 1650 , 
+    label: 'ReportedToInsurer'
+  } ]
+  @UI.lineItem: [ {
+    position: 1650 , 
+    label: 'ReportedToInsurer'
+  } ]
+  @UI.selectionField: [ {
+    position: 1650 
+  } ]
+  ReportedToInsurer;
+  
+  @EndUserText.label: 'DateReportedToTpa'
+  @UI.identification: [ {
+    position: 1660 , 
+    label: 'DateReportedToTpa'
+  } ]
+  @UI.lineItem: [ {
+    position: 1660 , 
+    label: 'DateReportedToTpa'
+  } ]
+  @UI.selectionField: [ {
+    position: 1660 
+  } ]
+  DateReportedToTpa;
+  
+  @EndUserText.label: 'DateReturnedToWork'
+  @UI.identification: [ {
+    position: 1670 , 
+    label: 'DateReturnedToWork'
+  } ]
+  @UI.lineItem: [ {
+    position: 1670 , 
+    label: 'DateReturnedToWork'
+  } ]
+  @UI.selectionField: [ {
+    position: 1670 
+  } ]
+  DateReturnedToWork;
+  
+  @EndUserText.label: 'DtRiskMgmtReviewComplete'
+  @UI.identification: [ {
+    position: 1680 , 
+    label: 'DtRiskMgmtReviewComplete'
+  } ]
+  @UI.lineItem: [ {
+    position: 1680 , 
+    label: 'DtRiskMgmtReviewComplete'
+  } ]
+  @UI.selectionField: [ {
+    position: 1680 
+  } ]
+  DtRiskMgmtReviewComplete;
+  
+  @EndUserText.label: 'SettlementDate'
+  @UI.identification: [ {
+    position: 1690 , 
+    label: 'SettlementDate'
+  } ]
+  @UI.lineItem: [ {
+    position: 1690 , 
+    label: 'SettlementDate'
+  } ]
+  @UI.selectionField: [ {
+    position: 1690 
+  } ]
+  SettlementDate;
+  
+  @EndUserText.label: 'DateSubmitted'
+  @UI.identification: [ {
+    position: 1700 , 
+    label: 'DateSubmitted'
+  } ]
+  @UI.lineItem: [ {
+    position: 1700 , 
+    label: 'DateSubmitted'
+  } ]
+  @UI.selectionField: [ {
+    position: 1700 
+  } ]
+  DateSubmitted;
+  
+  @EndUserText.label: 'DateSubmittedToInsurer'
+  @UI.identification: [ {
+    position: 1710 , 
+    label: 'DateSubmittedToInsurer'
+  } ]
+  @UI.lineItem: [ {
+    position: 1710 , 
+    label: 'DateSubmittedToInsurer'
+  } ]
+  @UI.selectionField: [ {
+    position: 1710 
+  } ]
+  DateSubmittedToInsurer;
+  
+  @EndUserText.label: 'DateSubrogationSubmitted'
+  @UI.identification: [ {
+    position: 1720 , 
+    label: 'DateSubrogationSubmitted'
+  } ]
+  @UI.lineItem: [ {
+    position: 1720 , 
+    label: 'DateSubrogationSubmitted'
+  } ]
+  @UI.selectionField: [ {
+    position: 1720 
+  } ]
+  DateSubrogationSubmitted;
+  
+  @EndUserText.label: 'DateSuitFiled'
+  @UI.identification: [ {
+    position: 1730 , 
+    label: 'DateSuitFiled'
+  } ]
+  @UI.lineItem: [ {
+    position: 1730 , 
+    label: 'DateSuitFiled'
+  } ]
+  @UI.selectionField: [ {
+    position: 1730 
+  } ]
+  DateSuitFiled;
+  
+  @EndUserText.label: 'DayOfWeek'
+  @UI.identification: [ {
+    position: 1740 , 
+    label: 'DayOfWeek'
+  } ]
+  @UI.lineItem: [ {
+    position: 1740 , 
+    label: 'DayOfWeek'
+  } ]
+  @UI.selectionField: [ {
+    position: 1740 
+  } ]
+  DayOfWeek;
+  
+  @EndUserText.label: 'DayOfWeekSrc'
+  @UI.identification: [ {
+    position: 1750 , 
+    label: 'DayOfWeekSrc'
+  } ]
+  @UI.lineItem: [ {
+    position: 1750 , 
+    label: 'DayOfWeekSrc'
+  } ]
+  @UI.selectionField: [ {
+    position: 1750 
+  } ]
+  DayOfWeekSrc;
+  
+  @UI.identification: [ {
+    position: 1760 
+  } ]
+  @UI.lineItem: [ {
+    position: 1760 
+  } ]
+  @UI.selectionField: [ {
+    position: 1760 
+  } ]
+  DaysOffWorkTotal;
+  
+  @UI.identification: [ {
+    position: 1770 
+  } ]
+  @UI.lineItem: [ {
+    position: 1770 
+  } ]
+  @UI.selectionField: [ {
+    position: 1770 
+  } ]
+  DaysToConversion;
+  
+  @UI.identification: [ {
+    position: 1780 
+  } ]
+  @UI.lineItem: [ {
+    position: 1780 
+  } ]
+  @UI.selectionField: [ {
+    position: 1780 
+  } ]
+  DaysToDecision;
+  
+  @UI.identification: [ {
+    position: 1790 
+  } ]
+  @UI.lineItem: [ {
+    position: 1790 
+  } ]
+  @UI.selectionField: [ {
+    position: 1790 
+  } ]
+  DaysToReply;
+  
+  @UI.identification: [ {
+    position: 1800 
+  } ]
+  @UI.lineItem: [ {
+    position: 1800 
+  } ]
+  @UI.selectionField: [ {
+    position: 1800 
+  } ]
+  DcliEmployee;
+  
+  @EndUserText.label: 'DecisionMade'
+  @UI.identification: [ {
+    position: 1810 , 
+    label: 'DecisionMade'
+  } ]
+  @UI.lineItem: [ {
+    position: 1810 , 
+    label: 'DecisionMade'
+  } ]
+  @UI.selectionField: [ {
+    position: 1810 
+  } ]
+  DecisionMade;
+  
+  @EndUserText.label: 'Deductible'
+  @UI.identification: [ {
+    position: 1820 , 
+    label: 'Deductible'
+  } ]
+  @UI.lineItem: [ {
+    position: 1820 , 
+    label: 'Deductible'
+  } ]
+  @UI.selectionField: [ {
+    position: 1820 
+  } ]
+  Deductible;
+  
+  @UI.identification: [ {
+    position: 1830 
+  } ]
+  @UI.lineItem: [ {
+    position: 1830 
+  } ]
+  @UI.selectionField: [ {
+    position: 1830 
+  } ]
+  DeductibleFromPolicy;
+  
+  @UI.identification: [ {
+    position: 1840 
+  } ]
+  @UI.lineItem: [ {
+    position: 1840 
+  } ]
+  @UI.selectionField: [ {
+    position: 1840 
+  } ]
+  DeductibleTotal;
+  
+  @UI.identification: [ {
+    position: 1850 
+  } ]
+  @UI.lineItem: [ {
+    position: 1850 
+  } ]
+  @UI.selectionField: [ {
+    position: 1850 
+  } ]
+  DeferredRepairs;
+  
+  @EndUserText.label: 'DemandAmount'
+  @UI.identification: [ {
+    position: 1860 , 
+    label: 'DemandAmount'
+  } ]
+  @UI.lineItem: [ {
+    position: 1860 , 
+    label: 'DemandAmount'
+  } ]
+  @UI.selectionField: [ {
+    position: 1860 
+  } ]
+  DemandAmount;
+  
+  @EndUserText.label: 'Department'
+  @UI.identification: [ {
+    position: 1870 , 
+    label: 'Department'
+  } ]
+  @UI.lineItem: [ {
+    position: 1870 , 
+    label: 'Department'
+  } ]
+  @UI.selectionField: [ {
+    position: 1870 
+  } ]
+  Department;
+  
+  @EndUserText.label: 'DescribeMedicalTreatment'
+  @UI.identification: [ {
+    position: 1880 , 
+    label: 'DescribeMedicalTreatment'
+  } ]
+  @UI.lineItem: [ {
+    position: 1880 , 
+    label: 'DescribeMedicalTreatment'
+  } ]
+  @UI.selectionField: [ {
+    position: 1880 
+  } ]
+  DescribeMedicalTreatment;
+  
+  @UI.identification: [ {
+    position: 1890 
+  } ]
+  @UI.lineItem: [ {
+    position: 1890 
+  } ]
+  @UI.selectionField: [ {
+    position: 1890 
+  } ]
+  Description;
+  
+  @UI.identification: [ {
+    position: 1900 
+  } ]
+  @UI.lineItem: [ {
+    position: 1900 
+  } ]
+  @UI.selectionField: [ {
+    position: 1900 
+  } ]
+  DescriptionOfEvent;
+  
+  @EndUserText.label: 'Diagnosis'
+  @UI.identification: [ {
+    position: 1910 , 
+    label: 'Diagnosis'
+  } ]
+  @UI.lineItem: [ {
+    position: 1910 , 
+    label: 'Diagnosis'
+  } ]
+  @UI.selectionField: [ {
+    position: 1910 
+  } ]
+  Diagnosis;
+  
+  @EndUserText.label: 'DateOfFirstDisability'
+  @UI.identification: [ {
+    position: 1920 , 
+    label: 'DateOfFirstDisability'
+  } ]
+  @UI.lineItem: [ {
+    position: 1920 , 
+    label: 'DateOfFirstDisability'
+  } ]
+  @UI.selectionField: [ {
+    position: 1920 
+  } ]
+  DateOfFirstDisability;
+  
+  @UI.identification: [ {
+    position: 1930 
+  } ]
+  @UI.lineItem: [ {
+    position: 1930 
+  } ]
+  @UI.selectionField: [ {
+    position: 1930 
+  } ]
+  LocationGrm;
+  
+  @UI.identification: [ {
+    position: 1940 
+  } ]
+  @UI.lineItem: [ {
+    position: 1940 
+  } ]
+  @UI.selectionField: [ {
+    position: 1940 
+  } ]
+  DoingUsualWork;
+  
+  @EndUserText.label: 'DriverAddress'
+  @UI.identification: [ {
+    position: 1950 , 
+    label: 'DriverAddress'
+  } ]
+  @UI.lineItem: [ {
+    position: 1950 , 
+    label: 'DriverAddress'
+  } ]
+  @UI.selectionField: [ {
+    position: 1950 
+  } ]
+  DriverAddress;
+  
+  @EndUserText.label: 'DriverBirthDate'
+  @UI.identification: [ {
+    position: 1960 , 
+    label: 'DriverBirthDate'
+  } ]
+  @UI.lineItem: [ {
+    position: 1960 , 
+    label: 'DriverBirthDate'
+  } ]
+  @UI.selectionField: [ {
+    position: 1960 
+  } ]
+  DriverBirthDate;
+  
+  @EndUserText.label: 'DriverCity'
+  @UI.identification: [ {
+    position: 1970 , 
+    label: 'DriverCity'
+  } ]
+  @UI.lineItem: [ {
+    position: 1970 , 
+    label: 'DriverCity'
+  } ]
+  @UI.selectionField: [ {
+    position: 1970 
+  } ]
+  DriverCity;
+  
+  @EndUserText.label: 'DriverName'
+  @UI.identification: [ {
+    position: 1980 , 
+    label: 'DriverName'
+  } ]
+  @UI.lineItem: [ {
+    position: 1980 , 
+    label: 'DriverName'
+  } ]
+  @UI.selectionField: [ {
+    position: 1980 
+  } ]
+  DriverName;
+  
+  @EndUserText.label: 'DriverPhone'
+  @UI.identification: [ {
+    position: 1990 , 
+    label: 'DriverPhone'
+  } ]
+  @UI.lineItem: [ {
+    position: 1990 , 
+    label: 'DriverPhone'
+  } ]
+  @UI.selectionField: [ {
+    position: 1990 
+  } ]
+  DriverPhone;
+  
+  @EndUserText.label: 'DriverPostalCode'
+  @UI.identification: [ {
+    position: 2000 , 
+    label: 'DriverPostalCode'
+  } ]
+  @UI.lineItem: [ {
+    position: 2000 , 
+    label: 'DriverPostalCode'
+  } ]
+  @UI.selectionField: [ {
+    position: 2000 
+  } ]
+  DriverPostalCode;
+  
+  @EndUserText.label: 'DriverSs'
+  @UI.identification: [ {
+    position: 2010 , 
+    label: 'DriverSs'
+  } ]
+  @UI.lineItem: [ {
+    position: 2010 , 
+    label: 'DriverSs'
+  } ]
+  @UI.selectionField: [ {
+    position: 2010 
+  } ]
+  DriverSs;
+  
+  @UI.identification: [ {
+    position: 2020 
+  } ]
+  @UI.lineItem: [ {
+    position: 2020 
+  } ]
+  @UI.selectionField: [ {
+    position: 2020 
+  } ]
+  DriverState;
+  
+  @UI.identification: [ {
+    position: 2030 
+  } ]
+  @UI.lineItem: [ {
+    position: 2030 
+  } ]
+  @UI.selectionField: [ {
+    position: 2030 
+  } ]
+  DriversAge;
+  
+  @UI.identification: [ {
+    position: 2040 
+  } ]
+  @UI.lineItem: [ {
+    position: 2040 
+  } ]
+  @UI.selectionField: [ {
+    position: 2040 
+  } ]
+  OriginCountry;
+  
+  @UI.identification: [ {
+    position: 2050 
+  } ]
+  @UI.lineItem: [ {
+    position: 2050 
+  } ]
+  @UI.selectionField: [ {
+    position: 2050 
+  } ]
+  SettlingAbvLglliabilityAmt;
+  
+  @EndUserText.label: 'EmployeeJobTitle'
+  @UI.identification: [ {
+    position: 2060 , 
+    label: 'EmployeeJobTitle'
+  } ]
+  @UI.lineItem: [ {
+    position: 2060 , 
+    label: 'EmployeeJobTitle'
+  } ]
+  @UI.selectionField: [ {
+    position: 2060 
+  } ]
+  EmployeeJobTitle;
+  
+  @UI.identification: [ {
+    position: 2070 
+  } ]
+  @UI.lineItem: [ {
+    position: 2070 
+  } ]
+  @UI.selectionField: [ {
+    position: 2070 
+  } ]
+  EmployerPremises;
+  
+  @EndUserText.label: 'EquipmentId'
+  @UI.identification: [ {
+    position: 2080 , 
+    label: 'EquipmentId'
+  } ]
+  @UI.lineItem: [ {
+    position: 2080 , 
+    label: 'EquipmentId'
+  } ]
+  @UI.selectionField: [ {
+    position: 2080 
+  } ]
+  EquipmentId;
+  
+  @EndUserText.label: 'EquipmentOperator'
+  @UI.identification: [ {
+    position: 2090 , 
+    label: 'EquipmentOperator'
+  } ]
+  @UI.lineItem: [ {
+    position: 2090 , 
+    label: 'EquipmentOperator'
+  } ]
+  @UI.selectionField: [ {
+    position: 2090 
+  } ]
+  EquipmentOperator;
+  
+  @EndUserText.label: 'EquipmentType'
+  @UI.identification: [ {
+    position: 2100 , 
+    label: 'EquipmentType'
+  } ]
+  @UI.lineItem: [ {
+    position: 2100 , 
+    label: 'EquipmentType'
+  } ]
+  @UI.selectionField: [ {
+    position: 2100 
+  } ]
+  EquipmentType;
+  
+  @UI.identification: [ {
+    position: 2110 
+  } ]
+  @UI.lineItem: [ {
+    position: 2110 
+  } ]
+  @UI.selectionField: [ {
+    position: 2110 
+  } ]
+  EquipmentInfrastructureType;
+  
+  @UI.identification: [ {
+    position: 2120 
+  } ]
+  @UI.lineItem: [ {
+    position: 2120 
+  } ]
+  @UI.selectionField: [ {
+    position: 2120 
+  } ]
+  EstimateTotalFormula;
+  
+  @UI.identification: [ {
+    position: 2130 
+  } ]
+  @UI.lineItem: [ {
+    position: 2130 
+  } ]
+  @UI.selectionField: [ {
+    position: 2130 
+  } ]
+  EstimateTotal;
+  
+  @UI.identification: [ {
+    position: 2140 
+  } ]
+  @UI.lineItem: [ {
+    position: 2140 
+  } ]
+  @UI.selectionField: [ {
+    position: 2140 
+  } ]
+  EventType;
+  
+  @EndUserText.label: 'ExactLocation'
+  @UI.identification: [ {
+    position: 2150 , 
+    label: 'ExactLocation'
+  } ]
+  @UI.lineItem: [ {
+    position: 2150 , 
+    label: 'ExactLocation'
+  } ]
+  @UI.selectionField: [ {
+    position: 2150 
+  } ]
+  ExactLocation;
+  
+  @UI.identification: [ {
+    position: 2160 
+  } ]
+  @UI.lineItem: [ {
+    position: 2160 
+  } ]
+  @UI.selectionField: [ {
+    position: 2160 
+  } ]
+  ExptForTtClubToConfirm;
+  
+  @EndUserText.label: 'ExpectedSettlementAmountUsd'
+  @UI.identification: [ {
+    position: 2170 , 
+    label: 'ExpectedSettlementAmountUsd'
+  } ]
+  @UI.lineItem: [ {
+    position: 2170 , 
+    label: 'ExpectedSettlementAmountUsd'
+  } ]
+  @UI.selectionField: [ {
+    position: 2170 
+  } ]
+  ExpectedSettlementAmountUsd;
+  
+  @UI.identification: [ {
+    position: 2180 
+  } ]
+  @UI.lineItem: [ {
+    position: 2180 
+  } ]
+  @UI.selectionField: [ {
+    position: 2180 
+  } ]
+  ExpenseIncurredCurr2;
+  
+  @UI.identification: [ {
+    position: 2190 
+  } ]
+  @UI.lineItem: [ {
+    position: 2190 
+  } ]
+  @UI.selectionField: [ {
+    position: 2190 
+  } ]
+  ExpenseIncurredCurr1;
+  
+  @UI.identification: [ {
+    position: 2200 
+  } ]
+  @UI.lineItem: [ {
+    position: 2200 
+  } ]
+  @UI.selectionField: [ {
+    position: 2200 
+  } ]
+  ExpenseOutstandingCurr2;
+  
+  @UI.identification: [ {
+    position: 2210 
+  } ]
+  @UI.lineItem: [ {
+    position: 2210 
+  } ]
+  @UI.selectionField: [ {
+    position: 2210 
+  } ]
+  ExpenseOutstandingCurr1;
+  
+  @UI.identification: [ {
+    position: 2220 
+  } ]
+  @UI.lineItem: [ {
+    position: 2220 
+  } ]
+  @UI.selectionField: [ {
+    position: 2220 
+  } ]
+  ExpensePaidCurr2;
+  
+  @UI.identification: [ {
+    position: 2230 
+  } ]
+  @UI.lineItem: [ {
+    position: 2230 
+  } ]
+  @UI.selectionField: [ {
+    position: 2230 
+  } ]
+  ExpensePaidCurr1;
+  
+  @UI.identification: [ {
+    position: 2240 
+  } ]
+  @UI.lineItem: [ {
+    position: 2240 
+  } ]
+  @UI.selectionField: [ {
+    position: 2240 
+  } ]
+  ExpertInvolved;
+  
+  @EndUserText.label: 'ExpirationDate'
+  @UI.identification: [ {
+    position: 2250 , 
+    label: 'ExpirationDate'
+  } ]
+  @UI.lineItem: [ {
+    position: 2250 , 
+    label: 'ExpirationDate'
+  } ]
+  @UI.selectionField: [ {
+    position: 2250 
+  } ]
+  ExpirationDate;
+  
+  @EndUserText.label: 'FCode'
+  @UI.identification: [ {
+    position: 2260 , 
+    label: 'FCode'
+  } ]
+  @UI.lineItem: [ {
+    position: 2260 , 
+    label: 'FCode'
+  } ]
+  @UI.selectionField: [ {
+    position: 2260 
+  } ]
+  FCode;
+  
+  @UI.identification: [ {
+    position: 2270 
+  } ]
+  @UI.lineItem: [ {
+    position: 2270 
+  } ]
+  @UI.selectionField: [ {
+    position: 2270 
+  } ]
+  Fatality;
+  
+  @EndUserText.label: 'FcrNumber'
+  @UI.identification: [ {
+    position: 2280 , 
+    label: 'FcrNumber'
+  } ]
+  @UI.lineItem: [ {
+    position: 2280 , 
+    label: 'FcrNumber'
+  } ]
+  @UI.selectionField: [ {
+    position: 2280 
+  } ]
+  FcrNumber;
+  
+  @EndUserText.label: 'FederalCourt'
+  @UI.identification: [ {
+    position: 2290 , 
+    label: 'FederalCourt'
+  } ]
+  @UI.lineItem: [ {
+    position: 2290 , 
+    label: 'FederalCourt'
+  } ]
+  @UI.selectionField: [ {
+    position: 2290 
+  } ]
+  FederalCourt;
+  
+  @UI.identification: [ {
+    position: 2300 
+  } ]
+  @UI.lineItem: [ {
+    position: 2300 
+  } ]
+  @UI.selectionField: [ {
+    position: 2300 
+  } ]
+  FeesOutstandingTotal;
+  
+  @UI.identification: [ {
+    position: 2310 
+  } ]
+  @UI.lineItem: [ {
+    position: 2310 
+  } ]
+  @UI.selectionField: [ {
+    position: 2310 
+  } ]
+  FeesPaidTotal;
+  
+  @EndUserText.label: 'FileLocation'
+  @UI.identification: [ {
+    position: 2320 , 
+    label: 'FileLocation'
+  } ]
+  @UI.lineItem: [ {
+    position: 2320 , 
+    label: 'FileLocation'
+  } ]
+  @UI.selectionField: [ {
+    position: 2320 
+  } ]
+  FileLocation;
+  
+  @UI.identification: [ {
+    position: 2330 
+  } ]
+  @UI.lineItem: [ {
+    position: 2330 
+  } ]
+  @UI.selectionField: [ {
+    position: 2330 
+  } ]
+  Port;
+  
+  @UI.identification: [ {
+    position: 2340 
+  } ]
+  @UI.lineItem: [ {
+    position: 2340 
+  } ]
+  @UI.selectionField: [ {
+    position: 2340 
+  } ]
+  FinalSettlementTargetDate;
+  
+  @EndUserText.label: 'FitForDutyDate'
+  @UI.identification: [ {
+    position: 2350 , 
+    label: 'FitForDutyDate'
+  } ]
+  @UI.lineItem: [ {
+    position: 2350 , 
+    label: 'FitForDutyDate'
+  } ]
+  @UI.selectionField: [ {
+    position: 2350 
+  } ]
+  FitForDutyDate;
+  
+  @UI.identification: [ {
+    position: 2360 
+  } ]
+  @UI.lineItem: [ {
+    position: 2360 
+  } ]
+  @UI.selectionField: [ {
+    position: 2360 
+  } ]
+  FitnessForDuty;
+  
+  @EndUserText.label: 'Flag'
+  @UI.identification: [ {
+    position: 2370 , 
+    label: 'Flag'
+  } ]
+  @UI.lineItem: [ {
+    position: 2370 , 
+    label: 'Flag'
+  } ]
+  @UI.selectionField: [ {
+    position: 2370 
+  } ]
+  Flag;
+  
+  @UI.identification: [ {
+    position: 2380 
+  } ]
+  @UI.lineItem: [ {
+    position: 2380 
+  } ]
+  @UI.selectionField: [ {
+    position: 2380 
+  } ]
+  FleetGroup;
+  
+  @EndUserText.label: 'FormerAdjusterClaim'
+  @UI.identification: [ {
+    position: 2390 , 
+    label: 'FormerAdjusterClaim'
+  } ]
+  @UI.lineItem: [ {
+    position: 2390 , 
+    label: 'FormerAdjusterClaim'
+  } ]
+  @UI.selectionField: [ {
+    position: 2390 
+  } ]
+  FormerAdjusterClaim;
+  
+  @UI.identification: [ {
+    position: 2400 
+  } ]
+  @UI.lineItem: [ {
+    position: 2400 
+  } ]
+  @UI.selectionField: [ {
+    position: 2400 
+  } ]
+  Gap;
+  
+  @EndUserText.label: 'GensetNumber'
+  @UI.identification: [ {
+    position: 2410 , 
+    label: 'GensetNumber'
+  } ]
+  @UI.lineItem: [ {
+    position: 2410 , 
+    label: 'GensetNumber'
+  } ]
+  @UI.selectionField: [ {
+    position: 2410 
+  } ]
+  GensetNumber;
+  
+  @UI.identification: [ {
+    position: 2420 
+  } ]
+  @UI.lineItem: [ {
+    position: 2420 
+  } ]
+  @UI.selectionField: [ {
+    position: 2420 
+  } ]
+  GlbclmOwner;
+  
+  @UI.identification: [ {
+    position: 2430 
+  } ]
+  @UI.lineItem: [ {
+    position: 2430 
+  } ]
+  @UI.selectionField: [ {
+    position: 2430 
+  } ]
+  GrmClaimsHandler;
+  
+  @UI.identification: [ {
+    position: 2440 
+  } ]
+  @UI.lineItem: [ {
+    position: 2440 
+  } ]
+  @UI.selectionField: [ {
+    position: 2440 
+  } ]
+  GrossIncurredCurr2;
+  
+  @UI.identification: [ {
+    position: 2450 
+  } ]
+  @UI.lineItem: [ {
+    position: 2450 
+  } ]
+  @UI.selectionField: [ {
+    position: 2450 
+  } ]
+  GrossIncurredCurr1;
+  
+  @UI.identification: [ {
+    position: 2460 
+  } ]
+  @UI.lineItem: [ {
+    position: 2460 
+  } ]
+  @UI.selectionField: [ {
+    position: 2460 
+  } ]
+  GrossOutstandingCurr2;
+  
+  @UI.identification: [ {
+    position: 2470 
+  } ]
+  @UI.lineItem: [ {
+    position: 2470 
+  } ]
+  @UI.selectionField: [ {
+    position: 2470 
+  } ]
+  GrossOutstandingCurr1;
+  
+  @UI.identification: [ {
+    position: 2480 
+  } ]
+  @UI.lineItem: [ {
+    position: 2480 
+  } ]
+  @UI.selectionField: [ {
+    position: 2480 
+  } ]
+  GrossPaidCurr2;
+  
+  @UI.identification: [ {
+    position: 2490 
+  } ]
+  @UI.lineItem: [ {
+    position: 2490 
+  } ]
+  @UI.selectionField: [ {
+    position: 2490 
+  } ]
+  GrossPaidCurr1;
+  
+  @EndUserText.label: 'GrossRegisteredTonnage'
+  @UI.identification: [ {
+    position: 2500 , 
+    label: 'GrossRegisteredTonnage'
+  } ]
+  @UI.lineItem: [ {
+    position: 2500 , 
+    label: 'GrossRegisteredTonnage'
+  } ]
+  @UI.selectionField: [ {
+    position: 2500 
+  } ]
+  GrossRegisteredTonnage;
+  
+  @UI.identification: [ {
+    position: 2510 
+  } ]
+  @UI.lineItem: [ {
+    position: 2510 
+  } ]
+  @UI.selectionField: [ {
+    position: 2510 
+  } ]
+  HandlerBu;
+  
+  @EndUserText.label: 'HandlerSrcDel'
+  @UI.identification: [ {
+    position: 2520 , 
+    label: 'HandlerSrcDel'
+  } ]
+  @UI.lineItem: [ {
+    position: 2520 , 
+    label: 'HandlerSrcDel'
+  } ]
+  @UI.selectionField: [ {
+    position: 2520 
+  } ]
+  HandlerSrcDel;
+  
+  @UI.identification: [ {
+    position: 2530 
+  } ]
+  @UI.lineItem: [ {
+    position: 2530 
+  } ]
+  @UI.selectionField: [ {
+    position: 2530 
+  } ]
+  HandlingCountry;
+  
+  @EndUserText.label: 'HandlingEntity'
+  @UI.identification: [ {
+    position: 2540 , 
+    label: 'HandlingEntity'
+  } ]
+  @UI.lineItem: [ {
+    position: 2540 , 
+    label: 'HandlingEntity'
+  } ]
+  @UI.selectionField: [ {
+    position: 2540 
+  } ]
+  HandlingEntity;
+  
+  @EndUserText.label: 'HandlingRegion'
+  @UI.identification: [ {
+    position: 2550 , 
+    label: 'HandlingRegion'
+  } ]
+  @UI.lineItem: [ {
+    position: 2550 , 
+    label: 'HandlingRegion'
+  } ]
+  @UI.selectionField: [ {
+    position: 2550 
+  } ]
+  HandlingRegion;
+  
+  @EndUserText.label: 'HealthcareFacilityAddrline1'
+  @UI.identification: [ {
+    position: 2560 , 
+    label: 'HealthcareFacilityAddrline1'
+  } ]
+  @UI.lineItem: [ {
+    position: 2560 , 
+    label: 'HealthcareFacilityAddrline1'
+  } ]
+  @UI.selectionField: [ {
+    position: 2560 
+  } ]
+  HealthcareFacilityAddrline1;
+  
+  @EndUserText.label: 'HealthcareFacilityAddrline2'
+  @UI.identification: [ {
+    position: 2570 , 
+    label: 'HealthcareFacilityAddrline2'
+  } ]
+  @UI.lineItem: [ {
+    position: 2570 , 
+    label: 'HealthcareFacilityAddrline2'
+  } ]
+  @UI.selectionField: [ {
+    position: 2570 
+  } ]
+  HealthcareFacilityAddrline2;
+  
+  @EndUserText.label: 'HealthcareFacilityCity'
+  @UI.identification: [ {
+    position: 2580 , 
+    label: 'HealthcareFacilityCity'
+  } ]
+  @UI.lineItem: [ {
+    position: 2580 , 
+    label: 'HealthcareFacilityCity'
+  } ]
+  @UI.selectionField: [ {
+    position: 2580 
+  } ]
+  HealthcareFacilityCity;
+  
+  @EndUserText.label: 'HealthcareFacilityName'
+  @UI.identification: [ {
+    position: 2590 , 
+    label: 'HealthcareFacilityName'
+  } ]
+  @UI.lineItem: [ {
+    position: 2590 , 
+    label: 'HealthcareFacilityName'
+  } ]
+  @UI.selectionField: [ {
+    position: 2590 
+  } ]
+  HealthcareFacilityName;
+  
+  @EndUserText.label: 'HealthcareFacilityPostalcode'
+  @UI.identification: [ {
+    position: 2600 , 
+    label: 'HealthcareFacilityPostalcode'
+  } ]
+  @UI.lineItem: [ {
+    position: 2600 , 
+    label: 'HealthcareFacilityPostalcode'
+  } ]
+  @UI.selectionField: [ {
+    position: 2600 
+  } ]
+  HealthcareFacilityPostalcode;
+  
+  @UI.identification: [ {
+    position: 2610 
+  } ]
+  @UI.lineItem: [ {
+    position: 2610 
+  } ]
+  @UI.selectionField: [ {
+    position: 2610 
+  } ]
+  HealthcareFacilityState;
+  
+  @EndUserText.label: 'HierarchyNodeAp'
+  @UI.identification: [ {
+    position: 2620 , 
+    label: 'HierarchyNodeAp'
+  } ]
+  @UI.lineItem: [ {
+    position: 2620 , 
+    label: 'HierarchyNodeAp'
+  } ]
+  @UI.selectionField: [ {
+    position: 2620 
+  } ]
+  HierarchyNodeAp;
+  
+  @EndUserText.label: 'HighwayDirection'
+  @UI.identification: [ {
+    position: 2630 , 
+    label: 'HighwayDirection'
+  } ]
+  @UI.lineItem: [ {
+    position: 2630 , 
+    label: 'HighwayDirection'
+  } ]
+  @UI.selectionField: [ {
+    position: 2630 
+  } ]
+  HighwayDirection;
+  
+  @UI.identification: [ {
+    position: 2640 
+  } ]
+  @UI.lineItem: [ {
+    position: 2640 
+  } ]
+  @UI.selectionField: [ {
+    position: 2640 
+  } ]
+  HospitalizedOvernight;
+  
+  @UI.identification: [ {
+    position: 2650 
+  } ]
+  @UI.lineItem: [ {
+    position: 2650 
+  } ]
+  @UI.selectionField: [ {
+    position: 2650 
+  } ]
+  HsCode;
+  
+  @UI.identification: [ {
+    position: 2660 
+  } ]
+  @UI.lineItem: [ {
+    position: 2660 
+  } ]
+  @UI.selectionField: [ {
+    position: 2660 
+  } ]
+  HsseLearningPacks;
+  
+  @EndUserText.label: 'ImoNumber'
+  @UI.identification: [ {
+    position: 2670 , 
+    label: 'ImoNumber'
+  } ]
+  @UI.lineItem: [ {
+    position: 2670 , 
+    label: 'ImoNumber'
+  } ]
+  @UI.selectionField: [ {
+    position: 2670 
+  } ]
+  ImoNumber;
+  
+  @UI.identification: [ {
+    position: 2680 
+  } ]
+  @UI.lineItem: [ {
+    position: 2680 
+  } ]
+  @UI.selectionField: [ {
+    position: 2680 
+  } ]
+  InLitigation;
+  
+  @EndUserText.label: 'IncidentMonth'
+  @UI.identification: [ {
+    position: 2690 , 
+    label: 'IncidentMonth'
+  } ]
+  @UI.lineItem: [ {
+    position: 2690 , 
+    label: 'IncidentMonth'
+  } ]
+  @UI.selectionField: [ {
+    position: 2690 
+  } ]
+  IncidentMonth;
+  
+  @EndUserText.label: 'IncidentQuarter'
+  @UI.identification: [ {
+    position: 2700 , 
+    label: 'IncidentQuarter'
+  } ]
+  @UI.lineItem: [ {
+    position: 2700 , 
+    label: 'IncidentQuarter'
+  } ]
+  @UI.selectionField: [ {
+    position: 2700 
+  } ]
+  IncidentQuarter;
+  
+  @EndUserText.label: 'BuClaim'
+  @UI.identification: [ {
+    position: 2710 , 
+    label: 'BuClaim'
+  } ]
+  @UI.lineItem: [ {
+    position: 2710 , 
+    label: 'BuClaim'
+  } ]
+  @UI.selectionField: [ {
+    position: 2710 
+  } ]
+  BuClaim;
+  
+  @EndUserText.label: 'IncidentToClaimDate'
+  @UI.identification: [ {
+    position: 2720 , 
+    label: 'IncidentToClaimDate'
+  } ]
+  @UI.lineItem: [ {
+    position: 2720 , 
+    label: 'IncidentToClaimDate'
+  } ]
+  @UI.selectionField: [ {
+    position: 2720 
+  } ]
+  IncidentToClaimDate;
+  
+  @EndUserText.label: 'IncidentYear'
+  @UI.identification: [ {
+    position: 2730 , 
+    label: 'IncidentYear'
+  } ]
+  @UI.lineItem: [ {
+    position: 2730 , 
+    label: 'IncidentYear'
+  } ]
+  @UI.selectionField: [ {
+    position: 2730 
+  } ]
+  IncidentYear;
+  
+  @UI.identification: [ {
+    position: 2740 
+  } ]
+  @UI.lineItem: [ {
+    position: 2740 
+  } ]
+  @UI.selectionField: [ {
+    position: 2740 
+  } ]
+  IndemnityIncurredCurr2;
+  
+  @UI.identification: [ {
+    position: 2750 
+  } ]
+  @UI.lineItem: [ {
+    position: 2750 
+  } ]
+  @UI.selectionField: [ {
+    position: 2750 
+  } ]
+  IndemnityIncurredCurr1;
+  
+  @UI.identification: [ {
+    position: 2760 
+  } ]
+  @UI.lineItem: [ {
+    position: 2760 
+  } ]
+  @UI.selectionField: [ {
+    position: 2760 
+  } ]
+  IndemnityOutstandingCurr2;
+  
+  @UI.identification: [ {
+    position: 2770 
+  } ]
+  @UI.lineItem: [ {
+    position: 2770 
+  } ]
+  @UI.selectionField: [ {
+    position: 2770 
+  } ]
+  IndemnityOutstandingCurr1;
+  
+  @UI.identification: [ {
+    position: 2780 
+  } ]
+  @UI.lineItem: [ {
+    position: 2780 
+  } ]
+  @UI.selectionField: [ {
+    position: 2780 
+  } ]
+  IndemnityPaidCurr2;
+  
+  @UI.identification: [ {
+    position: 2790 
+  } ]
+  @UI.lineItem: [ {
+    position: 2790 
+  } ]
+  @UI.selectionField: [ {
+    position: 2790 
+  } ]
+  IndemnityPaidCurr1;
+  
+  @UI.identification: [ {
+    position: 2800 
+  } ]
+  @UI.lineItem: [ {
+    position: 2800 
+  } ]
+  @UI.selectionField: [ {
+    position: 2800 
+  } ]
+  InfrastructureDesc;
+  
+  @EndUserText.label: 'InitialEstimate'
+  @UI.identification: [ {
+    position: 2810 , 
+    label: 'InitialEstimate'
+  } ]
+  @UI.lineItem: [ {
+    position: 2810 , 
+    label: 'InitialEstimate'
+  } ]
+  @UI.selectionField: [ {
+    position: 2810 
+  } ]
+  InitialEstimate;
+  
+  @UI.identification: [ {
+    position: 2820 
+  } ]
+  @UI.lineItem: [ {
+    position: 2820 
+  } ]
+  @UI.selectionField: [ {
+    position: 2820 
+  } ]
+  Injured;
+  
+  @UI.identification: [ {
+    position: 2830 
+  } ]
+  @UI.lineItem: [ {
+    position: 2830 
+  } ]
+  @UI.selectionField: [ {
+    position: 2830 
+  } ]
+  InjuryCauseDeath;
+  
+  @UI.identification: [ {
+    position: 2840 
+  } ]
+  @UI.lineItem: [ {
+    position: 2840 
+  } ]
+  @UI.selectionField: [ {
+    position: 2840 
+  } ]
+  InjuryType;
+  
+  @UI.identification: [ {
+    position: 2850 
+  } ]
+  @UI.lineItem: [ {
+    position: 2850 
+  } ]
+  @UI.selectionField: [ {
+    position: 2850 
+  } ]
+  TpaCarrier;
+  
+  @UI.identification: [ {
+    position: 2860 
+  } ]
+  @UI.lineItem: [ {
+    position: 2860 
+  } ]
+  @UI.selectionField: [ {
+    position: 2860 
+  } ]
+  InsuranceSurvey;
+  
+  @EndUserText.label: 'InsuranceSurveyDt'
+  @UI.identification: [ {
+    position: 2870 , 
+    label: 'InsuranceSurveyDt'
+  } ]
+  @UI.lineItem: [ {
+    position: 2870 , 
+    label: 'InsuranceSurveyDt'
+  } ]
+  @UI.selectionField: [ {
+    position: 2870 
+  } ]
+  InsuranceSurveyDt;
+  
+  @UI.identification: [ {
+    position: 2880 
+  } ]
+  @UI.lineItem: [ {
+    position: 2880 
+  } ]
+  @UI.selectionField: [ {
+    position: 2880 
+  } ]
+  InsuredName;
+  
+  @EndUserText.label: 'Insurer'
+  @UI.identification: [ {
+    position: 2890 , 
+    label: 'Insurer'
+  } ]
+  @UI.lineItem: [ {
+    position: 2890 , 
+    label: 'Insurer'
+  } ]
+  @UI.selectionField: [ {
+    position: 2890 
+  } ]
+  Insurer;
+  
+  @EndUserText.label: 'InsurerClaim'
+  @UI.identification: [ {
+    position: 2900 , 
+    label: 'InsurerClaim'
+  } ]
+  @UI.lineItem: [ {
+    position: 2900 , 
+    label: 'InsurerClaim'
+  } ]
+  @UI.selectionField: [ {
+    position: 2900 
+  } ]
+  InsurerClaim;
+  
+  @UI.identification: [ {
+    position: 2910 
+  } ]
+  @UI.lineItem: [ {
+    position: 2910 
+  } ]
+  @UI.selectionField: [ {
+    position: 2910 
+  } ]
+  InsurerProvisionUsdDamco;
+  
+  @EndUserText.label: 'InsurerReferenceNumber'
+  @UI.identification: [ {
+    position: 2920 , 
+    label: 'InsurerReferenceNumber'
+  } ]
+  @UI.lineItem: [ {
+    position: 2920 , 
+    label: 'InsurerReferenceNumber'
+  } ]
+  @UI.selectionField: [ {
+    position: 2920 
+  } ]
+  InsurerReferenceNumber;
+  
+  @EndUserText.label: 'InvoiceNumberSap'
+  @UI.identification: [ {
+    position: 2930 , 
+    label: 'InvoiceNumberSap'
+  } ]
+  @UI.lineItem: [ {
+    position: 2930 , 
+    label: 'InvoiceNumberSap'
+  } ]
+  @UI.selectionField: [ {
+    position: 2930 
+  } ]
+  InvoiceNumberSap;
+  
+  @EndUserText.label: 'IpsCenterProvisionCurrency'
+  @UI.identification: [ {
+    position: 2940 , 
+    label: 'IpsCenterProvisionCurrency'
+  } ]
+  @UI.lineItem: [ {
+    position: 2940 , 
+    label: 'IpsCenterProvisionCurrency'
+  } ]
+  @UI.selectionField: [ {
+    position: 2940 
+  } ]
+  IpsCenterProvisionCurrency;
+  
+  @UI.identification: [ {
+    position: 2950 
+  } ]
+  @UI.lineItem: [ {
+    position: 2950 
+  } ]
+  @UI.selectionField: [ {
+    position: 2950 
+  } ]
+  IpsCenterProvisionUsdDamco;
+  
+  @UI.identification: [ {
+    position: 2960 
+  } ]
+  @UI.lineItem: [ {
+    position: 2960 
+  } ]
+  @UI.selectionField: [ {
+    position: 2960 
+  } ]
+  IpsCenterProvisionUsd;
+  
+  @EndUserText.label: 'LastCloseDate'
+  @UI.identification: [ {
+    position: 2970 , 
+    label: 'LastCloseDate'
+  } ]
+  @UI.lineItem: [ {
+    position: 2970 , 
+    label: 'LastCloseDate'
+  } ]
+  @UI.selectionField: [ {
+    position: 2970 
+  } ]
+  LastCloseDate;
+  
+  @EndUserText.label: 'LastSubmitDate'
+  @UI.identification: [ {
+    position: 2980 , 
+    label: 'LastSubmitDate'
+  } ]
+  @UI.lineItem: [ {
+    position: 2980 , 
+    label: 'LastSubmitDate'
+  } ]
+  @UI.selectionField: [ {
+    position: 2980 
+  } ]
+  LastSubmitDate;
+  
+  @EndUserText.label: 'LegalLiabilityAmountUsd'
+  @UI.identification: [ {
+    position: 2990 , 
+    label: 'LegalLiabilityAmountUsd'
+  } ]
+  @UI.lineItem: [ {
+    position: 2990 , 
+    label: 'LegalLiabilityAmountUsd'
+  } ]
+  @UI.selectionField: [ {
+    position: 2990 
+  } ]
+  LegalLiabilityAmountUsd;
+  
+  @UI.identification: [ {
+    position: 3000 
+  } ]
+  @UI.lineItem: [ {
+    position: 3000 
+  } ]
+  @UI.selectionField: [ {
+    position: 3000 
+  } ]
+  LegalStatusPicklist;
+  
+  @UI.identification: [ {
+    position: 3010 
+  } ]
+  @UI.lineItem: [ {
+    position: 3010 
+  } ]
+  @UI.selectionField: [ {
+    position: 3010 
+  } ]
+  LightConditions;
+  
+  @EndUserText.label: 'LimitationFund'
+  @UI.identification: [ {
+    position: 3020 , 
+    label: 'LimitationFund'
+  } ]
+  @UI.lineItem: [ {
+    position: 3020 , 
+    label: 'LimitationFund'
+  } ]
+  @UI.selectionField: [ {
+    position: 3020 
+  } ]
+  LimitationFund;
+  
+  @UI.identification: [ {
+    position: 3030 
+  } ]
+  @UI.lineItem: [ {
+    position: 3030 
+  } ]
+  @UI.selectionField: [ {
+    position: 3030 
+  } ]
+  LimitationFundCurrency;
+  
+  @UI.identification: [ {
+    position: 3040 
+  } ]
+  @UI.lineItem: [ {
+    position: 3040 
+  } ]
+  @UI.selectionField: [ {
+    position: 3040 
+  } ]
+  Litigation;
+  
+  @UI.identification: [ {
+    position: 3050 
+  } ]
+  @UI.lineItem: [ {
+    position: 3050 
+  } ]
+  @UI.selectionField: [ {
+    position: 3050 
+  } ]
+  LitigationStatusGrm;
+  
+  @UI.identification: [ {
+    position: 3060 
+  } ]
+  @UI.lineItem: [ {
+    position: 3060 
+  } ]
+  @UI.selectionField: [ {
+    position: 3060 
+  } ]
+  LegalStatus;
+  
+  @EndUserText.label: 'LossJuristiction'
+  @UI.identification: [ {
+    position: 3070 , 
+    label: 'LossJuristiction'
+  } ]
+  @UI.lineItem: [ {
+    position: 3070 , 
+    label: 'LossJuristiction'
+  } ]
+  @UI.selectionField: [ {
+    position: 3070 
+  } ]
+  LossJuristiction;
+  
+  @UI.identification: [ {
+    position: 3080 
+  } ]
+  @UI.lineItem: [ {
+    position: 3080 
+  } ]
+  @UI.selectionField: [ {
+    position: 3080 
+  } ]
+  LocalProvisionDamco;
+  
+  @UI.identification: [ {
+    position: 3090 
+  } ]
+  @UI.lineItem: [ {
+    position: 3090 
+  } ]
+  @UI.selectionField: [ {
+    position: 3090 
+  } ]
+  LocalProvisionCurrency;
+  
+  @UI.identification: [ {
+    position: 3100 
+  } ]
+  @UI.lineItem: [ {
+    position: 3100 
+  } ]
+  @UI.selectionField: [ {
+    position: 3100 
+  } ]
+  HierarchyNode;
+  
+  @EndUserText.label: 'ClaimLocation'
+  @UI.identification: [ {
+    position: 3110 , 
+    label: 'ClaimLocation'
+  } ]
+  @UI.lineItem: [ {
+    position: 3110 , 
+    label: 'ClaimLocation'
+  } ]
+  @UI.selectionField: [ {
+    position: 3110 
+  } ]
+  ClaimLocation;
+  
+  @UI.identification: [ {
+    position: 3120 
+  } ]
+  @UI.lineItem: [ {
+    position: 3120 
+  } ]
+  @UI.selectionField: [ {
+    position: 3120 
+  } ]
+  LocationLookup;
+  
+  @EndUserText.label: 'LocationName'
+  @UI.identification: [ {
+    position: 3130 , 
+    label: 'LocationName'
+  } ]
+  @UI.lineItem: [ {
+    position: 3130 , 
+    label: 'LocationName'
+  } ]
+  @UI.selectionField: [ {
+    position: 3130 
+  } ]
+  LocationName;
+  
+  @EndUserText.label: 'LocationSubBusinessUnit'
+  @UI.identification: [ {
+    position: 3140 , 
+    label: 'LocationSubBusinessUnit'
+  } ]
+  @UI.lineItem: [ {
+    position: 3140 , 
+    label: 'LocationSubBusinessUnit'
+  } ]
+  @UI.selectionField: [ {
+    position: 3140 
+  } ]
+  LocationSubBusinessUnit;
+  
+  @UI.identification: [ {
+    position: 3150 
+  } ]
+  @UI.lineItem: [ {
+    position: 3150 
+  } ]
+  @UI.selectionField: [ {
+    position: 3150 
+  } ]
+  LongTerm;
+  
+  @EndUserText.label: 'AccidentAddressLine2'
+  @UI.identification: [ {
+    position: 3160 , 
+    label: 'AccidentAddressLine2'
+  } ]
+  @UI.lineItem: [ {
+    position: 3160 , 
+    label: 'AccidentAddressLine2'
+  } ]
+  @UI.selectionField: [ {
+    position: 3160 
+  } ]
+  AccidentAddressLine2;
+  
+  @EndUserText.label: 'AccidentAddressLine1'
+  @UI.identification: [ {
+    position: 3170 , 
+    label: 'AccidentAddressLine1'
+  } ]
+  @UI.lineItem: [ {
+    position: 3170 , 
+    label: 'AccidentAddressLine1'
+  } ]
+  @UI.selectionField: [ {
+    position: 3170 
+  } ]
+  AccidentAddressLine1;
+  
+  @EndUserText.label: 'AccidentCity'
+  @UI.identification: [ {
+    position: 3180 , 
+    label: 'AccidentCity'
+  } ]
+  @UI.lineItem: [ {
+    position: 3180 , 
+    label: 'AccidentCity'
+  } ]
+  @UI.selectionField: [ {
+    position: 3180 
+  } ]
+  AccidentCity;
+  
+  @UI.identification: [ {
+    position: 3190 
+  } ]
+  @UI.lineItem: [ {
+    position: 3190 
+  } ]
+  @UI.selectionField: [ {
+    position: 3190 
+  } ]
+  LossCountry;
+  
+  @UI.identification: [ {
+    position: 3200 
+  } ]
+  @UI.lineItem: [ {
+    position: 3200 
+  } ]
+  @UI.selectionField: [ {
+    position: 3200 
+  } ]
+  AccidentCountry;
+  
+  @EndUserText.label: 'DateOfLoss'
+  @UI.identification: [ {
+    position: 3210 , 
+    label: 'DateOfLoss'
+  } ]
+  @UI.lineItem: [ {
+    position: 3210 , 
+    label: 'DateOfLoss'
+  } ]
+  @UI.selectionField: [ {
+    position: 3210 
+  } ]
+  DateOfLoss;
+  
+  @UI.identification: [ {
+    position: 3220 
+  } ]
+  @UI.lineItem: [ {
+    position: 3220 
+  } ]
+  @UI.selectionField: [ {
+    position: 3220 
+  } ]
+  AccidentDescription;
+  
+  @UI.identification: [ {
+    position: 3230 
+  } ]
+  @UI.lineItem: [ {
+    position: 3230 
+  } ]
+  @UI.selectionField: [ {
+    position: 3230 
+  } ]
+  LossJurisdiction;
+  
+  @EndUserText.label: 'AccidentPostalCode'
+  @UI.identification: [ {
+    position: 3240 , 
+    label: 'AccidentPostalCode'
+  } ]
+  @UI.lineItem: [ {
+    position: 3240 , 
+    label: 'AccidentPostalCode'
+  } ]
+  @UI.selectionField: [ {
+    position: 3240 
+  } ]
+  AccidentPostalCode;
+  
+  @UI.identification: [ {
+    position: 3250 
+  } ]
+  @UI.lineItem: [ {
+    position: 3250 
+  } ]
+  @UI.selectionField: [ {
+    position: 3250 
+  } ]
+  AccidentState;
+  
+  @EndUserText.label: 'LostDays'
+  @UI.identification: [ {
+    position: 3260 , 
+    label: 'LostDays'
+  } ]
+  @UI.lineItem: [ {
+    position: 3260 , 
+    label: 'LostDays'
+  } ]
+  @UI.selectionField: [ {
+    position: 3260 
+  } ]
+  LostDays;
+  
+  @UI.identification: [ {
+    position: 3270 
+  } ]
+  @UI.lineItem: [ {
+    position: 3270 
+  } ]
+  @UI.selectionField: [ {
+    position: 3270 
+  } ]
+  LostTimeIndicator;
+  
+  @EndUserText.label: 'LostWagesEarningCapacity'
+  @UI.identification: [ {
+    position: 3280 , 
+    label: 'LostWagesEarningCapacity'
+  } ]
+  @UI.lineItem: [ {
+    position: 3280 , 
+    label: 'LostWagesEarningCapacity'
+  } ]
+  @UI.selectionField: [ {
+    position: 3280 
+  } ]
+  LostWagesEarningCapacity;
+  
+  @EndUserText.label: 'LouSecurityAmount'
+  @UI.identification: [ {
+    position: 3290 , 
+    label: 'LouSecurityAmount'
+  } ]
+  @UI.lineItem: [ {
+    position: 3290 , 
+    label: 'LouSecurityAmount'
+  } ]
+  @UI.selectionField: [ {
+    position: 3290 
+  } ]
+  LouSecurityAmount;
+  
+  @UI.identification: [ {
+    position: 3300 
+  } ]
+  @UI.lineItem: [ {
+    position: 3300 
+  } ]
+  @UI.selectionField: [ {
+    position: 3300 
+  } ]
+  LouSecurityCurrency;
+  
+  @UI.identification: [ {
+    position: 3310 
+  } ]
+  @UI.lineItem: [ {
+    position: 3310 
+  } ]
+  @UI.selectionField: [ {
+    position: 3310 
+  } ]
+  MaerskCompany;
+  
+  @EndUserText.label: 'MaerskDamcoBlNumber'
+  @UI.identification: [ {
+    position: 3320 , 
+    label: 'MaerskDamcoBlNumber'
+  } ]
+  @UI.lineItem: [ {
+    position: 3320 , 
+    label: 'MaerskDamcoBlNumber'
+  } ]
+  @UI.selectionField: [ {
+    position: 3320 
+  } ]
+  MaerskDamcoBlNumber;
+  
+  @UI.identification: [ {
+    position: 3330 
+  } ]
+  @UI.lineItem: [ {
+    position: 3330 
+  } ]
+  @UI.selectionField: [ {
+    position: 3330 
+  } ]
+  MainActivity;
+  
+  @UI.identification: [ {
+    position: 3340 
+  } ]
+  @UI.lineItem: [ {
+    position: 3340 
+  } ]
+  @UI.selectionField: [ {
+    position: 3340 
+  } ]
+  MainCasualty;
+  
+  @UI.identification: [ {
+    position: 3350 
+  } ]
+  @UI.lineItem: [ {
+    position: 3350 
+  } ]
+  @UI.selectionField: [ {
+    position: 3350 
+  } ]
+  MainCause;
+  
+  @UI.identification: [ {
+    position: 3360 
+  } ]
+  @UI.lineItem: [ {
+    position: 3360 
+  } ]
+  @UI.selectionField: [ {
+    position: 3360 
+  } ]
+  MainEvent;
+  
+  @EndUserText.label: 'StarsDeductible'
+  @UI.identification: [ {
+    position: 3370 , 
+    label: 'StarsDeductible'
+  } ]
+  @UI.lineItem: [ {
+    position: 3370 , 
+    label: 'StarsDeductible'
+  } ]
+  @UI.selectionField: [ {
+    position: 3370 
+  } ]
+  StarsDeductible;
+  
+  @EndUserText.label: 'MediationDate'
+  @UI.identification: [ {
+    position: 3380 , 
+    label: 'MediationDate'
+  } ]
+  @UI.lineItem: [ {
+    position: 3380 , 
+    label: 'MediationDate'
+  } ]
+  @UI.selectionField: [ {
+    position: 3380 
+  } ]
+  MediationDate;
+  
+  @UI.identification: [ {
+    position: 3390 
+  } ]
+  @UI.lineItem: [ {
+    position: 3390 
+  } ]
+  @UI.selectionField: [ {
+    position: 3390 
+  } ]
+  MedicalBiIncurred;
+  
+  @UI.identification: [ {
+    position: 3400 
+  } ]
+  @UI.lineItem: [ {
+    position: 3400 
+  } ]
+  @UI.selectionField: [ {
+    position: 3400 
+  } ]
+  MedicalBiPaid;
+  
+  @UI.identification: [ {
+    position: 3410 
+  } ]
+  @UI.lineItem: [ {
+    position: 3410 
+  } ]
+  @UI.selectionField: [ {
+    position: 3410 
+  } ]
+  MedicalIncurredCurr2;
+  
+  @UI.identification: [ {
+    position: 3420 
+  } ]
+  @UI.lineItem: [ {
+    position: 3420 
+  } ]
+  @UI.selectionField: [ {
+    position: 3420 
+  } ]
+  MedicalIncurredCurr1;
+  
+  @UI.identification: [ {
+    position: 3430 
+  } ]
+  @UI.lineItem: [ {
+    position: 3430 
+  } ]
+  @UI.selectionField: [ {
+    position: 3430 
+  } ]
+  MedicalOutstandingCurr2;
+  
+  @UI.identification: [ {
+    position: 3440 
+  } ]
+  @UI.lineItem: [ {
+    position: 3440 
+  } ]
+  @UI.selectionField: [ {
+    position: 3440 
+  } ]
+  MedicalOutstandingCurr1;
+  
+  @UI.identification: [ {
+    position: 3450 
+  } ]
+  @UI.lineItem: [ {
+    position: 3450 
+  } ]
+  @UI.selectionField: [ {
+    position: 3450 
+  } ]
+  MedicalPaidCurr2;
+  
+  @UI.identification: [ {
+    position: 3460 
+  } ]
+  @UI.lineItem: [ {
+    position: 3460 
+  } ]
+  @UI.selectionField: [ {
+    position: 3460 
+  } ]
+  MedicalPaidCurr1;
+  
+  @UI.identification: [ {
+    position: 3470 
+  } ]
+  @UI.lineItem: [ {
+    position: 3470 
+  } ]
+  @UI.selectionField: [ {
+    position: 3470 
+  } ]
+  MedicalTreatmentOnboard;
+  
+  @UI.identification: [ {
+    position: 3480 
+  } ]
+  @UI.lineItem: [ {
+    position: 3480 
+  } ]
+  @UI.selectionField: [ {
+    position: 3480 
+  } ]
+  MedicareLien;
+  
+  @UI.identification: [ {
+    position: 3490 
+  } ]
+  @UI.lineItem: [ {
+    position: 3490 
+  } ]
+  @UI.selectionField: [ {
+    position: 3490 
+  } ]
+  MedicareReportable;
+  
+  @UI.identification: [ {
+    position: 3500 
+  } ]
+  @UI.lineItem: [ {
+    position: 3500 
+  } ]
+  @UI.selectionField: [ {
+    position: 3500 
+  } ]
+  MescEmployee;
+  
+  @EndUserText.label: 'MiasShare'
+  @UI.identification: [ {
+    position: 3510 , 
+    label: 'MiasShare'
+  } ]
+  @UI.lineItem: [ {
+    position: 3510 , 
+    label: 'MiasShare'
+  } ]
+  @UI.selectionField: [ {
+    position: 3510 
+  } ]
+  MiasShare;
+  
+  @EndUserText.label: 'MiasShareManual'
+  @UI.identification: [ {
+    position: 3520 , 
+    label: 'MiasShareManual'
+  } ]
+  @UI.lineItem: [ {
+    position: 3520 , 
+    label: 'MiasShareManual'
+  } ]
+  @UI.selectionField: [ {
+    position: 3520 
+  } ]
+  MiasShareManual;
+  
+  @EndUserText.label: 'VoidDate'
+  @UI.identification: [ {
+    position: 3530 , 
+    label: 'VoidDate'
+  } ]
+  @UI.lineItem: [ {
+    position: 3530 , 
+    label: 'VoidDate'
+  } ]
+  @UI.selectionField: [ {
+    position: 3530 
+  } ]
+  VoidDate;
+  
+  @EndUserText.label: 'ModeOfTransport'
+  @UI.identification: [ {
+    position: 3540 , 
+    label: 'ModeOfTransport'
+  } ]
+  @UI.lineItem: [ {
+    position: 3540 , 
+    label: 'ModeOfTransport'
+  } ]
+  @UI.selectionField: [ {
+    position: 3540 
+  } ]
+  ModeOfTransport;
+  
+  @EndUserText.label: 'NameOfWatercraft'
+  @UI.identification: [ {
+    position: 3550 , 
+    label: 'NameOfWatercraft'
+  } ]
+  @UI.lineItem: [ {
+    position: 3550 , 
+    label: 'NameOfWatercraft'
+  } ]
+  @UI.selectionField: [ {
+    position: 3550 
+  } ]
+  NameOfWatercraft;
+  
+  @EndUserText.label: 'NameTitleReportedTo'
+  @UI.identification: [ {
+    position: 3560 , 
+    label: 'NameTitleReportedTo'
+  } ]
+  @UI.lineItem: [ {
+    position: 3560 , 
+    label: 'NameTitleReportedTo'
+  } ]
+  @UI.selectionField: [ {
+    position: 3560 
+  } ]
+  NameTitleReportedTo;
+  
+  @UI.identification: [ {
+    position: 3570 
+  } ]
+  @UI.lineItem: [ {
+    position: 3570 
+  } ]
+  @UI.selectionField: [ {
+    position: 3570 
+  } ]
+  Nature;
+  
+  @EndUserText.label: 'NearestLandmark'
+  @UI.identification: [ {
+    position: 3580 , 
+    label: 'NearestLandmark'
+  } ]
+  @UI.lineItem: [ {
+    position: 3580 , 
+    label: 'NearestLandmark'
+  } ]
+  @UI.selectionField: [ {
+    position: 3580 
+  } ]
+  NearestLandmark;
+  
+  @UI.identification: [ {
+    position: 3590 
+  } ]
+  @UI.lineItem: [ {
+    position: 3590 
+  } ]
+  @UI.selectionField: [ {
+    position: 3590 
+  } ]
+  NetIncurredCurr2;
+  
+  @UI.identification: [ {
+    position: 3600 
+  } ]
+  @UI.lineItem: [ {
+    position: 3600 
+  } ]
+  @UI.selectionField: [ {
+    position: 3600 
+  } ]
+  NetIncurredCurr1;
+  
+  @UI.identification: [ {
+    position: 3610 
+  } ]
+  @UI.lineItem: [ {
+    position: 3610 
+  } ]
+  @UI.selectionField: [ {
+    position: 3610 
+  } ]
+  NetOutstandingCurr2;
+  
+  @UI.identification: [ {
+    position: 3620 
+  } ]
+  @UI.lineItem: [ {
+    position: 3620 
+  } ]
+  @UI.selectionField: [ {
+    position: 3620 
+  } ]
+  NetOutstandingCurr1;
+  
+  @UI.identification: [ {
+    position: 3630 
+  } ]
+  @UI.lineItem: [ {
+    position: 3630 
+  } ]
+  @UI.selectionField: [ {
+    position: 3630 
+  } ]
+  NetPaidCurr2;
+  
+  @UI.identification: [ {
+    position: 3640 
+  } ]
+  @UI.lineItem: [ {
+    position: 3640 
+  } ]
+  @UI.selectionField: [ {
+    position: 3640 
+  } ]
+  NetPaidCurr1;
+  
+  @UI.identification: [ {
+    position: 3650 
+  } ]
+  @UI.lineItem: [ {
+    position: 3650 
+  } ]
+  @UI.selectionField: [ {
+    position: 3650 
+  } ]
+  NetRetention;
+  
+  @UI.identification: [ {
+    position: 3660 
+  } ]
+  @UI.lineItem: [ {
+    position: 3660 
+  } ]
+  @UI.selectionField: [ {
+    position: 3660 
+  } ]
+  NetRtntEur;
+  
+  @UI.identification: [ {
+    position: 3670 
+  } ]
+  @UI.lineItem: [ {
+    position: 3670 
+  } ]
+  @UI.selectionField: [ {
+    position: 3670 
+  } ]
+  NetRtntUsd;
+  
+  @UI.identification: [ {
+    position: 3680 
+  } ]
+  @UI.lineItem: [ {
+    position: 3680 
+  } ]
+  @UI.selectionField: [ {
+    position: 3680 
+  } ]
+  NewDisabilityPeriod;
+  
+  @EndUserText.label: 'NotifiedDate'
+  @UI.identification: [ {
+    position: 3690 , 
+    label: 'NotifiedDate'
+  } ]
+  @UI.lineItem: [ {
+    position: 3690 , 
+    label: 'NotifiedDate'
+  } ]
+  @UI.selectionField: [ {
+    position: 3690 
+  } ]
+  NotifiedDate;
+  
+  @UI.identification: [ {
+    position: 3700 
+  } ]
+  @UI.lineItem: [ {
+    position: 3700 
+  } ]
+  @UI.selectionField: [ {
+    position: 3700 
+  } ]
+  Occupation;
+  
+  @UI.identification: [ {
+    position: 3710 
+  } ]
+  @UI.lineItem: [ {
+    position: 3710 
+  } ]
+  @UI.selectionField: [ {
+    position: 3710 
+  } ]
+  Occurrence;
+  
+  @EndUserText.label: 'OccurrenceNumber'
+  @UI.identification: [ {
+    position: 3720 , 
+    label: 'OccurrenceNumber'
+  } ]
+  @UI.lineItem: [ {
+    position: 3720 , 
+    label: 'OccurrenceNumber'
+  } ]
+  @UI.selectionField: [ {
+    position: 3720 
+  } ]
+  OccurrenceNumber;
+  
+  @EndUserText.label: 'OccurrenceType'
+  @UI.identification: [ {
+    position: 3730 , 
+    label: 'OccurrenceType'
+  } ]
+  @UI.lineItem: [ {
+    position: 3730 , 
+    label: 'OccurrenceType'
+  } ]
+  @UI.selectionField: [ {
+    position: 3730 
+  } ]
+  OccurrenceType;
+  
+  @UI.identification: [ {
+    position: 3740 
+  } ]
+  @UI.lineItem: [ {
+    position: 3740 
+  } ]
+  @UI.selectionField: [ {
+    position: 3740 
+  } ]
+  Ocl;
+  
+  @UI.identification: [ {
+    position: 3750 
+  } ]
+  @UI.lineItem: [ {
+    position: 3750 
+  } ]
+  @UI.selectionField: [ {
+    position: 3750 
+  } ]
+  OcuClaim;
+  
+  @EndUserText.label: 'OffBsCentreCurrency'
+  @UI.identification: [ {
+    position: 3760 , 
+    label: 'OffBsCentreCurrency'
+  } ]
+  @UI.lineItem: [ {
+    position: 3760 , 
+    label: 'OffBsCentreCurrency'
+  } ]
+  @UI.selectionField: [ {
+    position: 3760 
+  } ]
+  OffBsCentreCurrency;
+  
+  @UI.identification: [ {
+    position: 3770 
+  } ]
+  @UI.lineItem: [ {
+    position: 3770 
+  } ]
+  @UI.selectionField: [ {
+    position: 3770 
+  } ]
+  OffBsCountriesCurrency;
+  
+  @UI.identification: [ {
+    position: 3780 
+  } ]
+  @UI.lineItem: [ {
+    position: 3780 
+  } ]
+  @UI.selectionField: [ {
+    position: 3780 
+  } ]
+  OffsiteMedicalTreatmentDel;
+  
+  @EndUserText.label: 'OldDamcoReferenceNumber'
+  @UI.identification: [ {
+    position: 3790 , 
+    label: 'OldDamcoReferenceNumber'
+  } ]
+  @UI.lineItem: [ {
+    position: 3790 , 
+    label: 'OldDamcoReferenceNumber'
+  } ]
+  @UI.selectionField: [ {
+    position: 3790 
+  } ]
+  OldDamcoReferenceNumber;
+  
+  @UI.identification: [ {
+    position: 3800 
+  } ]
+  @UI.lineItem: [ {
+    position: 3800 
+  } ]
+  @UI.selectionField: [ {
+    position: 3800 
+  } ]
+  OshaRecordable;
+  
+  @EndUserText.label: 'OtherCarriers'
+  @UI.identification: [ {
+    position: 3810 , 
+    label: 'OtherCarriers'
+  } ]
+  @UI.lineItem: [ {
+    position: 3810 , 
+    label: 'OtherCarriers'
+  } ]
+  @UI.selectionField: [ {
+    position: 3810 
+  } ]
+  OtherCarriers;
+  
+  @UI.identification: [ {
+    position: 3820 
+  } ]
+  @UI.lineItem: [ {
+    position: 3820 
+  } ]
+  @UI.selectionField: [ {
+    position: 3820 
+  } ]
+  OtherVehicles;
+  
+  @EndUserText.label: 'Owcp'
+  @UI.identification: [ {
+    position: 3830 , 
+    label: 'Owcp'
+  } ]
+  @UI.lineItem: [ {
+    position: 3830 , 
+    label: 'Owcp'
+  } ]
+  @UI.selectionField: [ {
+    position: 3830 
+  } ]
+  Owcp;
+  
+  @UI.identification: [ {
+    position: 3840 
+  } ]
+  @UI.lineItem: [ {
+    position: 3840 
+  } ]
+  @UI.selectionField: [ {
+    position: 3840 
+  } ]
+  PIAad;
+  
+  @EndUserText.label: 'PIClubNew'
+  @UI.identification: [ {
+    position: 3850 , 
+    label: 'PIClubNew'
+  } ]
+  @UI.lineItem: [ {
+    position: 3850 , 
+    label: 'PIClubNew'
+  } ]
+  @UI.selectionField: [ {
+    position: 3850 
+  } ]
+  PIClubNew;
+  
+  @UI.identification: [ {
+    position: 3860 
+  } ]
+  @UI.lineItem: [ {
+    position: 3860 
+  } ]
+  @UI.selectionField: [ {
+    position: 3860 
+  } ]
+  PIClubNames;
+  
+  @UI.identification: [ {
+    position: 3870 
+  } ]
+  @UI.lineItem: [ {
+    position: 3870 
+  } ]
+  @UI.selectionField: [ {
+    position: 3870 
+  } ]
+  PaAppointed;
+  
+  @EndUserText.label: 'PaAppointedDate'
+  @UI.identification: [ {
+    position: 3880 , 
+    label: 'PaAppointedDate'
+  } ]
+  @UI.lineItem: [ {
+    position: 3880 , 
+    label: 'PaAppointedDate'
+  } ]
+  @UI.selectionField: [ {
+    position: 3880 
+  } ]
+  PaAppointedDate;
+  
+  @UI.identification: [ {
+    position: 3890 
+  } ]
+  @UI.lineItem: [ {
+    position: 3890 
+  } ]
+  @UI.selectionField: [ {
+    position: 3890 
+  } ]
+  PaEmail;
+  
+  @EndUserText.label: 'PaFirmName'
+  @UI.identification: [ {
+    position: 3900 , 
+    label: 'PaFirmName'
+  } ]
+  @UI.lineItem: [ {
+    position: 3900 , 
+    label: 'PaFirmName'
+  } ]
+  @UI.selectionField: [ {
+    position: 3900 
+  } ]
+  PaFirmName;
+  
+  @EndUserText.label: 'PaName'
+  @UI.identification: [ {
+    position: 3910 , 
+    label: 'PaName'
+  } ]
+  @UI.lineItem: [ {
+    position: 3910 , 
+    label: 'PaName'
+  } ]
+  @UI.selectionField: [ {
+    position: 3910 
+  } ]
+  PaName;
+  
+  @EndUserText.label: 'PaPhone'
+  @UI.identification: [ {
+    position: 3920 , 
+    label: 'PaPhone'
+  } ]
+  @UI.lineItem: [ {
+    position: 3920 , 
+    label: 'PaPhone'
+  } ]
+  @UI.selectionField: [ {
+    position: 3920 
+  } ]
+  PaPhone;
+  
+  @EndUserText.label: 'SettledLegalCost'
+  @UI.identification: [ {
+    position: 3930 , 
+    label: 'SettledLegalCost'
+  } ]
+  @UI.lineItem: [ {
+    position: 3930 , 
+    label: 'SettledLegalCost'
+  } ]
+  @UI.selectionField: [ {
+    position: 3930 
+  } ]
+  SettledLegalCost;
+  
+  @EndUserText.label: 'PaidSettledLegalCostsUsd'
+  @UI.identification: [ {
+    position: 3940 , 
+    label: 'PaidSettledLegalCostsUsd'
+  } ]
+  @UI.lineItem: [ {
+    position: 3940 , 
+    label: 'PaidSettledLegalCostsUsd'
+  } ]
+  @UI.selectionField: [ {
+    position: 3940 
+  } ]
+  PaidSettledLegalCostsUsd;
+  
+  @EndUserText.label: 'PaidSettledAmountUsd'
+  @UI.identification: [ {
+    position: 3950 , 
+    label: 'PaidSettledAmountUsd'
+  } ]
+  @UI.lineItem: [ {
+    position: 3950 , 
+    label: 'PaidSettledAmountUsd'
+  } ]
+  @UI.selectionField: [ {
+    position: 3950 
+  } ]
+  PaidSettledAmountUsd;
+  
+  @UI.identification: [ {
+    position: 3960 
+  } ]
+  @UI.lineItem: [ {
+    position: 3960 
+  } ]
+  @UI.selectionField: [ {
+    position: 3960 
+  } ]
+  PartGeneralDelDel;
+  
+  @UI.identification: [ {
+    position: 3970 
+  } ]
+  @UI.lineItem: [ {
+    position: 3970 
+  } ]
+  @UI.selectionField: [ {
+    position: 3970 
+  } ]
+  PermanentRepairs;
+  
+  @EndUserText.label: 'PersonName'
+  @UI.identification: [ {
+    position: 3980 , 
+    label: 'PersonName'
+  } ]
+  @UI.lineItem: [ {
+    position: 3980 , 
+    label: 'PersonName'
+  } ]
+  @UI.selectionField: [ {
+    position: 3980 
+  } ]
+  PersonName;
+  
+  @UI.identification: [ {
+    position: 3990 
+  } ]
+  @UI.lineItem: [ {
+    position: 3990 
+  } ]
+  @UI.selectionField: [ {
+    position: 3990 
+  } ]
+  PhysicalFile;
+  
+  @EndUserText.label: 'PhysicianName'
+  @UI.identification: [ {
+    position: 4000 , 
+    label: 'PhysicianName'
+  } ]
+  @UI.lineItem: [ {
+    position: 4000 , 
+    label: 'PhysicianName'
+  } ]
+  @UI.selectionField: [ {
+    position: 4000 
+  } ]
+  PhysicianName;
+  
+  @EndUserText.label: 'PlannedRepairDate'
+  @UI.identification: [ {
+    position: 4010 , 
+    label: 'PlannedRepairDate'
+  } ]
+  @UI.lineItem: [ {
+    position: 4010 , 
+    label: 'PlannedRepairDate'
+  } ]
+  @UI.selectionField: [ {
+    position: 4010 
+  } ]
+  PlannedRepairDate;
+  
+  @EndUserText.label: 'PoliceDeptName'
+  @UI.identification: [ {
+    position: 4020 , 
+    label: 'PoliceDeptName'
+  } ]
+  @UI.lineItem: [ {
+    position: 4020 , 
+    label: 'PoliceDeptName'
+  } ]
+  @UI.selectionField: [ {
+    position: 4020 
+  } ]
+  PoliceDeptName;
+  
+  @EndUserText.label: 'PoliceReport'
+  @UI.identification: [ {
+    position: 4030 , 
+    label: 'PoliceReport'
+  } ]
+  @UI.lineItem: [ {
+    position: 4030 , 
+    label: 'PoliceReport'
+  } ]
+  @UI.selectionField: [ {
+    position: 4030 
+  } ]
+  PoliceReport;
+  
+  @EndUserText.label: 'PolicyEffectiveDate'
+  @UI.identification: [ {
+    position: 4040 , 
+    label: 'PolicyEffectiveDate'
+  } ]
+  @UI.lineItem: [ {
+    position: 4040 , 
+    label: 'PolicyEffectiveDate'
+  } ]
+  @UI.selectionField: [ {
+    position: 4040 
+  } ]
+  PolicyEffectiveDate;
+  
+  @EndUserText.label: 'PolicyExpirationDateDel'
+  @UI.identification: [ {
+    position: 4050 , 
+    label: 'PolicyExpirationDateDel'
+  } ]
+  @UI.lineItem: [ {
+    position: 4050 , 
+    label: 'PolicyExpirationDateDel'
+  } ]
+  @UI.selectionField: [ {
+    position: 4050 
+  } ]
+  PolicyExpirationDateDel;
+  
+  @UI.identification: [ {
+    position: 4060 
+  } ]
+  @UI.lineItem: [ {
+    position: 4060 
+  } ]
+  @UI.selectionField: [ {
+    position: 4060 
+  } ]
+  PolicyName;
+  
+  @UI.identification: [ {
+    position: 4070 
+  } ]
+  @UI.lineItem: [ {
+    position: 4070 
+  } ]
+  @UI.selectionField: [ {
+    position: 4070 
+  } ]
+  PolicyLookup;
+  
+  @EndUserText.label: 'PolicyNumberNew'
+  @UI.identification: [ {
+    position: 4080 , 
+    label: 'PolicyNumberNew'
+  } ]
+  @UI.lineItem: [ {
+    position: 4080 , 
+    label: 'PolicyNumberNew'
+  } ]
+  @UI.selectionField: [ {
+    position: 4080 
+  } ]
+  PolicyNumberNew;
+  
+  @EndUserText.label: 'PolicyNumber'
+  @UI.identification: [ {
+    position: 4090 , 
+    label: 'PolicyNumber'
+  } ]
+  @UI.lineItem: [ {
+    position: 4090 , 
+    label: 'PolicyNumber'
+  } ]
+  @UI.selectionField: [ {
+    position: 4090 
+  } ]
+  PolicyNumber;
+  
+  @UI.identification: [ {
+    position: 4100 
+  } ]
+  @UI.lineItem: [ {
+    position: 4100 
+  } ]
+  @UI.selectionField: [ {
+    position: 4100 
+  } ]
+  PolicySectionLookup;
+  
+  @EndUserText.label: 'PolicyYearNew'
+  @UI.identification: [ {
+    position: 4110 , 
+    label: 'PolicyYearNew'
+  } ]
+  @UI.lineItem: [ {
+    position: 4110 , 
+    label: 'PolicyYearNew'
+  } ]
+  @UI.selectionField: [ {
+    position: 4110 
+  } ]
+  PolicyYearNew;
+  
+  @EndUserText.label: 'PolicyYear'
+  @UI.identification: [ {
+    position: 4120 , 
+    label: 'PolicyYear'
+  } ]
+  @UI.lineItem: [ {
+    position: 4120 , 
+    label: 'PolicyYear'
+  } ]
+  @UI.selectionField: [ {
+    position: 4120 
+  } ]
+  PolicyYear;
+  
+  @EndUserText.label: 'FinalDestination'
+  @UI.identification: [ {
+    position: 4130 , 
+    label: 'FinalDestination'
+  } ]
+  @UI.lineItem: [ {
+    position: 4130 , 
+    label: 'FinalDestination'
+  } ]
+  @UI.selectionField: [ {
+    position: 4130 
+  } ]
+  FinalDestination;
+  
+  @EndUserText.label: 'PortOfDischarge'
+  @UI.identification: [ {
+    position: 4140 , 
+    label: 'PortOfDischarge'
+  } ]
+  @UI.lineItem: [ {
+    position: 4140 , 
+    label: 'PortOfDischarge'
+  } ]
+  @UI.selectionField: [ {
+    position: 4140 
+  } ]
+  PortOfDischarge;
+  
+  @EndUserText.label: 'PortOfOrigin'
+  @UI.identification: [ {
+    position: 4150 , 
+    label: 'PortOfOrigin'
+  } ]
+  @UI.lineItem: [ {
+    position: 4150 , 
+    label: 'PortOfOrigin'
+  } ]
+  @UI.selectionField: [ {
+    position: 4150 
+  } ]
+  PortOfOrigin;
+  
+  @EndUserText.label: 'PortOfLoading'
+  @UI.identification: [ {
+    position: 4160 , 
+    label: 'PortOfLoading'
+  } ]
+  @UI.lineItem: [ {
+    position: 4160 , 
+    label: 'PortOfLoading'
+  } ]
+  @UI.selectionField: [ {
+    position: 4160 
+  } ]
+  PortOfLoading;
+  
+  @EndUserText.label: 'PortOfReceipt'
+  @UI.identification: [ {
+    position: 4170 , 
+    label: 'PortOfReceipt'
+  } ]
+  @UI.lineItem: [ {
+    position: 4170 , 
+    label: 'PortOfReceipt'
+  } ]
+  @UI.selectionField: [ {
+    position: 4170 
+  } ]
+  PortOfReceipt;
+  
+  @EndUserText.label: 'PermanentPortOfRepair'
+  @UI.identification: [ {
+    position: 4180 , 
+    label: 'PermanentPortOfRepair'
+  } ]
+  @UI.lineItem: [ {
+    position: 4180 , 
+    label: 'PermanentPortOfRepair'
+  } ]
+  @UI.selectionField: [ {
+    position: 4180 
+  } ]
+  PermanentPortOfRepair;
+  
+  @EndUserText.label: 'TemporaryPortOfRepair'
+  @UI.identification: [ {
+    position: 4190 , 
+    label: 'TemporaryPortOfRepair'
+  } ]
+  @UI.lineItem: [ {
+    position: 4190 , 
+    label: 'TemporaryPortOfRepair'
+  } ]
+  @UI.selectionField: [ {
+    position: 4190 
+  } ]
+  TemporaryPortOfRepair;
+  
+  @EndUserText.label: 'PortSInvolved'
+  @UI.identification: [ {
+    position: 4200 , 
+    label: 'PortSInvolved'
+  } ]
+  @UI.lineItem: [ {
+    position: 4200 , 
+    label: 'PortSInvolved'
+  } ]
+  @UI.selectionField: [ {
+    position: 4200 
+  } ]
+  PortSInvolved;
+  
+  @UI.identification: [ {
+    position: 4210 
+  } ]
+  @UI.lineItem: [ {
+    position: 4210 
+  } ]
+  @UI.selectionField: [ {
+    position: 4210 
+  } ]
+  Preventable;
+  
+  @UI.identification: [ {
+    position: 4220 
+  } ]
+  @UI.lineItem: [ {
+    position: 4220 
+  } ]
+  @UI.selectionField: [ {
+    position: 4220 
+  } ]
+  PropertyLookup;
+  
+  @UI.identification: [ {
+    position: 4230 
+  } ]
+  @UI.lineItem: [ {
+    position: 4230 
+  } ]
+  @UI.selectionField: [ {
+    position: 4230 
+  } ]
+  Recommendation;
+  
+  @UI.identification: [ {
+    position: 4240 
+  } ]
+  @UI.lineItem: [ {
+    position: 4240 
+  } ]
+  @UI.selectionField: [ {
+    position: 4240 
+  } ]
+  RecommendationComments;
+  
+  @EndUserText.label: 'RecordTypeCustom'
+  @UI.identification: [ {
+    position: 4250 , 
+    label: 'RecordTypeCustom'
+  } ]
+  @UI.lineItem: [ {
+    position: 4250 , 
+    label: 'RecordTypeCustom'
+  } ]
+  @UI.selectionField: [ {
+    position: 4250 
+  } ]
+  RecordTypeCustom;
+  
+  @UI.identification: [ {
+    position: 4260 
+  } ]
+  @UI.lineItem: [ {
+    position: 4260 
+  } ]
+  @UI.selectionField: [ {
+    position: 4260 
+  } ]
+  RecoveryFrom3rdPartyCurr2;
+  
+  @UI.identification: [ {
+    position: 4270 
+  } ]
+  @UI.lineItem: [ {
+    position: 4270 
+  } ]
+  @UI.selectionField: [ {
+    position: 4270 
+  } ]
+  RecoveryFrom3rdPartyCurr1;
+  
+  @UI.identification: [ {
+    position: 4280 
+  } ]
+  @UI.lineItem: [ {
+    position: 4280 
+  } ]
+  @UI.selectionField: [ {
+    position: 4280 
+  } ]
+  RecoveryReceived;
+  
+  @UI.identification: [ {
+    position: 4290 
+  } ]
+  @UI.lineItem: [ {
+    position: 4290 
+  } ]
+  @UI.selectionField: [ {
+    position: 4290 
+  } ]
+  RecoveryFromInsuranceCurr2;
+  
+  @UI.identification: [ {
+    position: 4300 
+  } ]
+  @UI.lineItem: [ {
+    position: 4300 
+  } ]
+  @UI.selectionField: [ {
+    position: 4300 
+  } ]
+  RecoveryFromInsuranceCurr1;
+  
+  @EndUserText.label: 'RecoveryOwner'
+  @UI.identification: [ {
+    position: 4310 , 
+    label: 'RecoveryOwner'
+  } ]
+  @UI.lineItem: [ {
+    position: 4310 , 
+    label: 'RecoveryOwner'
+  } ]
+  @UI.selectionField: [ {
+    position: 4310 
+  } ]
+  RecoveryOwner;
+  
+  @UI.identification: [ {
+    position: 4320 
+  } ]
+  @UI.lineItem: [ {
+    position: 4320 
+  } ]
+  @UI.selectionField: [ {
+    position: 4320 
+  } ]
+  RecoveryPursued;
+  
+  @UI.identification: [ {
+    position: 4330 
+  } ]
+  @UI.lineItem: [ {
+    position: 4330 
+  } ]
+  @UI.selectionField: [ {
+    position: 4330 
+  } ]
+  RecoveryStatus;
+  
+  @UI.identification: [ {
+    position: 4340 
+  } ]
+  @UI.lineItem: [ {
+    position: 4340 
+  } ]
+  @UI.selectionField: [ {
+    position: 4340 
+  } ]
+  RedFlag;
+  
+  @EndUserText.label: 'RegionSrc'
+  @UI.identification: [ {
+    position: 4350 , 
+    label: 'RegionSrc'
+  } ]
+  @UI.lineItem: [ {
+    position: 4350 , 
+    label: 'RegionSrc'
+  } ]
+  @UI.selectionField: [ {
+    position: 4350 
+  } ]
+  RegionSrc;
+  
+  @EndUserText.label: 'PermanentRepairCompleteDate'
+  @UI.identification: [ {
+    position: 4360 , 
+    label: 'PermanentRepairCompleteDate'
+  } ]
+  @UI.lineItem: [ {
+    position: 4360 , 
+    label: 'PermanentRepairCompleteDate'
+  } ]
+  @UI.selectionField: [ {
+    position: 4360 
+  } ]
+  PermanentRepairCompleteDate;
+  
+  @EndUserText.label: 'TemporaryRepairCompleteDate'
+  @UI.identification: [ {
+    position: 4370 , 
+    label: 'TemporaryRepairCompleteDate'
+  } ]
+  @UI.lineItem: [ {
+    position: 4370 , 
+    label: 'TemporaryRepairCompleteDate'
+  } ]
+  @UI.selectionField: [ {
+    position: 4370 
+  } ]
+  TemporaryRepairCompleteDate;
+  
+  @UI.identification: [ {
+    position: 4380 
+  } ]
+  @UI.lineItem: [ {
+    position: 4380 
+  } ]
+  @UI.selectionField: [ {
+    position: 4380 
+  } ]
+  PermanentRepairDescription;
+  
+  @UI.identification: [ {
+    position: 4390 
+  } ]
+  @UI.lineItem: [ {
+    position: 4390 
+  } ]
+  @UI.selectionField: [ {
+    position: 4390 
+  } ]
+  TemporaryRepairDescription;
+  
+  @EndUserText.label: 'PermanentRepairStartDate'
+  @UI.identification: [ {
+    position: 4400 , 
+    label: 'PermanentRepairStartDate'
+  } ]
+  @UI.lineItem: [ {
+    position: 4400 , 
+    label: 'PermanentRepairStartDate'
+  } ]
+  @UI.selectionField: [ {
+    position: 4400 
+  } ]
+  PermanentRepairStartDate;
+  
+  @EndUserText.label: 'TemporaryRepairStartDate'
+  @UI.identification: [ {
+    position: 4410 , 
+    label: 'TemporaryRepairStartDate'
+  } ]
+  @UI.lineItem: [ {
+    position: 4410 , 
+    label: 'TemporaryRepairStartDate'
+  } ]
+  @UI.selectionField: [ {
+    position: 4410 
+  } ]
+  TemporaryRepairStartDate;
+  
+  @UI.identification: [ {
+    position: 4420 
+  } ]
+  @UI.lineItem: [ {
+    position: 4420 
+  } ]
+  @UI.selectionField: [ {
+    position: 4420 
+  } ]
+  RepairsCompletedInPort;
+  
+  @UI.identification: [ {
+    position: 4430 
+  } ]
+  @UI.lineItem: [ {
+    position: 4430 
+  } ]
+  @UI.selectionField: [ {
+    position: 4430 
+  } ]
+  VsaPartner;
+  
+  @EndUserText.label: 'ReplyDate'
+  @UI.identification: [ {
+    position: 4440 , 
+    label: 'ReplyDate'
+  } ]
+  @UI.lineItem: [ {
+    position: 4440 , 
+    label: 'ReplyDate'
+  } ]
+  @UI.selectionField: [ {
+    position: 4440 
+  } ]
+  ReplyDate;
+  
+  @EndUserText.label: 'DateReportedToClient'
+  @UI.identification: [ {
+    position: 4450 , 
+    label: 'DateReportedToClient'
+  } ]
+  @UI.lineItem: [ {
+    position: 4450 , 
+    label: 'DateReportedToClient'
+  } ]
+  @UI.selectionField: [ {
+    position: 4450 
+  } ]
+  DateReportedToClient;
+  
+  @EndUserText.label: 'ReportedToBroker'
+  @UI.identification: [ {
+    position: 4460 , 
+    label: 'ReportedToBroker'
+  } ]
+  @UI.lineItem: [ {
+    position: 4460 , 
+    label: 'ReportedToBroker'
+  } ]
+  @UI.selectionField: [ {
+    position: 4460 
+  } ]
+  ReportedToBroker;
+  
+  @EndUserText.label: 'ReportingDepartment'
+  @UI.identification: [ {
+    position: 4470 , 
+    label: 'ReportingDepartment'
+  } ]
+  @UI.lineItem: [ {
+    position: 4470 , 
+    label: 'ReportingDepartment'
+  } ]
+  @UI.selectionField: [ {
+    position: 4470 
+  } ]
+  ReportingDepartment;
+  
+  @EndUserText.label: 'ResponseDate'
+  @UI.identification: [ {
+    position: 4480 , 
+    label: 'ResponseDate'
+  } ]
+  @UI.lineItem: [ {
+    position: 4480 , 
+    label: 'ResponseDate'
+  } ]
+  @UI.selectionField: [ {
+    position: 4480 
+  } ]
+  ResponseDate;
+  
+  @EndUserText.label: 'X3rdPartyName'
+  @UI.identification: [ {
+    position: 4490 , 
+    label: 'X3rdPartyName'
+  } ]
+  @UI.lineItem: [ {
+    position: 4490 , 
+    label: 'X3rdPartyName'
+  } ]
+  @UI.selectionField: [ {
+    position: 4490 
+  } ]
+  X3rdPartyName;
+  
+  @UI.identification: [ {
+    position: 4500 
+  } ]
+  @UI.lineItem: [ {
+    position: 4500 
+  } ]
+  @UI.selectionField: [ {
+    position: 4500 
+  } ]
+  Responsible3rdPartyCode;
+  
+  @UI.identification: [ {
+    position: 4510 
+  } ]
+  @UI.lineItem: [ {
+    position: 4510 
+  } ]
+  @UI.selectionField: [ {
+    position: 4510 
+  } ]
+  ResponsiblePartyCode;
+  
+  @EndUserText.label: 'RestrictedDays'
+  @UI.identification: [ {
+    position: 4520 , 
+    label: 'RestrictedDays'
+  } ]
+  @UI.lineItem: [ {
+    position: 4520 , 
+    label: 'RestrictedDays'
+  } ]
+  @UI.selectionField: [ {
+    position: 4520 
+  } ]
+  RestrictedDays;
+  
+  @EndUserText.label: 'RetainedEarningCapacity'
+  @UI.identification: [ {
+    position: 4530 , 
+    label: 'RetainedEarningCapacity'
+  } ]
+  @UI.lineItem: [ {
+    position: 4530 , 
+    label: 'RetainedEarningCapacity'
+  } ]
+  @UI.selectionField: [ {
+    position: 4530 
+  } ]
+  RetainedEarningCapacity;
+  
+  @UI.identification: [ {
+    position: 4540 
+  } ]
+  @UI.lineItem: [ {
+    position: 4540 
+  } ]
+  @UI.selectionField: [ {
+    position: 4540 
+  } ]
+  RootCause;
+  
+  @UI.identification: [ {
+    position: 4550 
+  } ]
+  @UI.lineItem: [ {
+    position: 4550 
+  } ]
+  @UI.selectionField: [ {
+    position: 4550 
+  } ]
+  ZzzCauseCode;
+  
+  @UI.identification: [ {
+    position: 4560 
+  } ]
+  @UI.lineItem: [ {
+    position: 4560 
+  } ]
+  @UI.selectionField: [ {
+    position: 4560 
+  } ]
+  Salvage;
+  
+  @UI.identification: [ {
+    position: 4570 
+  } ]
+  @UI.lineItem: [ {
+    position: 4570 
+  } ]
+  @UI.selectionField: [ {
+    position: 4570 
+  } ]
+  Savings;
+  
+  @EndUserText.label: 'Seal'
+  @UI.identification: [ {
+    position: 4580 , 
+    label: 'Seal'
+  } ]
+  @UI.lineItem: [ {
+    position: 4580 , 
+    label: 'Seal'
+  } ]
+  @UI.selectionField: [ {
+    position: 4580 
+  } ]
+  Seal;
+  
+  @EndUserText.label: 'ServedDate'
+  @UI.identification: [ {
+    position: 4590 , 
+    label: 'ServedDate'
+  } ]
+  @UI.lineItem: [ {
+    position: 4590 , 
+    label: 'ServedDate'
+  } ]
+  @UI.selectionField: [ {
+    position: 4590 
+  } ]
+  ServedDate;
+  
+  @EndUserText.label: 'SettlementAmount'
+  @UI.identification: [ {
+    position: 4600 , 
+    label: 'SettlementAmount'
+  } ]
+  @UI.lineItem: [ {
+    position: 4600 , 
+    label: 'SettlementAmount'
+  } ]
+  @UI.selectionField: [ {
+    position: 4600 
+  } ]
+  SettlementAmount;
+  
+  @UI.identification: [ {
+    position: 4610 
+  } ]
+  @UI.lineItem: [ {
+    position: 4610 
+  } ]
+  @UI.selectionField: [ {
+    position: 4610 
+  } ]
+  SettlementStatus;
+  
+  @UI.identification: [ {
+    position: 4620 
+  } ]
+  @UI.lineItem: [ {
+    position: 4620 
+  } ]
+  @UI.selectionField: [ {
+    position: 4620 
+  } ]
+  Severity;
+  
+  @UI.identification: [ {
+    position: 4630 
+  } ]
+  @UI.lineItem: [ {
+    position: 4630 
+  } ]
+  @UI.selectionField: [ {
+    position: 4630 
+  } ]
+  ShippersInstructions;
+  
+  @EndUserText.label: 'Shift'
+  @UI.identification: [ {
+    position: 4640 , 
+    label: 'Shift'
+  } ]
+  @UI.lineItem: [ {
+    position: 4640 , 
+    label: 'Shift'
+  } ]
+  @UI.selectionField: [ {
+    position: 4640 
+  } ]
+  Shift;
+  
+  @EndUserText.label: 'PolicyExpirationDate'
+  @UI.identification: [ {
+    position: 4650 , 
+    label: 'PolicyExpirationDate'
+  } ]
+  @UI.lineItem: [ {
+    position: 4650 , 
+    label: 'PolicyExpirationDate'
+  } ]
+  @UI.selectionField: [ {
+    position: 4650 
+  } ]
+  PolicyExpirationDate;
+  
+  @EndUserText.label: 'SurveyDate'
+  @UI.identification: [ {
+    position: 4660 , 
+    label: 'SurveyDate'
+  } ]
+  @UI.lineItem: [ {
+    position: 4660 , 
+    label: 'SurveyDate'
+  } ]
+  @UI.selectionField: [ {
+    position: 4660 
+  } ]
+  SurveyDate;
+  
+  @EndUserText.label: 'PropertyType'
+  @UI.identification: [ {
+    position: 4670 , 
+    label: 'PropertyType'
+  } ]
+  @UI.lineItem: [ {
+    position: 4670 , 
+    label: 'PropertyType'
+  } ]
+  @UI.selectionField: [ {
+    position: 4670 
+  } ]
+  PropertyType;
+  
+  @UI.identification: [ {
+    position: 4680 
+  } ]
+  @UI.lineItem: [ {
+    position: 4680 
+  } ]
+  @UI.selectionField: [ {
+    position: 4680 
+  } ]
+  SourceGeneralDel;
+  
+  @UI.identification: [ {
+    position: 4690 
+  } ]
+  @UI.lineItem: [ {
+    position: 4690 
+  } ]
+  @UI.selectionField: [ {
+    position: 4690 
+  } ]
+  Specification;
+  
+  @UI.identification: [ {
+    position: 4700 
+  } ]
+  @UI.lineItem: [ {
+    position: 4700 
+  } ]
+  @UI.selectionField: [ {
+    position: 4700 
+  } ]
+  StateFiled;
+  
+  @UI.identification: [ {
+    position: 4710 
+  } ]
+  @UI.lineItem: [ {
+    position: 4710 
+  } ]
+  @UI.selectionField: [ {
+    position: 4710 
+  } ]
+  StateFundRecovIndicatorDel;
+  
+  @UI.identification: [ {
+    position: 4720 
+  } ]
+  @UI.lineItem: [ {
+    position: 4720 
+  } ]
+  @UI.selectionField: [ {
+    position: 4720 
+  } ]
+  StateOfEmploymentDel;
+  
+  @UI.identification: [ {
+    position: 4730 
+  } ]
+  @UI.lineItem: [ {
+    position: 4730 
+  } ]
+  @UI.selectionField: [ {
+    position: 4730 
+  } ]
+  StateOfJurisdiction;
+  
+  @EndUserText.label: 'Status'
+  @UI.identification: [ {
+    position: 4740 ,
+    label: 'Status'
+  } ]
+  @UI.lineItem: [ {
+    position: 4740 ,
+    label: 'Status'
+  } ]
+  @UI.selectionField: [ {
+    position: 4740 
+  } ]
+  Status;
+  
+  @UI.identification: [ {
+    position: 4750 
+  } ]
+  @UI.lineItem: [ {
+    position: 4750 
+  } ]
+  @UI.selectionField: [ {
+    position: 4750 
+  } ]
+  StatusClosedCount;
+  
+  @UI.identification: [ {
+    position: 4760 
+  } ]
+  @UI.lineItem: [ {
+    position: 4760 
+  } ]
+  @UI.selectionField: [ {
+    position: 4760 
+  } ]
+  StatusDetail;
+  
+  @UI.identification: [ {
+    position: 4770 
+  } ]
+  @UI.lineItem: [ {
+    position: 4770 
+  } ]
+  @UI.selectionField: [ {
+    position: 4770 
+  } ]
+  StatusOpenCount;
+  
+  @UI.identification: [ {
+    position: 4780 
+  } ]
+  @UI.lineItem: [ {
+    position: 4780 
+  } ]
+  @UI.selectionField: [ {
+    position: 4780 
+  } ]
+  SubType;
+  
+  @UI.identification: [ {
+    position: 4790 
+  } ]
+  @UI.lineItem: [ {
+    position: 4790 
+  } ]
+  @UI.selectionField: [ {
+    position: 4790 
+  } ]
+  SubmitToTpa;
+  
+  @UI.identification: [ {
+    position: 4800 
+  } ]
+  @UI.lineItem: [ {
+    position: 4800 
+  } ]
+  @UI.selectionField: [ {
+    position: 4800 
+  } ]
+  SubmittedForReimb;
+  
+  @UI.identification: [ {
+    position: 4810 
+  } ]
+  @UI.lineItem: [ {
+    position: 4810 
+  } ]
+  @UI.selectionField: [ {
+    position: 4810 
+  } ]
+  SubmittedTo3rdParty;
+  
+  @UI.identification: [ {
+    position: 4820 
+  } ]
+  @UI.lineItem: [ {
+    position: 4820 
+  } ]
+  @UI.selectionField: [ {
+    position: 4820 
+  } ]
+  SubrogationGrm;
+  
+  @UI.identification: [ {
+    position: 4830 
+  } ]
+  @UI.lineItem: [ {
+    position: 4830 
+  } ]
+  @UI.selectionField: [ {
+    position: 4830 
+  } ]
+  Subrogation;
+  
+  @EndUserText.label: 'SubrogationAmountReceived'
+  @UI.identification: [ {
+    position: 4840 , 
+    label: 'SubrogationAmountReceived'
+  } ]
+  @UI.lineItem: [ {
+    position: 4840 , 
+    label: 'SubrogationAmountReceived'
+  } ]
+  @UI.selectionField: [ {
+    position: 4840 
+  } ]
+  SubrogationAmountReceived;
+  
+  @EndUserText.label: 'SubrogationAmountSubmitted'
+  @UI.identification: [ {
+    position: 4850 , 
+    label: 'SubrogationAmountSubmitted'
+  } ]
+  @UI.lineItem: [ {
+    position: 4850 , 
+    label: 'SubrogationAmountSubmitted'
+  } ]
+  @UI.selectionField: [ {
+    position: 4850 
+  } ]
+  SubrogationAmountSubmitted;
+  
+  @UI.identification: [ {
+    position: 4860 
+  } ]
+  @UI.lineItem: [ {
+    position: 4860 
+  } ]
+  @UI.selectionField: [ {
+    position: 4860 
+  } ]
+  SubrogationIndicatorDel;
+  
+  @EndUserText.label: 'SubrogationSubmittedTo'
+  @UI.identification: [ {
+    position: 4870 , 
+    label: 'SubrogationSubmittedTo'
+  } ]
+  @UI.lineItem: [ {
+    position: 4870 , 
+    label: 'SubrogationSubmittedTo'
+  } ]
+  @UI.selectionField: [ {
+    position: 4870 
+  } ]
+  SubrogationSubmittedTo;
+  
+  @EndUserText.label: 'SuitFiledDate'
+  @UI.identification: [ {
+    position: 4880 , 
+    label: 'SuitFiledDate'
+  } ]
+  @UI.lineItem: [ {
+    position: 4880 , 
+    label: 'SuitFiledDate'
+  } ]
+  @UI.selectionField: [ {
+    position: 4880 
+  } ]
+  SuitFiledDate;
+  
+  @EndUserText.label: 'Superintendent'
+  @UI.identification: [ {
+    position: 4890 , 
+    label: 'Superintendent'
+  } ]
+  @UI.lineItem: [ {
+    position: 4890 , 
+    label: 'Superintendent'
+  } ]
+  @UI.selectionField: [ {
+    position: 4890 
+  } ]
+  Superintendent;
+  
+  @EndUserText.label: 'SupervisorName'
+  @UI.identification: [ {
+    position: 4900 , 
+    label: 'SupervisorName'
+  } ]
+  @UI.lineItem: [ {
+    position: 4900 , 
+    label: 'SupervisorName'
+  } ]
+  @UI.selectionField: [ {
+    position: 4900 
+  } ]
+  SupervisorName;
+  
+  @UI.identification: [ {
+    position: 4910 
+  } ]
+  @UI.lineItem: [ {
+    position: 4910 
+  } ]
+  @UI.selectionField: [ {
+    position: 4910 
+  } ]
+  SurveyReportYN;
+  
+  @UI.identification: [ {
+    position: 4920 
+  } ]
+  @UI.lineItem: [ {
+    position: 4920 
+  } ]
+  @UI.selectionField: [ {
+    position: 4920 
+  } ]
+  SurveyRequested;
+  
+  @EndUserText.label: 'SurveyedAt'
+  @UI.identification: [ {
+    position: 4930 , 
+    label: 'SurveyedAt'
+  } ]
+  @UI.lineItem: [ {
+    position: 4930 , 
+    label: 'SurveyedAt'
+  } ]
+  @UI.selectionField: [ {
+    position: 4930 
+  } ]
+  SurveyedAt;
+  
+  @EndUserText.label: 'SurveyorName'
+  @UI.identification: [ {
+    position: 4940 , 
+    label: 'SurveyorName'
+  } ]
+  @UI.lineItem: [ {
+    position: 4940 , 
+    label: 'SurveyorName'
+  } ]
+  @UI.selectionField: [ {
+    position: 4940 
+  } ]
+  SurveyorName;
+  
+  @EndUserText.label: 'TakeoverIndicator'
+  @UI.identification: [ {
+    position: 4950 , 
+    label: 'TakeoverIndicator'
+  } ]
+  @UI.lineItem: [ {
+    position: 4950 , 
+    label: 'TakeoverIndicator'
+  } ]
+  @UI.selectionField: [ {
+    position: 4950 
+  } ]
+  TakeoverIndicator;
+  
+  @UI.identification: [ {
+    position: 4960 
+  } ]
+  @UI.lineItem: [ {
+    position: 4960 
+  } ]
+  @UI.selectionField: [ {
+    position: 4960 
+  } ]
+  TemporaryRepairs;
+  
+  @EndUserText.label: 'TerminalsLoad'
+  @UI.identification: [ {
+    position: 4970 , 
+    label: 'TerminalsLoad'
+  } ]
+  @UI.lineItem: [ {
+    position: 4970 , 
+    label: 'TerminalsLoad'
+  } ]
+  @UI.selectionField: [ {
+    position: 4970 
+  } ]
+  TerminalsLoad;
+  
+  @EndUserText.label: 'ThirdPartyInsuranceCoDel'
+  @UI.identification: [ {
+    position: 4980 , 
+    label: 'ThirdPartyInsuranceCoDel'
+  } ]
+  @UI.lineItem: [ {
+    position: 4980 , 
+    label: 'ThirdPartyInsuranceCoDel'
+  } ]
+  @UI.selectionField: [ {
+    position: 4980 
+  } ]
+  ThirdPartyInsuranceCoDel;
+  
+  @EndUserText.label: 'ThirdPartyPolicyNumberDel'
+  @UI.identification: [ {
+    position: 4990 , 
+    label: 'ThirdPartyPolicyNumberDel'
+  } ]
+  @UI.lineItem: [ {
+    position: 4990 , 
+    label: 'ThirdPartyPolicyNumberDel'
+  } ]
+  @UI.selectionField: [ {
+    position: 4990 
+  } ]
+  ThirdPartyPolicyNumberDel;
+  
+  @EndUserText.label: 'TimbarDateSubrogation'
+  @UI.identification: [ {
+    position: 5000 , 
+    label: 'TimbarDateSubrogation'
+  } ]
+  @UI.lineItem: [ {
+    position: 5000 , 
+    label: 'TimbarDateSubrogation'
+  } ]
+  @UI.selectionField: [ {
+    position: 5000 
+  } ]
+  TimbarDateSubrogation;
+  
+  @EndUserText.label: 'TimeBar'
+  @UI.identification: [ {
+    position: 5010 , 
+    label: 'TimeBar'
+  } ]
+  @UI.lineItem: [ {
+    position: 5010 , 
+    label: 'TimeBar'
+  } ]
+  @UI.selectionField: [ {
+    position: 5010 
+  } ]
+  TimeBar;
+  
+  @EndUserText.label: 'AccidentTime'
+  @UI.identification: [ {
+    position: 5020 , 
+    label: 'AccidentTime'
+  } ]
+  @UI.lineItem: [ {
+    position: 5020 , 
+    label: 'AccidentTime'
+  } ]
+  @UI.selectionField: [ {
+    position: 5020 
+  } ]
+  AccidentTime;
+  
+  @EndUserText.label: 'TimebarDateCDel'
+  @UI.identification: [ {
+    position: 5030 , 
+    label: 'TimebarDateCDel'
+  } ]
+  @UI.lineItem: [ {
+    position: 5030 , 
+    label: 'TimebarDateCDel'
+  } ]
+  @UI.selectionField: [ {
+    position: 5030 
+  } ]
+  TimebarDateCDel;
+  
+  @EndUserText.label: 'TimebarDateApmmVsInsurance'
+  @UI.identification: [ {
+    position: 5040 , 
+    label: 'TimebarDateApmmVsInsurance'
+  } ]
+  @UI.lineItem: [ {
+    position: 5040 , 
+    label: 'TimebarDateApmmVsInsurance'
+  } ]
+  @UI.selectionField: [ {
+    position: 5040 
+  } ]
+  TimebarDateApmmVsInsurance;
+  
+  @EndUserText.label: 'TimebarDateClaimantVsApmm'
+  @UI.identification: [ {
+    position: 5050 , 
+    label: 'TimebarDateClaimantVsApmm'
+  } ]
+  @UI.lineItem: [ {
+    position: 5050 , 
+    label: 'TimebarDateClaimantVsApmm'
+  } ]
+  @UI.selectionField: [ {
+    position: 5050 
+  } ]
+  TimebarDateClaimantVsApmm;
+  
+  @EndUserText.label: 'TimebarDateSubrogation'
+  @UI.identification: [ {
+    position: 5060 , 
+    label: 'TimebarDateSubrogation'
+  } ]
+  @UI.lineItem: [ {
+    position: 5060 , 
+    label: 'TimebarDateSubrogation'
+  } ]
+  @UI.selectionField: [ {
+    position: 5060 
+  } ]
+  TimebarDateSubrogation;
+  
+  @UI.identification: [ {
+    position: 5070 
+  } ]
+  @UI.lineItem: [ {
+    position: 5070 
+  } ]
+  @UI.selectionField: [ {
+    position: 5070 
+  } ]
+  TotalDeductible;
+  
+  @UI.identification: [ {
+    position: 5080 
+  } ]
+  @UI.lineItem: [ {
+    position: 5080 
+  } ]
+  @UI.selectionField: [ {
+    position: 5080 
+  } ]
+  TotalDeductibleCurr2;
+  
+  @UI.identification: [ {
+    position: 5090 
+  } ]
+  @UI.lineItem: [ {
+    position: 5090 
+  } ]
+  @UI.selectionField: [ {
+    position: 5090 
+  } ]
+  TotalDeductibleCurr1;
+  
+  @EndUserText.label: 'TtlNoDamageBoxesPkgWeig'
+  @UI.identification: [ {
+    position: 5100 , 
+    label: 'TtlNoDamageBoxesPkgWeig'
+  } ]
+  @UI.lineItem: [ {
+    position: 5100 , 
+    label: 'TtlNoDamageBoxesPkgWeig'
+  } ]
+  @UI.selectionField: [ {
+    position: 5100 
+  } ]
+  TtlNoDamageBoxesPkgWeig;
+  
+  @UI.identification: [ {
+    position: 5110 
+  } ]
+  @UI.lineItem: [ {
+    position: 5110 
+  } ]
+  @UI.selectionField: [ {
+    position: 5110 
+  } ]
+  TotalMiasShare;
+  
+  @EndUserText.label: 'TotalRepairCostDel'
+  @UI.identification: [ {
+    position: 5120 , 
+    label: 'TotalRepairCostDel'
+  } ]
+  @UI.lineItem: [ {
+    position: 5120 , 
+    label: 'TotalRepairCostDel'
+  } ]
+  @UI.selectionField: [ {
+    position: 5120 
+  } ]
+  TotalRepairCostDel;
+  
+  @EndUserText.label: 'TotalRepairCostRaw'
+  @UI.identification: [ {
+    position: 5130 , 
+    label: 'TotalRepairCostRaw'
+  } ]
+  @UI.lineItem: [ {
+    position: 5130 , 
+    label: 'TotalRepairCostRaw'
+  } ]
+  @UI.selectionField: [ {
+    position: 5130 
+  } ]
+  TotalRepairCostRaw;
+  
+  @UI.identification: [ {
+    position: 5140 
+  } ]
+  @UI.lineItem: [ {
+    position: 5140 
+  } ]
+  @UI.selectionField: [ {
+    position: 5140 
+  } ]
+  TotalRepairCostTotal;
+  
+  @EndUserText.label: 'TpaCarrierAccountCode'
+  @UI.identification: [ {
+    position: 5150 , 
+    label: 'TpaCarrierAccountCode'
+  } ]
+  @UI.lineItem: [ {
+    position: 5150 , 
+    label: 'TpaCarrierAccountCode'
+  } ]
+  @UI.selectionField: [ {
+    position: 5150 
+  } ]
+  TpaCarrierAccountCode;
+  
+  @UI.identification: [ {
+    position: 5160 
+  } ]
+  @UI.lineItem: [ {
+    position: 5160 
+  } ]
+  @UI.selectionField: [ {
+    position: 5160 
+  } ]
+  TpaCarrierLookupDel;
+  
+  @EndUserText.label: 'TpaDate'
+  @UI.identification: [ {
+    position: 5170 , 
+    label: 'TpaDate'
+  } ]
+  @UI.lineItem: [ {
+    position: 5170 , 
+    label: 'TpaDate'
+  } ]
+  @UI.selectionField: [ {
+    position: 5170 
+  } ]
+  TpaDate;
+  
+  @EndUserText.label: 'TpaPaid'
+  @UI.identification: [ {
+    position: 5180 , 
+    label: 'TpaPaid'
+  } ]
+  @UI.lineItem: [ {
+    position: 5180 , 
+    label: 'TpaPaid'
+  } ]
+  @UI.selectionField: [ {
+    position: 5180 
+  } ]
+  TpaPaid;
+  
+  @UI.identification: [ {
+    position: 5190 
+  } ]
+  @UI.lineItem: [ {
+    position: 5190 
+  } ]
+  @UI.selectionField: [ {
+    position: 5190 
+  } ]
+  TpaReportLag;
+  
+  @EndUserText.label: 'TpaReserve'
+  @UI.identification: [ {
+    position: 5200 , 
+    label: 'TpaReserve'
+  } ]
+  @UI.lineItem: [ {
+    position: 5200 , 
+    label: 'TpaReserve'
+  } ]
+  @UI.selectionField: [ {
+    position: 5200 
+  } ]
+  TpaReserve;
+  
+  @UI.identification: [ {
+    position: 5210 
+  } ]
+  @UI.lineItem: [ {
+    position: 5210 
+  } ]
+  @UI.selectionField: [ {
+    position: 5210 
+  } ]
+  TradeUnion;
+  
+  @UI.identification: [ {
+    position: 5220 
+  } ]
+  @UI.lineItem: [ {
+    position: 5220 
+  } ]
+  @UI.selectionField: [ {
+    position: 5220 
+  } ]
+  TreatedInEmergencyRoomDel;
+  
+  @EndUserText.label: 'TrialDate'
+  @UI.identification: [ {
+    position: 5230 , 
+    label: 'TrialDate'
+  } ]
+  @UI.lineItem: [ {
+    position: 5230 , 
+    label: 'TrialDate'
+  } ]
+  @UI.selectionField: [ {
+    position: 5230 
+  } ]
+  TrialDate;
+  
+  @EndUserText.label: 'TruckingCompanyAddress'
+  @UI.identification: [ {
+    position: 5240 , 
+    label: 'TruckingCompanyAddress'
+  } ]
+  @UI.lineItem: [ {
+    position: 5240 , 
+    label: 'TruckingCompanyAddress'
+  } ]
+  @UI.selectionField: [ {
+    position: 5240 
+  } ]
+  TruckingCompanyAddress;
+  
+  @EndUserText.label: 'TruckingCompanyCity'
+  @UI.identification: [ {
+    position: 5250 , 
+    label: 'TruckingCompanyCity'
+  } ]
+  @UI.lineItem: [ {
+    position: 5250 , 
+    label: 'TruckingCompanyCity'
+  } ]
+  @UI.selectionField: [ {
+    position: 5250 
+  } ]
+  TruckingCompanyCity;
+  
+  @EndUserText.label: 'TruckingCompanyContact'
+  @UI.identification: [ {
+    position: 5260 , 
+    label: 'TruckingCompanyContact'
+  } ]
+  @UI.lineItem: [ {
+    position: 5260 , 
+    label: 'TruckingCompanyContact'
+  } ]
+  @UI.selectionField: [ {
+    position: 5260 
+  } ]
+  TruckingCompanyContact;
+  
+  @EndUserText.label: 'TruckingCompanyName'
+  @UI.identification: [ {
+    position: 5270 , 
+    label: 'TruckingCompanyName'
+  } ]
+  @UI.lineItem: [ {
+    position: 5270 , 
+    label: 'TruckingCompanyName'
+  } ]
+  @UI.selectionField: [ {
+    position: 5270 
+  } ]
+  TruckingCompanyName;
+  
+  @EndUserText.label: 'TruckingCompanyPhone'
+  @UI.identification: [ {
+    position: 5280 , 
+    label: 'TruckingCompanyPhone'
+  } ]
+  @UI.lineItem: [ {
+    position: 5280 , 
+    label: 'TruckingCompanyPhone'
+  } ]
+  @UI.selectionField: [ {
+    position: 5280 
+  } ]
+  TruckingCompanyPhone;
+  
+  @EndUserText.label: 'TruckingCompanyZip'
+  @UI.identification: [ {
+    position: 5290 , 
+    label: 'TruckingCompanyZip'
+  } ]
+  @UI.lineItem: [ {
+    position: 5290 , 
+    label: 'TruckingCompanyZip'
+  } ]
+  @UI.selectionField: [ {
+    position: 5290 
+  } ]
+  TruckingCompanyZip;
+  
+  @UI.identification: [ {
+    position: 5300 
+  } ]
+  @UI.lineItem: [ {
+    position: 5300 
+  } ]
+  @UI.selectionField: [ {
+    position: 5300 
+  } ]
+  TruckingCompanyState;
+  
+  @UI.identification: [ {
+    position: 5310 
+  } ]
+  @UI.lineItem: [ {
+    position: 5310 
+  } ]
+  @UI.selectionField: [ {
+    position: 5310 
+  } ]
+  TypeOfPropertyDamaged;
+  
+  @EndUserText.label: 'TypeOfWatercraftDamaged'
+  @UI.identification: [ {
+    position: 5320 , 
+    label: 'TypeOfWatercraftDamaged'
+  } ]
+  @UI.lineItem: [ {
+    position: 5320 , 
+    label: 'TypeOfWatercraftDamaged'
+  } ]
+  @UI.selectionField: [ {
+    position: 5320 
+  } ]
+  TypeOfWatercraftDamaged;
+  
+  @UI.identification: [ {
+    position: 5330 
+  } ]
+  @UI.lineItem: [ {
+    position: 5330 
+  } ]
+  @UI.selectionField: [ {
+    position: 5330 
+  } ]
+  UnderwritersReserveTotal;
+  
+  @UI.identification: [ {
+    position: 5340 
+  } ]
+  @UI.lineItem: [ {
+    position: 5340 
+  } ]
+  @UI.selectionField: [ {
+    position: 5340 
+  } ]
+  UninsuredUnderinsured;
+  
+  @EndUserText.label: 'VehicleInspectionDate'
+  @UI.identification: [ {
+    position: 5350 , 
+    label: 'VehicleInspectionDate'
+  } ]
+  @UI.lineItem: [ {
+    position: 5350 , 
+    label: 'VehicleInspectionDate'
+  } ]
+  @UI.selectionField: [ {
+    position: 5350 
+  } ]
+  VehicleInspectionDate;
+  
+  @EndUserText.label: 'VehicleLeaseDateDel'
+  @UI.identification: [ {
+    position: 5360 , 
+    label: 'VehicleLeaseDateDel'
+  } ]
+  @UI.lineItem: [ {
+    position: 5360 , 
+    label: 'VehicleLeaseDateDel'
+  } ]
+  @UI.selectionField: [ {
+    position: 5360 
+  } ]
+  VehicleLeaseDateDel;
+  
+  @UI.identification: [ {
+    position: 5370 
+  } ]
+  @UI.lineItem: [ {
+    position: 5370 
+  } ]
+  @UI.selectionField: [ {
+    position: 5370 
+  } ]
+  VehicleLeased;
+  
+  @EndUserText.label: 'VehicleMake'
+  @UI.identification: [ {
+    position: 5380 , 
+    label: 'VehicleMake'
+  } ]
+  @UI.lineItem: [ {
+    position: 5380 , 
+    label: 'VehicleMake'
+  } ]
+  @UI.selectionField: [ {
+    position: 5380 
+  } ]
+  VehicleMake;
+  
+  @EndUserText.label: 'ClaimantVehicleMake'
+  @UI.identification: [ {
+    position: 5390 , 
+    label: 'ClaimantVehicleMake'
+  } ]
+  @UI.lineItem: [ {
+    position: 5390 , 
+    label: 'ClaimantVehicleMake'
+  } ]
+  @UI.selectionField: [ {
+    position: 5390 
+  } ]
+  ClaimantVehicleMake;
+  
+  @EndUserText.label: 'VehicleModel'
+  @UI.identification: [ {
+    position: 5400 , 
+    label: 'VehicleModel'
+  } ]
+  @UI.lineItem: [ {
+    position: 5400 , 
+    label: 'VehicleModel'
+  } ]
+  @UI.selectionField: [ {
+    position: 5400 
+  } ]
+  VehicleModel;
+  
+  @EndUserText.label: 'ClaimantVehicleModel'
+  @UI.identification: [ {
+    position: 5410 , 
+    label: 'ClaimantVehicleModel'
+  } ]
+  @UI.lineItem: [ {
+    position: 5410 , 
+    label: 'ClaimantVehicleModel'
+  } ]
+  @UI.selectionField: [ {
+    position: 5410 
+  } ]
+  ClaimantVehicleModel;
+  
+  @EndUserText.label: 'VehicleOwner'
+  @UI.identification: [ {
+    position: 5420 , 
+    label: 'VehicleOwner'
+  } ]
+  @UI.lineItem: [ {
+    position: 5420 , 
+    label: 'VehicleOwner'
+  } ]
+  @UI.selectionField: [ {
+    position: 5420 
+  } ]
+  VehicleOwner;
+  
+  @EndUserText.label: 'VehicleOwnerName'
+  @UI.identification: [ {
+    position: 5430 , 
+    label: 'VehicleOwnerName'
+  } ]
+  @UI.lineItem: [ {
+    position: 5430 , 
+    label: 'VehicleOwnerName'
+  } ]
+  @UI.selectionField: [ {
+    position: 5430 
+  } ]
+  VehicleOwnerName;
+  
+  @EndUserText.label: 'VehicleYear'
+  @UI.identification: [ {
+    position: 5440 , 
+    label: 'VehicleYear'
+  } ]
+  @UI.lineItem: [ {
+    position: 5440 , 
+    label: 'VehicleYear'
+  } ]
+  @UI.selectionField: [ {
+    position: 5440 
+  } ]
+  VehicleYear;
+  
+  @EndUserText.label: 'ClaimantVehicleYear'
+  @UI.identification: [ {
+    position: 5450 , 
+    label: 'ClaimantVehicleYear'
+  } ]
+  @UI.lineItem: [ {
+    position: 5450 , 
+    label: 'ClaimantVehicleYear'
+  } ]
+  @UI.selectionField: [ {
+    position: 5450 
+  } ]
+  ClaimantVehicleYear;
+  
+  @UI.identification: [ {
+    position: 5460 
+  } ]
+  @UI.lineItem: [ {
+    position: 5460 
+  } ]
+  @UI.selectionField: [ {
+    position: 5460 
+  } ]
+  Probability;
+  
+  @EndUserText.label: 'Vessel'
+  @UI.identification: [ {
+    position: 5470 , 
+    label: 'Vessel'
+  } ]
+  @UI.lineItem: [ {
+    position: 5470 , 
+    label: 'Vessel'
+  } ]
+  @UI.selectionField: [ {
+    position: 5470 
+  } ]
+  Vessel;
+  
+  @EndUserText.label: 'VesselName'
+  @UI.identification: [ {
+    position: 5480 , 
+    label: 'VesselName'
+  } ]
+  @UI.lineItem: [ {
+    position: 5480 , 
+    label: 'VesselName'
+  } ]
+  @UI.selectionField: [ {
+    position: 5480 
+  } ]
+  VesselName;
+  
+  @UI.identification: [ {
+    position: 5490 
+  } ]
+  @UI.lineItem: [ {
+    position: 5490 
+  } ]
+  @UI.selectionField: [ {
+    position: 5490 
+  } ]
+  VesselOperator;
+  
+  @EndUserText.label: 'VesselOwnerName'
+  @UI.identification: [ {
+    position: 5500 , 
+    label: 'VesselOwnerName'
+  } ]
+  @UI.lineItem: [ {
+    position: 5500 , 
+    label: 'VesselOwnerName'
+  } ]
+  @UI.selectionField: [ {
+    position: 5500 
+  } ]
+  VesselOwnerName;
+  
+  @EndUserText.label: 'VesselAircraft'
+  @UI.identification: [ {
+    position: 5510 , 
+    label: 'VesselAircraft'
+  } ]
+  @UI.lineItem: [ {
+    position: 5510 , 
+    label: 'VesselAircraft'
+  } ]
+  @UI.selectionField: [ {
+    position: 5510 
+  } ]
+  VesselAircraft;
+  
+  @EndUserText.label: 'Voyage'
+  @UI.identification: [ {
+    position: 5520 , 
+    label: 'Voyage'
+  } ]
+  @UI.lineItem: [ {
+    position: 5520 , 
+    label: 'Voyage'
+  } ]
+  @UI.selectionField: [ {
+    position: 5520 
+  } ]
+  Voyage;
+  
+  @EndUserText.label: 'VoyageNumber'
+  @UI.identification: [ {
+    position: 5530 , 
+    label: 'VoyageNumber'
+  } ]
+  @UI.lineItem: [ {
+    position: 5530 , 
+    label: 'VoyageNumber'
+  } ]
+  @UI.selectionField: [ {
+    position: 5530 
+  } ]
+  VoyageNumber;
+  
+  @UI.identification: [ {
+    position: 5540 
+  } ]
+  @UI.lineItem: [ {
+    position: 5540 
+  } ]
+  @UI.selectionField: [ {
+    position: 5540 
+  } ]
+  Weather;
+  
+  @EndUserText.label: 'WeeklyWages'
+  @UI.identification: [ {
+    position: 5550 , 
+    label: 'WeeklyWages'
+  } ]
+  @UI.lineItem: [ {
+    position: 5550 , 
+    label: 'WeeklyWages'
+  } ]
+  @UI.selectionField: [ {
+    position: 5550 
+  } ]
+  WeeklyWages;
+  
+  @EndUserText.label: 'WhoOwnsProperty'
+  @UI.identification: [ {
+    position: 5560 , 
+    label: 'WhoOwnsProperty'
+  } ]
+  @UI.lineItem: [ {
+    position: 5560 , 
+    label: 'WhoOwnsProperty'
+  } ]
+  @UI.selectionField: [ {
+    position: 5560 
+  } ]
+  WhoOwnsProperty;
+  
+  @UI.identification: [ {
+    position: 5570 
+  } ]
+  @UI.lineItem: [ {
+    position: 5570 
+  } ]
+  @UI.selectionField: [ {
+    position: 5570 
+  } ]
+  WorkRelatedDel;
+  
+  @EndUserText.label: 'WorkRestrictionsDel'
+  @UI.identification: [ {
+    position: 5580 , 
+    label: 'WorkRestrictionsDel'
+  } ]
+  @UI.lineItem: [ {
+    position: 5580 , 
+    label: 'WorkRestrictionsDel'
+  } ]
+  @UI.selectionField: [ {
+    position: 5580 
+  } ]
+  WorkRestrictionsDel;
+  
+  @EndUserText.label: 'YearOfLoss'
+  @UI.identification: [ {
+    position: 5590 , 
+    label: 'YearOfLoss'
+  } ]
+  @UI.lineItem: [ {
+    position: 5590 , 
+    label: 'YearOfLoss'
+  } ]
+  @UI.selectionField: [ {
+    position: 5590 
+  } ]
+  YearOfLoss;
+  
+  @EndUserText.label: 'YearlyWagesDel'
+  @UI.identification: [ {
+    position: 5600 , 
+    label: 'YearlyWagesDel'
+  } ]
+  @UI.lineItem: [ {
+    position: 5600 , 
+    label: 'YearlyWagesDel'
+  } ]
+  @UI.selectionField: [ {
+    position: 5600 
+  } ]
+  YearlyWagesDel;
+  
+  @UI.identification: [ {
+    position: 5610 
+  } ]
+  @UI.lineItem: [ {
+    position: 5610 
+  } ]
+  @UI.selectionField: [ {
+    position: 5610 
+  } ]
+  Createdby;
+  
+  @UI.identification: [ {
+    position: 5620 
+  } ]
+  @UI.lineItem: [ {
+    position: 5620 
+  } ]
+  @UI.selectionField: [ {
+    position: 5620 
+  } ]
+  Createdat;
+  
+  @UI.identification: [ {
+    position: 5630 
+  } ]
+  @UI.lineItem: [ {
+    position: 5630 
+  } ]
+  @UI.selectionField: [ {
+    position: 5630 
+  } ]
+  Lastchangedby;
+  
+  @UI.identification: [ {
+    position: 5640 
+  } ]
+  @UI.lineItem: [ {
+    position: 5640 
+  } ]
+  @UI.selectionField: [ {
+    position: 5640 
+  } ]
+  Lastchangedat;
+}
