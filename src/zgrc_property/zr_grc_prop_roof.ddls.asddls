@@ -10,6 +10,7 @@
 define view entity ZR_GRC_PROP_ROOF as select from ztgrc_prop_roof
 association to parent ZR_GRC_PROPERTY as _Property on
 $projection.Guid = _Property.PropertyNo
+association [0..1] to ZR_GRC_ROOFTYPE_PL        as _Roof_PL          on $projection.RoofType = _Roof_PL.Id
 {
     key guid as Guid,
    key roof_type as RoofType,
@@ -21,5 +22,6 @@ $projection.Guid = _Property.PropertyNo
   lastchangedby as Lastchangedby,
   @Semantics.systemDateTime.localInstanceLastChangedAt: true
   lastchangedat as Lastchangedat,
-    _Property
+    _Property,
+    _Roof_PL
     }

@@ -6,12 +6,11 @@ define service ZUI_GRC_PROPERTY_O4 {
   expose ZR_GRC_PROPERTY;
   expose ZR_GRC_PROP_RECM;
   expose ZR_GRC_PROP_LOG;
-  expose ZR_TEST1;
-  expose ZC_TEST1;
   expose ZC_GRC_PROP_WALL;
   expose ZC_GRC_PROP_ROOF;
   expose ZC_GRC_PROP_ALM;
   expose ZC_GRC_PROP_SECTY;
   expose ZC_GRC_PROP_RENOV;
   expose ZC_GRC_PROP_ATTCH;
+  expose ZR_GRC_PROP_ATTCH;
 }

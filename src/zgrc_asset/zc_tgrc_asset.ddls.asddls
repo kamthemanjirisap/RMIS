@@ -6,10 +6,8 @@ define root view entity ZC_TGRC_ASSET
   as projection on ZR_TGRC_ASSET
 {
   key AssetUuid,
-  AssetExternalId,
-  ListId,
-  ValueId,
-  RecordtypDesc,
+  AssetExternalId,  
+  RecordType,
   AssetName,
   AccountingCode,
   Afe,

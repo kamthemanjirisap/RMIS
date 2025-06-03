@@ -12,13 +12,28 @@ define root view entity ZC_TGRC_LOCATION
   AllowAgreedValueInput,
   Bim,
   BimDate,
+  @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_GRC_HIDE_FIELDS'
+  virtual testField :abap_boolean,
   Brand,
+  
+ 
   @ObjectModel.text.element: [ 'Value' ]
   @ObjectModel.text.association: '_Picklist'
-  @UI.textArrangement: #TEXT_ONLY
+  @UI.textArrangement: #TEXT_ONLY  
   @Consumption.valueHelpDefinition: [{ entity: { name: 'ZGR_GRC_Business_Area_PL', element: 'Id' } }]
+  @Search.defaultSearchElement: true
+//      @Search.fuzzinessThreshold: 0.8
+//  @ObjectModel.text.element: [ 'Value' ]
+//  @ObjectModel.text.association: '_Picklst'
+//  @UI.textArrangement: #TEXT_ONLY    
+//   @Consumption.valueHelpDefinition: [{ entity: { name: 'ZR_GRC_PICKLIST', element: 'ListValue' } ,
+//   additionalBinding: [{ element: 'ListId' ,    
+//                               localConstant: '100023', usage: #FILTER }]
+//                               , distinctValues: true
+//                               }]      
   BusinessArea,
   _Picklist.ListValue as Value,
+// _Picklst.ListValue as Value,
   Level2Id,
   Level4Id,
   BusinessUnitOnlAndOthers,
@@ -41,12 +56,21 @@ define root view entity ZC_TGRC_LOCATION
   ManagingDirectorEmail,
   LchEmail,
   Lch2Email,
+  @UI.hidden: #(HideLocationStatus)
   LocationStatus,
+  @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_GRC_VE_CONTROL_FIELDS'
+   virtual HideLocationStatus :abap_boolean, 
   FaxNumber,
+  @UI.hidden: #(HideFormer)
   Former,
+  @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_GRC_VE_CONTROL_FIELDS'
+   virtual HideFormer :abap_boolean, 
   GrmClaimUseOnly,
   HermesCode,
+   @UI.hidden: #(HideHQFMCode)
   HqfmCode,
+  @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_GRC_VE_CONTROL_FIELDS'
+   virtual HideHQFMCode :abap_boolean,
   HseManger,
   HseMangerName,
   IncludeInRenewalCollection,
@@ -55,8 +79,14 @@ define root view entity ZC_TGRC_LOCATION
   LeadClaimsHandler2,
   LeadClaimsHandler2Name,
   LeadClaimsHandlerName,
+  @UI.hidden: #(HideLegalClassification)
   LegalClassification,
+  @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_GRC_VE_CONTROL_FIELDS'
+   virtual HideLegalClassification :abap_boolean,
+  @UI.hidden: #(HideLegalEntityName)
   LegalEntityName,
+  @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_GRC_VE_CONTROL_FIELDS'
+   virtual HideLegalEntityName :abap_boolean,
   LocalTerminalName,
   NodeCode,
   Longitude,
@@ -67,7 +97,10 @@ define root view entity ZC_TGRC_LOCATION
   NodeDesc,
   NodeKey,
   NodeLevel,
+  @UI.hidden: #(HideNotes)
   Notes,
+  @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_GRC_VE_CONTROL_FIELDS'
+   virtual HideNotes :abap_boolean,
   Office,
   Organisation1,
   Ownership,
@@ -79,6 +112,22 @@ define root view entity ZC_TGRC_LOCATION
   PortAuthority,
   PostalCode,
   PrimaryContact,
+//  @ObjectModel.text.element: [ 'RecordtypeValue' ]
+//  @ObjectModel.text.association: '_Picklst'
+//  @UI.textArrangement: #TEXT_ONLY
+//  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZR_GRC_RECORD_TYPE_PL', element: 'Id' } }]
+      @Search.defaultSearchElement: true
+      @Search.fuzzinessThreshold: 0.8
+//      @ObjectModel.text.element: [ 'RecordtypeValue' ]
+//      @ObjectModel.text.association: '_Picklst'
+//      @UI.textArrangement: #TEXT_ONLY    
+      @Consumption.valueHelpDefinition: [{ entity: { name: 'ZR_GRC_PICKLIST', element: 'ListValue' } ,
+      additionalBinding: [{ element: 'ListId' ,    
+                         localConstant: '100024', 
+                         usage: #FILTER }],
+      distinctValues: true }]  
+  RecordType,
+//   _Picklst.ListValue as RecordtypeValue,
   Region,
   RenewalContact,
   States,
@@ -94,5 +143,7 @@ define root view entity ZC_TGRC_LOCATION
   Lastchangedat,
   Locallastchangedat,
    _Picklist
+//   _Recordtype
+//  _Picklst
   
 }

@@ -1,0 +1,49 @@
+managed implementation in class ZBP_R_TGRC_SCR_CONTRL unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_TGRC_SCR_CONTRL alias ZrTgrcScrContrl
+persistent table ZTGRC_SCR_CONTRL
+extensible
+draft table ZTGRC_SCR_CNTR_D
+etag master Lastchangedat
+lock master total etag Lastchangedat
+authorization master( global )
+
+{
+  field ( readonly )
+   RecordUuid,
+   Createdby,
+   Createdat,
+   Lastchangedby,
+   Lastchangedat;
+
+  field ( numbering : managed )
+   RecordUuid;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZTGRC_SCR_CONTRL corresponding extensible
+  {
+    RecordUuid = record_uuid;
+    Application = application;
+    RecordType = record_type;
+    RecordTypeDesc = record_type_desc;
+    Fieldname = fieldname;
+    Control = control;
+    Createdby = createdby;
+    Createdat = createdat;
+    Lastchangedby = lastchangedby;
+    Lastchangedat = lastchangedat;
+  }
+
+}

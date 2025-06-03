@@ -1,4 +1,5 @@
 @Metadata.layer: #CORE
+//@Metadata.allowExtensions: true
 @UI.headerInfo.title.type: #STANDARD
 @UI.headerInfo.title.value: 'ClaimTrnUuid'
 @UI.headerInfo.description.type: #STANDARD

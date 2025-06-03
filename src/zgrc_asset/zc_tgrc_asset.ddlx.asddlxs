@@ -49,30 +49,30 @@ annotate view ZC_TGRC_ASSET with
   } ]
   AssetExternalId;
   
-  @EndUserText.label: 'List Id'
-  @UI.identification: [ {
-    position: 30 ,  label:  'List Id'
-  } ]
-  @UI.lineItem: [ {
-    position: 30 ,  label:  'List Id'
-  } ]
-  @UI.selectionField: [ {
-    position: 30 
-  } ]
-  ListId;
-  
-  @EndUserText.label: 'Value Id'
-  @UI.identification: [ {
-    position: 40 , label: 'Value Id'
-  } ]
-  @UI.lineItem: [ {
-    position: 40 , label: 'Value Id'
-  } ]
-  @UI.selectionField: [ {
-    position: 40 
-  } ]
-  ValueId;
-  
+//  @EndUserText.label: 'List Id'
+//  @UI.identification: [ {
+//    position: 30 ,  label:  'List Id'
+//  } ]
+//  @UI.lineItem: [ {
+//    position: 30 ,  label:  'List Id'
+//  } ]
+//  @UI.selectionField: [ {
+//    position: 30 
+//  } ]
+//  ListId;
+//  
+//  @EndUserText.label: 'Value Id'
+//  @UI.identification: [ {
+//    position: 40 , label: 'Value Id'
+//  } ]
+//  @UI.lineItem: [ {
+//    position: 40 , label: 'Value Id'
+//  } ]
+//  @UI.selectionField: [ {
+//    position: 40 
+//  } ]
+//  ValueId;
+//  
   @EndUserText.label: 'Record type'
   @UI.identification: [ {
     position: 50 , 
@@ -85,7 +85,7 @@ annotate view ZC_TGRC_ASSET with
   @UI.selectionField: [ {
     position: 50 
   } ]
-  RecordtypDesc;
+  recordtype;
   
   @EndUserText.label: 'Asset Name'
   @UI.identification: [ {

@@ -1,3 +1,41 @@
+CLASS lsc_zr_tgrc_claim DEFINITION INHERITING FROM cl_abap_behavior_saver.
+
+  PROTECTED SECTION.
+
+    METHODS save_modified REDEFINITION.
+
+ENDCLASS.
+
+CLASS lsc_zr_tgrc_claim IMPLEMENTATION.
+
+  METHOD save_modified.
+
+
+*DATA : lt_claim TYPE STANDARD TABLE OF ztgrc_claim,
+*       lt_claim_tran TYPE STANDARD TABLE OF ztgrc_claim_trn.
+*
+* IF update-claim IS NOT INITIAL.
+* lt_claim  = CORRESPONDING #( update-claim  ).
+** lt_claim_tran = CORRESPONDING #( update-claim ).
+* ENDIF.
+*
+*  IF create-claim  IS NOT INITIAL.
+*  lt_claim = CORRESPONDING #( create-claim ).
+**lt_asset_value = CORRESPONDING #( create-assetval ).
+*ENDIF..
+*
+* IF lt_claim IS not INITIAL.
+*  LOOP AT lt_claim ASSIGNING FIELD-SYMBOL(<ls_claim>).
+*<ls_claim>-claim_external_id = <ls_claim>-claim_external_id+0(6).
+*  ENDLOOP.
+*MODIFY ztgrc_claim FROM TABLE @lt_claim.
+*
+*  endif.
+
+  ENDMETHOD.
+
+ENDCLASS.
+
 CLASS lhc_claim_trn DEFINITION INHERITING FROM cl_abap_behavior_handler.
 
   PRIVATE SECTION.
@@ -149,6 +187,8 @@ CLASS LHC_ZR_TGRC_CLAIM DEFINITION INHERITING FROM CL_ABAP_BEHAVIOR_HANDLER.
             IMPORTING keys REQUEST requested_features FOR Claim RESULT result.
           METHODS closeclaim FOR MODIFY
             IMPORTING keys FOR ACTION claim~closeclaim RESULT result.
+          METHODS get_global_features FOR GLOBAL FEATURES
+            IMPORTING REQUEST requested_features FOR claim RESULT result.
 
 TYPES :
 t_entities_create TYPE TABLE FOR CREATE zr_tgrc_claim\\claim,
@@ -350,29 +390,29 @@ DATA : lt_check_claim type table FOR UPDATE zr_tgrc_claim\\claim.
         ENDIF.
 
 *Date of Loss is required
-IF ls_claim-DateOfLoss IS INITIAL.
-  APPEND VALUE #( %key = ls_claim-%key
-                          %update = if_abap_behv=>mk-on ) TO failed.
-          APPEND VALUE #( %key = ls_claim-%key
-                          %msg = new_message_with_text( severity = if_abap_behv_message=>severity-error
-                                                        text = 'Closed claims require a date claim closed' )
-                          %update = if_abap_behv=>mk-on
-                          %element-DateOfLoss  = if_abap_behv=>mk-on
-                         ) TO reported.
-*                         ELSE.
-*                         Loss Date cannot be in the future.
-ELSEIF ls_claim-DateOfLoss >  cl_abap_context_info=>get_system_date( ).
-  APPEND VALUE #( %key = ls_claim-%key
-                          %update = if_abap_behv=>mk-on ) TO failed.
-          APPEND VALUE #( %key = ls_claim-%key
-                          %msg = new_message_with_text( severity = if_abap_behv_message=>severity-error
-                                                        text = 'Loss Date cannot be in the future' )
-                          %update = if_abap_behv=>mk-on
-                          %element-DateOfLoss = if_abap_behv=>mk-on
-                         ) TO reported.
-
-
-      endif.
+*IF ls_claim-DateOfLoss IS INITIAL.
+*  APPEND VALUE #( %key = ls_claim-%key
+*                          %update = if_abap_behv=>mk-on ) TO failed.
+*          APPEND VALUE #( %key = ls_claim-%key
+*                          %msg = new_message_with_text( severity = if_abap_behv_message=>severity-error
+*                                                        text = 'Closed claims require a date claim closed' )
+*                          %update = if_abap_behv=>mk-on
+*                          %element-DateOfLoss  = if_abap_behv=>mk-on
+*                         ) TO reported.
+**                         ELSE.
+**                         Loss Date cannot be in the future.
+*ELSEIF ls_claim-DateOfLoss >  cl_abap_context_info=>get_system_date( ).
+*  APPEND VALUE #( %key = ls_claim-%key
+*                          %update = if_abap_behv=>mk-on ) TO failed.
+*          APPEND VALUE #( %key = ls_claim-%key
+*                          %msg = new_message_with_text( severity = if_abap_behv_message=>severity-error
+*                                                        text = 'Loss Date cannot be in the future' )
+*                          %update = if_abap_behv=>mk-on
+*                          %element-DateOfLoss = if_abap_behv=>mk-on
+*                         ) TO reported.
+*
+*
+*      endif.
 
       IF ls_claim-DateClosed  IS NOT INITIAL.
 *Date Closed cannot be before Date of Loss
@@ -468,6 +508,7 @@ IF ls_claim-DateClosed >  cl_abap_context_info=>get_system_date( ).
   ENDMETHOD.
 
   METHOD get_instance_features.
+ZBP_R_TGRC_CLAIM=>lv_control = abap_true.
 
      READ ENTITIES OF zr_tgrc_claim IN LOCAL MODE
       ENTITY claim
@@ -476,10 +517,33 @@ IF ls_claim-DateClosed >  cl_abap_context_info=>get_system_date( ).
       RESULT DATA(lt_claim_read_result)
       FAILED failed.
 
+
+**LOOP AT lt_claim_read_result INTO DATA(ls_claim_control).
+**
+**APPEND VALUE #( %tky                   = ls_claim_control-%tky
+**%field-status =   if_abap_behv=>fc-f-read_only ) To result.
+**
+**APPEND VALUE #( %tky                   = ls_claim_control-%tky
+**%field-DateClosed    =   if_abap_behv=>fc-f-read_only ).
+**
+**
+**ENDLOOP.
+
+
     result = VALUE #( FOR ls_claim IN lt_claim_read_result
                        ( %tky                   = ls_claim-%tky
+                         %field-status =   if_abap_behv=>fc-f-read_only
+                         %field-DateClosed    =   if_abap_behv=>fc-f-read_only
+*                          %field-Activity   =
+
                          %assoc-_claim_trn = COND #( WHEN ls_claim-status = 'C'
                                                           THEN if_abap_behv=>fc-o-disabled ELSE if_abap_behv=>fc-o-enabled  ) ) ).
+
+*
+*LOOp at result INTO DATA(ls_result).
+*ls_result-
+*
+*ENDLOOP..
 
 
   ENDMETHOD.
@@ -502,6 +566,13 @@ IF ls_claim-DateClosed >  cl_abap_context_info=>get_system_date( ).
 
     result = VALUE #( FOR ls_claim IN lt_claim ( %tky      = ls_claim-%tky
                                               %param    = ls_claim ) ).
+
+  ENDMETHOD.
+
+  METHOD get_global_features.
+
+
+
 
   ENDMETHOD.
 

@@ -9,12 +9,11 @@ define root view entity ZC_GRC_OCCURENCE
   Name,
   Description,
   CatastropheCode,
-    @ObjectModel.text.element:  ['Value']
-  @ObjectModel.text.association: '_Picklist'
+    @ObjectModel.text.element:  ['OccType']
   @UI.textArrangement: #TEXT_ONLY
-  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZR_TEST', element: 'Id' } }]
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZR_GRC_OCCTYPE_PL', element: 'Id' } }]
   OccurrenceType,
-  _Picklist.ListValue as Value,
+  _OccType.OccurenceType as OccType,
   DateOfLoss,
   Country,
   Owner,
@@ -22,7 +21,6 @@ define root view entity ZC_GRC_OCCURENCE
   Createdat,
   Lastchangedby,
   Lastchangedat,
-//Value,
-  _Picklist
+  _OccType
   
 }

@@ -548,7 +548,7 @@ WITH VALUE #(  (  %key = <lfs_entity>-%key ) )
               APPEND VALUE #(  %tky =  <lfs_entity>-%tky
                                %msg = new_message_with_text(
                                   severity = if_abap_behv_message=>severity-error
-                                  text = 'ssetValueForInterest cannot be negative'
+                                  text = 'AssetValueForInterest cannot be negative'
                                 )  ) TO reported-assetval.
         ENDIF.
 

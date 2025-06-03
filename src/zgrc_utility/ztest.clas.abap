@@ -15,7 +15,7 @@ CLASS ZTEST IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.
-    DELETE FROM zgrc_occrence_d.
+    DELETE FROM ztgrc_prp_atch_d.
 * TRY.
 *    cl_numberrange_intervals=>create(
 *      EXPORTING

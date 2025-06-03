@@ -16,17 +16,19 @@ annotate entity ZC_GRC_PROP_ATTCH
     @UI.lineItem: [{ position: 20 }]
     @UI.identification: [{ position: 20 }]
     Guid;
-    @UI.lineItem: [{ position: 30 }]
+     @UI.lineItem: [{ position: 30 }]
     @UI.identification: [{ position: 30 }]
-
+    Description;
+    @UI.lineItem: [{ position: 40 }]
+    @UI.identification: [{ position: 40 }]
     Attachment;
     @UI.hidden: true
     FileName;
     @UI.hidden: true
     FileType;
-    @UI.identification: [{ position: 40 }]
-    CreatedBy;
     @UI.identification: [{ position: 50 }]
+    CreatedBy;
+    @UI.identification: [{ position: 60 }]
     CreationAt;
     
 }

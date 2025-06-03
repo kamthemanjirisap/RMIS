@@ -7,14 +7,13 @@
     sizeCategory: #S,
     dataClass: #MIXED
 }
-define view entity ZR_GRC_PROP_ATTCH as select from ztgrc_attachment
+define view entity ZR_GRC_PROP_ATTCH as select from ztgrc_attach
 association to parent ZR_GRC_PROPERTY as _Property on
 $projection.ParentGuid = _Property.PropertyNo
-//association to parent ZR_GRC_OCCURENCE as _Occurence on
-//$projection.Guid = _Occurence.OccurenceNo
 {
     key parent_guid as ParentGuid,
     key guid as Guid,
+    description as Description,
     @Semantics.largeObject: {
         mimeType: 'filetype',
         fileName: 'filename',
@@ -27,6 +26,8 @@ $projection.ParentGuid = _Property.PropertyNo
         contentDispositionPreference:#INLINE
     }
     attachment as Attachment,
+    
+    
     file_name as FileName,
      @Semantics.mimeType: true
     file_type as FileType,

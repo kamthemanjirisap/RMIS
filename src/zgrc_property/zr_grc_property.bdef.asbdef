@@ -60,7 +60,7 @@ association _Attachment { create; with draft; }
    validation valPropertyid on save { field PropertyId; create; update; }
    validation valPropertystatus on save { field PropertyStatus; create; update; }
    validation valDatePurchased on save { field DatePurchased; create; update; }
-   validation valdatesold on save { field DateSold; create; update; }
+//   validation valdatesold on save { field DateSold; create; update; }
     factory action copy[1];
 
 
@@ -451,8 +451,8 @@ authorization dependent by _Property
 }
 define behavior for ZR_GRC_PROP_ATTCH alias Attachment
 implementation in class ZBP_R_GRC_ATTCH unique
-persistent table ztgrc_attachment
-draft table ZTGRC_PRP_atch_D
+persistent table ztgrc_attach
+draft table ztgrc_attach_d
 etag master Lastchangedat
 //lock master total etag Lastchangedat
 lock dependent by _Property
@@ -483,10 +483,11 @@ authorization dependent by _Property
   association _Property{ with draft; }
 
 
-  mapping for ZTGRC_ATTACHMENT
+  mapping for ZTGRC_ATTACH
   {
     ParentGuid = parent_guid;
     Guid = guid;
+    Description = description;
     Attachment = attachment;
     FileName = file_name;
     FileType = file_type;

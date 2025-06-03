@@ -105,8 +105,8 @@ CLASS lhc_zr_grc_property DEFINITION INHERITING FROM cl_abap_behavior_handler.
       IMPORTING keys FOR ZrGrcProperty~valPropertystatus.
     METHODS valDatePurchased FOR VALIDATE ON SAVE
       IMPORTING keys FOR ZrGrcProperty~valDatePurchased.
-    METHODS valdatesold FOR VALIDATE ON SAVE
-      IMPORTING keys FOR ZrGrcProperty~valdatesold.
+*    METHODS valdatesold FOR VALIDATE ON SAVE
+*      IMPORTING keys FOR ZrGrcProperty~valdatesold.
     METHODS copy FOR MODIFY
       IMPORTING keys FOR ACTION ZrGrcProperty~copy.
 ENDCLASS.
@@ -184,22 +184,22 @@ CLASS lhc_zr_grc_property IMPLEMENTATION.
     ENDLOOP.
   ENDMETHOD.
 
-  METHOD valdatesold.
-    READ ENTITIES OF zr_grc_property IN LOCAL MODE
-         ENTITY ZrGrcProperty
-         FIELDS ( PropertyStatus ) WITH CORRESPONDING #(  keys )
-         RESULT DATA(lt_datesold).
-    LOOP AT lt_datesold INTO DATA(ls_datesold).
-      IF ls_datesold-PropertyStatus = 'Inactive' OR ls_datesold-PropertyStatus = 'INACTIVE'.
-        APPEND VALUE #( %tky = ls_datesold-%tky ) TO failed-zrgrcproperty.
-        APPEND VALUE #( %tky = ls_datesold-%tky
-                %msg = new_message_with_text( severity = if_abap_behv_message=>severity-error
-                                              text = 'Date of Date Removed / Sold is mandatory' )
-
-                ) TO reported-zrgrcproperty.
-      ENDIF.
-    ENDLOOP.
-  ENDMETHOD.
+*  METHOD valdatesold.
+*    READ ENTITIES OF zr_grc_property IN LOCAL MODE
+*         ENTITY ZrGrcProperty
+*         FIELDS ( PropertyStatus ) WITH CORRESPONDING #(  keys )
+*         RESULT DATA(lt_datesold).
+*    LOOP AT lt_datesold INTO DATA(ls_datesold).
+**      IF ls_datesold-PropertyStatus = 'Inactive' OR ls_datesold-PropertyStatus = 'INACTIVE'.
+**        APPEND VALUE #( %tky = ls_datesold-%tky ) TO failed-zrgrcproperty.
+**        APPEND VALUE #( %tky = ls_datesold-%tky
+**                %msg = new_message_with_text( severity = if_abap_behv_message=>severity-error
+**                                              text = 'Date of Date Removed / Sold is mandatory' )
+**
+**                ) TO reported-zrgrcproperty.
+**      ENDIF.
+*    ENDLOOP.
+*  ENDMETHOD.
 
   METHOD copy.
     DATA: property TYPE TABLE FOR CREATE zr_grc_property,
@@ -226,7 +226,7 @@ CLASS lhc_zr_grc_property IMPLEMENTATION.
     LOOP AT property_read_result ASSIGNING FIELD-SYMBOL(<property>).
 *      DATA(lv_wall) = lt_wall[ Guid = <property>-PropertyId  ]-WallType.
 
-      "Occurence data prepration
+      "Property data prepration
       APPEND VALUE #( %cid = keys[ %tky = <property>-%tky ]-%cid
                      %data = CORRESPONDING #( <property> )
       ) TO property ASSIGNING FIELD-SYMBOL(<new_property>).

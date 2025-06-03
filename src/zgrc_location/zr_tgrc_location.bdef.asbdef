@@ -10,6 +10,7 @@ authorization master( global )
 
 {
   field ( mandatory : create )
+   RecordType,
    Level1Id;
 
   field ( readonly )
@@ -26,6 +27,8 @@ authorization master( global )
   field ( readonly : update )
    Level1Id;
 
+  field(features : instance)
+   RecordType;
 
   create;
   update;
@@ -36,6 +39,7 @@ authorization master( global )
   draft action Edit;
   draft action Resume;
   draft determine action Prepare;
+
 
   mapping for ZTGRC_LOCATION
   {
@@ -108,6 +112,7 @@ authorization master( global )
     PortAuthority = port_authority;
     PostalCode = postal_code;
     PrimaryContact = primary_contact;
+    RecordType = record_type;
     Region = region;
     RenewalContact = renewal_contact;
     States = states;

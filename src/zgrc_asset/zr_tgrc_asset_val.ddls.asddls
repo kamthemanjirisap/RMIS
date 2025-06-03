@@ -8,10 +8,8 @@ define view entity ZR_TGRC_ASSET_VAL
  
   key asset_uuid as AssetUuid,
   key asset_value_uuid as AssetValueUuid,
-  asset_value_external as AssetValueExternal,
-  list_id as ListId,
-  value_id as ValueId,
-  recordtyp_desc as RecordtypDesc,
+  asset_value_external as AssetValueExternal,  
+  record_type as Recordtype,
   amount_of_interest as AmountOfInterest,
   amount_of_interest_change_amt as AmountOfInterestChangeAmt,
   apmm_insured_value as ApmmInsuredValue,

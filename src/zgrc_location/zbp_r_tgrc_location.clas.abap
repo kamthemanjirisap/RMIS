@@ -3,7 +3,7 @@ class ZBP_R_TGRC_LOCATION definition
   abstract
   final
   for behavior of ZR_TGRC_LOCATION .
-
+  CLASS-DATA: lv_location_control TYPE abap_boolean.
 public section.
 protected section.
 private section.

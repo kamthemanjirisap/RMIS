@@ -3,8 +3,8 @@
 @EndUserText.label: '###GENERATED Core Data Service Entity'
 define root view entity ZR_GRC_OCCURENCE
   as select from ztgrc_occurence
-  association[0..1] to ZR_GRC_PICKLIST_C as _Picklist on
-  $projection.OccurrenceType = _Picklist.ValueId
+  association[0..1] to ZR_GRC_OCCTYPE_PL as _OccType on
+  $projection.OccurrenceType = _OccType.Id
 {
   key occurence_no as OccurenceNo,
   //cast(lpad(occurence_no,10,'0') as abap.char(10)) as OccurenceLong,
@@ -24,6 +24,5 @@ define root view entity ZR_GRC_OCCURENCE
   lastchangedby as Lastchangedby,
   @Semantics.systemDateTime.localInstanceLastChangedAt: true
   lastchangedat as Lastchangedat,
-//  _Picklist.ListValue as Value,
-  _Picklist
+  _OccType
 }

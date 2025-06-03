@@ -1,14 +1,45 @@
 @Metadata.allowExtensions: true
 @EndUserText.label: 'Claim'
 @AccessControl.authorizationCheck: #CHECK
+//@ObjectModel.query.implementedBy: 'ABAP:ZCL_GRC_VE_CONTROL_FIELDS'
 define root view entity ZC_TGRC_CLAIM
   provider contract transactional_query
   as projection on ZR_TGRC_CLAIM
 {
-  key ClaimUuid,  
-   ClaimRecType,
+  key ClaimUuid,    
+    
+   @Search.defaultSearchElement: true
+      @Search.fuzzinessThreshold: 0.8
+      
+  @UI.textArrangement: #TEXT_ONLY
+      @Consumption.valueHelpDefinition: [{ entity: { name: 'ZR_GRC_PICKLIST', element: 'ValueId' } ,
+      label  : 'Record Type Value Help',
+   additionalBinding: [{ element: 'ListId' ,    
+                               localConstant: '100024', usage: #FILTER }]
+                               , distinctValues: true
+                               }]        
+//   @ObjectModel.text.element: #(textClaimRecType)                       
+   ClaimRecType,  
+   
+   @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_GRC_VE_CONTROL_FIELDS'
+//   virtual textClaimRecType : array of { string }
+   
+   
+   @Search.defaultSearchElement: true
+      @Search.fuzzinessThreshold: 0.8
+      @Consumption.valueHelpDefinition: [{ entity: { name: 'ZR_GRC_PICKLIST', element: 'Value' } ,
+       
+   additionalBinding: [{ element: 'ListId' ,    
+                               localConstant: '100023', usage: #FILTER }]
+                               , distinctValues: true
+                               }]  
   ClaimExternalId,
+  
+     @UI.hidden :#(HideX2ndWitness)
   X2ndWitness,
+   @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_GRC_VE_CONTROL_FIELDS'
+   virtual HideX2ndWitness :abap_boolean,
+   
   X3rdPartyClaimSubmittedTo,
   X3rdPartyClaimsReceivedTtl,
   X3rdPartyClaimsSettledTtl,
@@ -548,18 +579,71 @@ define root view entity ZC_TGRC_CLAIM
   ClaimantVehicleMake,
   VehicleModel,
   ClaimantVehicleModel,
+  
+@UI.hidden :#(HideVehicleOwner)    
   VehicleOwner,
+@ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_GRC_VE_CONTROL_FIELDS'
+   virtual HideVehicleOwner  :abap_boolean,
+   
+@UI.hidden :#(HideVehicleOwnerName)    
   VehicleOwnerName,
+@ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_GRC_VE_CONTROL_FIELDS'
+   virtual HideVehicleOwnerName :abap_boolean,
+     
+@UI.hidden :#(HideVehicleYear)  
   VehicleYear,
+@ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_GRC_VE_CONTROL_FIELDS'
+   virtual HideVehicleYear :abap_boolean,
+     
+  @UI.hidden :#(HideClaimantVehicleYear)
   ClaimantVehicleYear,
+    @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_GRC_VE_CONTROL_FIELDS'
+   virtual HideClaimantVehicleYear :abap_boolean,
+  
+   @UI.hidden :#(HideProbability)
   Probability,
+     @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_GRC_VE_CONTROL_FIELDS'
+   virtual HideProbability :abap_boolean,
+   
+   @UI.hidden :#(HideVessel)
   Vessel,
+   @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_GRC_VE_CONTROL_FIELDS'
+   virtual HideVessel :abap_boolean,
+   
+   @UI.hidden :#(HideVesselName)
   VesselName,
+   @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_GRC_VE_CONTROL_FIELDS'
+   virtual HideVesselName :abap_boolean,
+   
+   @UI.hidden :#(HideVesselOperator)
   VesselOperator,
+   @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_GRC_VE_CONTROL_FIELDS'
+   virtual HideVesselOperator :abap_boolean,
+   
+   @UI.hidden :#(HideVesselOwnerName)
   VesselOwnerName,
+   @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_GRC_VE_CONTROL_FIELDS'
+   virtual HideVesselOwnerName :abap_boolean,
+   
+   @UI.hidden :#(HideVesselAircraft)
   VesselAircraft,
+   @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_GRC_VE_CONTROL_FIELDS'
+   virtual HideVesselAircraft :abap_boolean,
+  
+    @UI.hidden :#(HideVoyage)
+//  @UI: {
+//              lineItem:       [ { position: 40, importance: #MEDIUM } ],
+//              identification: [ { position: 40, hidden: #(testField)} ] }
   Voyage,
+  
+  @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_GRC_VE_CONTROL_FIELDS'
+   virtual HideVoyage :abap_boolean,
+     
+   @UI.hidden :#(HideVoyageNumber)
   VoyageNumber,
+   @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_GRC_VE_CONTROL_FIELDS'
+   virtual HideVoyageNumber :abap_boolean,
+   
   Weather,
   WeeklyWages,
   WhoOwnsProperty,

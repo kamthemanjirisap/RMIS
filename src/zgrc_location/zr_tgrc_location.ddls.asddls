@@ -1,10 +1,14 @@
-@AccessControl.authorizationCheck: #CHECK
+@AccessControl.authorizationCheck: #NOT_REQUIRED
 @Metadata.allowExtensions: true
 @EndUserText.label: '###GENERATED Core Data Service Entity'
 define root view entity ZR_TGRC_LOCATION
   as select from ztgrc_location
- association[0..1] to ZR_GRC_PICKLIST_C as _Picklist on
+ association[0..1] to ZR_GRC_PICKLST_C as _Picklist on
   $projection.BusinessArea = _Picklist.ValueId
+// association[0..1] to ZR_GRC_RECORD_TYPE_PL as _Recordtype on
+// $projection.RecordType = _Recordtype.Id
+//association[0..1] to ZR_GRC_PICKLIST as _Picklst on
+// $projection.RecordType = _Picklst.ValueId and $projection.BusinessArea = _Picklst.ValueId
 {
   key location_uuid as LocationUuid,
   key level_1_id as Level1Id,
@@ -75,6 +79,7 @@ define root view entity ZR_TGRC_LOCATION
   port_authority as PortAuthority,
   postal_code as PostalCode,
   primary_contact as PrimaryContact,
+  record_type as RecordType,
   region as Region,
   renewal_contact as RenewalContact,
   states as States,
@@ -95,5 +100,7 @@ define root view entity ZR_TGRC_LOCATION
   @Semantics.systemDateTime.localInstanceLastChangedAt: true
   locallastchangedat as Locallastchangedat,
   _Picklist
+//  _Recordtype
+// _Picklst
   
 }

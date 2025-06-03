@@ -8,21 +8,21 @@ define root view entity ZR_TGRC_ASSET
   key asset_uuid as AssetUuid,
   asset_external_id as AssetExternalId,
   
-  @Consumption.valueHelpDefinition: [ {
-  entity: {
-    name: 'ZI_GRC_MI_CLAIM_RECORD_type',
-    element: 'ListId'
-  }  
-} ]
-  list_id as ListId,
-  value_id as ValueId,
-    @Consumption.valueHelpDefinition: [ {
-  entity: {
-    name: 'ZI_GRC_MI_CLAIM_RECORD_type',
-    element: 'ListValue'
-  }
-} ]
-  recordtyp_desc as RecordtypDesc, 
+//  @Consumption.valueHelpDefinition: [ {
+//  entity: {
+//    name: 'ZI_GRC_MI_CLAIM_RECORD_type',
+//    element: 'ListId'
+//  }  
+//} ]
+//  list_id as ListId,
+//  value_id as ValueId,
+//    @Consumption.valueHelpDefinition: [ {
+//  entity: {
+//    name: 'ZI_GRC_MI_CLAIM_RECORD_type',
+//    element: 'ListValue'
+//  }
+//} ]
+  record_type as RecordType, 
   asset_name as AssetName,
   accounting_code as AccountingCode,
   afe as Afe,

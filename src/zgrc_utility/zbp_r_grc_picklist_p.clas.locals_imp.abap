@@ -9,9 +9,9 @@ ENDCLASS.
 CLASS lsc_zr_grc_picklist_p IMPLEMENTATION.
 
   METHOD adjust_numbers.
-    DATA: entity     TYPE STRUCTURE FOR CREATE zr_grc_occurence,
-          lv_listid  TYPE zgrc_numbering,
-          lv_valueid TYPE zgrc_numbering.
+*    DATA: entity     TYPE STRUCTURE FOR CREATE zr_grc_occurence,
+      DATA:    lv_listid  TYPE zgrc_picklist_numbering,
+          lv_valueid TYPE zgrc_picklist_numbering.
 
 
 * IF mapped-parent IS NOT INITIAL.
@@ -46,7 +46,7 @@ CLASS lsc_zr_grc_picklist_p IMPLEMENTATION.
 *      SORT lt_picklists BY createdat DESCENDING.
 *      READ TABLE lt_picklists INTO DATA(ls_picklists) INDEX 1.
       ELSE.
-        list_id_max = '10000'.
+        list_id_max = '100000'.
       ENDIF.
 
       LOOP AT mapped-parent ASSIGNING FIELD-SYMBOL(<ls_parent>) .
@@ -97,7 +97,7 @@ CLASS lsc_zr_grc_picklist_p IMPLEMENTATION.
 *      SORT lt_picklists BY createdat DESCENDING.
 *      READ TABLE lt_picklists INTO DATA(ls_picklists) INDEX 1.
       ELSE.
-        value_id_max = '50000'.
+        value_id_max = '500000'.
       ENDIF.
 
       LOOP AT mapped-child ASSIGNING FIELD-SYMBOL(<ls_child>) .

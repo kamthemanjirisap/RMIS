@@ -6,7 +6,9 @@ define root view entity ZR_GRC_MI_CLAIMREG
   composition [0..*]  of ZR_GRC_MI_CLAIMTRN as _claim_transaction  
   {
   key claim_reg_uuid as ClaimRegUuid,
-  claim_reg_ext_id as ClaimRegExtId,
+  claim_reg_ext_id as ClaimRegExtId, 
+  record_type as recordtype  ,
+   record_typ_desc as recordtypedesc ,
   asset_location as AssetLocation,
   brand_bu as BrandBu,
   close_date as CloseDate,

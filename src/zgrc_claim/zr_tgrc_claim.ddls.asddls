@@ -5,11 +5,12 @@
 define root view entity ZR_TGRC_CLAIM  
   as select from ztgrc_claim as claim
    composition [*] of ZR_TGRC_CLAIM_TRN as _claim_trn
+//   association[0..1] to ZR_GRC_PICKLIST as _Picklst on
+// $projection.ClaimRecType = _Picklst.ValueId
 {
   key claim_uuid as ClaimUuid,
-  claim_rec_type as ClaimRecType,
-  claim_external_id as ClaimExternalId,
- 
+  claim_rec_type as ClaimRecType,  
+  claim_external_id as ClaimExternalId, 
   x2nd_witness as X2ndWitness,
   x3rd_party_claim_submitted_to as X3rdPartyClaimSubmittedTo,
   @Semantics.amount.currencyCode: 'Currency'
@@ -589,7 +590,8 @@ define root view entity ZR_TGRC_CLAIM
   @Semantics.user.localInstanceLastChangedBy: true
   lastchangedby as Lastchangedby,
   @Semantics.systemDateTime.localInstanceLastChangedAt: true
-  lastchangedat as Lastchangedat,
+  lastchangedat as Lastchangedat,  
   _claim_trn
+//  _Picklst
   
 }

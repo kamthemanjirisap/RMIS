@@ -1,3 +1,4 @@
+
 managed implementation in class ZBP_R_TGRC_ASSET unique;
 strict ( 2 );
 with draft;
@@ -10,6 +11,10 @@ lock master total etag Lastchangedat
 authorization master( global )
 
 {
+
+field( mandatory : create)
+RecordType;
+
   field ( readonly )
    AssetUuid,
    Createdby,
@@ -56,9 +61,9 @@ factory action copyasset[1..*];
   {
     AssetUuid = asset_uuid;
     AssetExternalId = asset_external_id;
-    ListId = list_id;
-    ValueId = value_id;
-    RecordtypDesc = recordtyp_desc;
+//    ListId = list_id;
+//    ValueId = value_id;
+    Recordtype = record_type;
     AssetName = asset_name;
     AccountingCode = accounting_code;
     Afe = afe;
@@ -237,9 +242,9 @@ determination set_Asset_Value_Formula on modify { create; update; }
     AssetUuid = asset_uuid;
     AssetValueUuid = asset_value_uuid;
     AssetValueExternal = asset_value_external;
-    ListId = list_id;
-    ValueId = value_id;
-    RecordtypDesc = recordtyp_desc;
+//    ListId = list_id;
+//    ValueId = value_id;
+    Recordtype = record_type;
     AmountOfInterest = amount_of_interest;
     AmountOfInterestChangeAmt = amount_of_interest_change_amt;
     ApmmInsuredValue = apmm_insured_value;

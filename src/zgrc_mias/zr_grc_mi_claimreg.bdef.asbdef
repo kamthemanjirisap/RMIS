@@ -14,6 +14,10 @@ authorization master( global )
   delete;
 
 association  _claim_transaction { create ; with draft; }
+
+field( mandatory : create )
+recordtype;
+
   field ( readonly )
    ClaimRegUuid,
    ClaimRegExtId,
@@ -40,6 +44,8 @@ factory action copyclaimreg[1..*];
   mapping for ZGRC_MI_CLAIMREG
   {
     ClaimRegUuid = claim_reg_uuid;
+    recordtype   = record_type;
+    recordtypedesc = record_typ_desc;
     ClaimRegExtId = claim_reg_ext_id;
     AssetLocation = asset_location;
     BrandBu = brand_bu;

@@ -109,9 +109,7 @@ annotate view ZC_TGRC_LOCATION with
   BimDate;
   
   @EndUserText.label: 'Brand'
-  @UI.identification: [ {
-    position: 80 
-  } ]
+  @UI.identification: [ { position: 80 , hidden: #(testField) } ]
   @UI.lineItem: [ {
     position: 80 
   } ]
@@ -938,6 +936,18 @@ annotate view ZC_TGRC_LOCATION with
     position: 690 
   } ]
   PrimaryContact;
+  
+  @EndUserText.label: 'Record Type'
+  @UI.identification: [ {
+    position: 695 
+  } ]
+  @UI.lineItem: [ {
+    position: 695 
+  } ]
+  @UI.selectionField: [ {
+    position: 695 
+  } ]
+  RecordType;
   
   @EndUserText.label: 'Region'
   @UI.identification: [ {

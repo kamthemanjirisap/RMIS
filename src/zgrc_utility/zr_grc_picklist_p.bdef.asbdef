@@ -3,7 +3,7 @@ strict ( 2 );
 with draft;
 define behavior for ZR_GRC_PICKLIST_P alias Parent
 persistent table ZTGRC_PICKLIST_P
-draft table ZGRC_PCKLS000_D
+draft table zgrc_draft_P
 etag master Lastchangedat
 lock master total etag Lastchangedat
 //lock master
@@ -47,7 +47,7 @@ authorization master( global )
 define behavior for ZR_GRC_PICKLIST_C alias Child
 implementation in class ZBP_R_GRC_PICKLST_C unique
 persistent table ztgrc_picklist_c
-draft table ZGRC_PCKLS000C_D
+draft table zgrc_draft_c
 lock dependent by _Parent
 authorization dependent by _Parent
 etag master LastChangedAt

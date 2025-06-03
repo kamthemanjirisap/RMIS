@@ -180,10 +180,7 @@ annotate view ZC_GRC_PROPERTY with
   } ]
 
   InsuredName;
-           @Consumption.valueHelpDefinition: [{ entity: {
-          name: 'ZR_TEST',
-          element: 'WallType'
-      } }]
+
   @EndUserText.label: 'Property Use'
   @UI.identification: [ {
     position: 80 
@@ -456,12 +453,13 @@ annotate view ZC_GRC_PROPERTY with
 
   RenewalContact;
   
-@UI.fieldGroup: [{ qualifier: 'construction', label: 'Renoavation Years', position:40 }]
+     @UI.fieldGroup: [{ qualifier: 'construction', value : '_Renov.RenovYrs', label: 'Renovation Years', position:90 }]
+ 
   @UI.lineItem: [ {
-    position: 360 
+    position: 410 
   } ]
 
-  RenovationYears;
+  _Renov;
   
   @EndUserText.label: 'SquareMetres'
 @UI.fieldGroup: [{ qualifier: 'construction', label: 'Square Metres', position:50 }]
@@ -496,13 +494,7 @@ annotate view ZC_GRC_PROPERTY with
 
   BuildingHeight;
   
-      @UI.fieldGroup: [{ qualifier: 'construction', value : '_Renov.RenovYrs', label: 'Renovation Years', position:90 }]
  
-  @UI.lineItem: [ {
-    position: 410 
-  } ]
-
-  _Renov;
   
   @EndUserText.label: 'LevelsAboveGrade'
 @UI.fieldGroup: [{ qualifier: 'construction', label: 'Levels Above Grade', position:100 }]
@@ -619,7 +611,7 @@ annotate view ZC_GRC_PROPERTY with
 //  } ]
 //
 //  Security;
-    @UI.fieldGroup: [{ qualifier: 'protection', value : '_Security.Security', label: 'Roof Type', position:100 }]
+    @UI.fieldGroup: [{ qualifier: 'protection', value : '_Security.Security', label: 'Security', position:100 }]
  
   @UI.lineItem: [ {
     position: 550 
@@ -627,13 +619,8 @@ annotate view ZC_GRC_PROPERTY with
 
   _Security;
   
-//@UI.fieldGroup: [{ qualifier: 'protection', label: 'Alarms', position:110 }]
-//  @UI.lineItem: [ {
-//    position: 560 
-//  } ]
-//
-//  Alarms;
-    @UI.fieldGroup: [{ qualifier: 'construction', value : '_Alarm.Alarms', label: 'Roof Type', position:110 }]
+
+    @UI.fieldGroup: [{ qualifier: 'construction', value : '_Alarm.Alarms', label: 'Alarm', position:110 }]
  
   @UI.lineItem: [ {
     position: 560 

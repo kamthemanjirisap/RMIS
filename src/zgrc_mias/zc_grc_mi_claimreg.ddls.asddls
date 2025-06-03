@@ -6,6 +6,8 @@ define root view entity ZC_GRC_MI_CLAIMREG
   as projection on ZR_GRC_MI_CLAIMREG
 {
   key ClaimRegUuid,
+  recordtype,
+  recordtypedesc,
   ClaimRegExtId,
   AssetLocation,
   BrandBu,

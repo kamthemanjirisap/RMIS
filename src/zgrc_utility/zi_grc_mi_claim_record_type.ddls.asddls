@@ -15,4 +15,4 @@ define view entity ZI_GRC_MI_CLAIM_RECORD_type as select from ztgrc_picklist_c
     lastchangedat as Lastchangedat
     
 }
-where list_id = '10002';
+//where list_id = '100002';

@@ -12,6 +12,7 @@ association to parent ZR_GRC_PICKLIST_P as _Parent on
 $projection.ListId = _Parent.ListId
 {
     key list_id as ListId,
+    
     key value_id as ValueId,
     list_value as ListValue,
     list_desc as ListDesc,
