@@ -14,4 +14,4 @@ define view entity ZR_PI_CLUB_PL as select from ZR_GRC_PICKLST_P
     
    _Child.ListValue as PI_Club
 }
-where ListId = '100079';
+where ListId = '100181';

@@ -530,14 +530,14 @@ ZBP_R_TGRC_CLAIM=>lv_control = abap_true.
 **ENDLOOP.
 
 
-    result = VALUE #( FOR ls_claim IN lt_claim_read_result
-                       ( %tky                   = ls_claim-%tky
-                         %field-status =   if_abap_behv=>fc-f-read_only
-                         %field-DateClosed    =   if_abap_behv=>fc-f-read_only
-*                          %field-Activity   =
-
-                         %assoc-_claim_trn = COND #( WHEN ls_claim-status = 'C'
-                                                          THEN if_abap_behv=>fc-o-disabled ELSE if_abap_behv=>fc-o-enabled  ) ) ).
+**    result = VALUE #( FOR ls_claim IN lt_claim_read_result
+*                       ( %tky                   = ls_claim-%tky
+*                         %field-status =   if_abap_behv=>fc-f-read_only
+*                         %field-DateClosed    =   if_abap_behv=>fc-f-read_only
+**                          %field-Activity   =
+*
+*                         %assoc-_claim_trn = COND #( WHEN ls_claim-status = 'C'
+*                                                          THEN if_abap_behv=>fc-o-disabled ELSE if_abap_behv=>fc-o-enabled  ) ) ).
 
 *
 *LOOp at result INTO DATA(ls_result).
