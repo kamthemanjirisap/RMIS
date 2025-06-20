@@ -348,16 +348,16 @@ annotate view ZC_GRC_POLICY
   } ]
   FrontingInsurer;
   
- // @UI.identification: [ {
- //   position: 260 
- // } ]
- // @UI.lineItem: [ {
- //   position: 260 
- // } ]
-//  @UI.selectionField: [ {
-//    position: 260 
-//  } ]
-//  grossgrm;
+  @UI.identification: [ {
+    position: 260 
+  } ]
+  @UI.lineItem: [ {
+    position: 260 
+  } ]
+  @UI.selectionField: [ {
+    position: 260 
+  } ]
+  GrossGrm;
   
   @UI.identification: [ {
     position: 270 
@@ -625,16 +625,16 @@ annotate view ZC_GRC_POLICY
   } ]
   NamedInsuredAddress;
   
-//  @UI.identification: [ {
-//    position: 490 
-//  } ]
-//  @UI.lineItem: [ {
-//    position: 490 
-//  } ]
-//  @UI.selectionField: [ {
-//    position: 490 
-//  } ]
-//  netgrm;
+  @UI.identification: [ {
+    position: 490 
+  } ]
+  @UI.lineItem: [ {
+    position: 490 
+  } ]
+  @UI.selectionField: [ {
+    position: 490 
+  } ]
+  NetGrm;
   
   @EndUserText.label: 'Notes'
   @UI.identification: [ {
@@ -786,7 +786,7 @@ annotate view ZC_GRC_POLICY
   } ]
   PolicyStatus;
   
-/*  @UI.identification: [ {
+  @UI.identification: [ {
     position: 620 
   } ]
   @UI.lineItem: [ {
@@ -794,8 +794,8 @@ annotate view ZC_GRC_POLICY
   } ]
   @UI.selectionField: [ {
     position: 620 
-//  } ]
-  PolicyType; */
+  } ]
+  PolicyType;
   
   @UI.identification: [ {
     position: 630 

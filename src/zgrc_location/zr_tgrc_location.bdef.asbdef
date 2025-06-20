@@ -38,8 +38,21 @@ authorization master( global )
   draft action Discard;
   draft action Edit;
   draft action Resume;
-  draft determine action Prepare;
+ // draft determine action Prepare;
 
+  factory action copy[1];
+
+ validation validateDate on save { create; update; }
+ validation validateNodeLevel on save { create; update; }
+
+
+  determination setLocationStatus on modify { create; field DateActive;}
+
+  draft determine action Prepare
+  {
+    validation validateDate;
+    validation validateNodeLevel;
+  }
 
   mapping for ZTGRC_LOCATION
   {

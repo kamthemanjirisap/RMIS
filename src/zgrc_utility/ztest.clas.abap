@@ -15,7 +15,14 @@ CLASS ZTEST IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.
-    DELETE FROM ztgrc_asset_d.
+    DELETE FROM ztgrc_policy.
+    DELETE FROM ztgrc_policy_d.
+    DELETE FROM ztgrc_policy_end.
+    DELETE FROM ztgrc_policy_sec.
+    DELETE FROM ztgrc_policy_tra.
+    DELETE FROM ztgrc_plcy_end_d.
+    DELETE FROM ztgrc_plcy_sec_d.
+    DELETE FROM ztgrc_plcy_tra_d.
 * TRY.
 *    cl_numberrange_intervals=>create(
 *      EXPORTING

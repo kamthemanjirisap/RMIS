@@ -26,13 +26,13 @@ CLASS zcl_grc_ve_control_fields IMPLEMENTATION.
            lt_location        TYPE STANDARD TABLE OF zc_tgrc_location WITH DEFAULT KEY,
            lt_fieldname_range TYPE RANGE OF ztgrc_scr_contrl-fieldname.
 
-    IF zbp_r_tgrc_claim=>lv_control IS NOT INITIAL.
+*    IF zbp_r_tgrc_claim=>lv_control IS NOT INITIAL.
       lt_original_data = CORRESPONDING #( it_original_data ).
       DATA(lv_record_type) =  VALUE #(   lt_original_data[ 1 ]-ClaimRecType OPTIONAL ).
-    ELSEIF zbp_r_tgrc_location=>lv_location_control IS NOT INITIAL.
-      lt_location = CORRESPONDING #( it_original_data ).
-      lv_record_type =  VALUE #(   lt_location[ 1 ]-RecordType OPTIONAL ).
-    ENDIF.
+*    ELSEIF zbp_r_tgrc_location=>lv_location_control IS NOT INITIAL.
+*      lt_location = CORRESPONDING #( it_original_data ).
+*      lv_record_type =  VALUE #(   lt_location[ 1 ]-RecordType OPTIONAL ).
+*    ENDIF.
 
     SELECT *
     FROM ztgrc_scr_contrl
@@ -51,8 +51,14 @@ CLASS zcl_grc_ve_control_fields IMPLEMENTATION.
       ENDLOOP.
 
     ENDIF.
+    cl_abap_behv_aux=>get_current_context(
+      IMPORTING
+        from_behavior   = DATA(lv_behavior)
+        from_projection = DATA(lv_projection)
+    ).
+
 *-------------------------- Claim ---------------------------
-    IF zbp_r_tgrc_claim=>lv_control IS NOT INITIAL.
+*    IF zbp_r_tgrc_claim=>lv_control IS NOT INITIAL.
 
       LOOP AT lt_original_data ASSIGNING FIELD-SYMBOL(<ls_original_data>).
         LOOP AT it_requested_calc_elements ASSIGNING FIELD-SYMBOL(<ls_req_calc_elements>) .
@@ -67,22 +73,22 @@ CLASS zcl_grc_ve_control_fields IMPLEMENTATION.
         ENDLOOP.
       ENDLOOP.
       ct_calculated_data = CORRESPONDING #( lt_original_data ).
-    ELSEIF zbp_r_tgrc_location=>lv_location_control IS NOT INITIAL.
-
-      LOOP AT lt_location ASSIGNING FIELD-SYMBOL(<ls_location>).
-        LOOP AT it_requested_calc_elements ASSIGNING <ls_req_calc_elements> .
-          IF NOT line_exists(  lt_fieldname_range[  low  = <ls_req_calc_elements> ] ).
-            CONTINUE.
-          ENDIF.
-          ASSIGN COMPONENT <ls_req_calc_elements> OF STRUCTURE <ls_location>
-      TO FIELD-SYMBOL(<ls_field_value>).
-          IF sy-subrc IS INITIAL AND <ls_field_value> IS ASSIGNED.
-            <ls_field_value> = abap_true.
-          ENDIF.
-        ENDLOOP.
-      ENDLOOP.
-      ct_calculated_data = CORRESPONDING #( lt_location ).
-    ENDIF.
+**    ELSEIF zbp_r_tgrc_location=>lv_location_control IS NOT INITIAL.
+*
+*      LOOP AT lt_location ASSIGNING FIELD-SYMBOL(<ls_location>).
+*        LOOP AT it_requested_calc_elements ASSIGNING <ls_req_calc_elements> .
+*          IF NOT line_exists(  lt_fieldname_range[  low  = <ls_req_calc_elements> ] ).
+*            CONTINUE.
+*          ENDIF.
+*          ASSIGN COMPONENT <ls_req_calc_elements> OF STRUCTURE <ls_location>
+*      TO FIELD-SYMBOL(<ls_field_value>).
+*          IF sy-subrc IS INITIAL AND <ls_field_value> IS ASSIGNED.
+*            <ls_field_value> = abap_true.
+*          ENDIF.
+*        ENDLOOP.
+*      ENDLOOP.
+*      ct_calculated_data = CORRESPONDING #( lt_location ).
+*    ENDIF.
 *    ----------------------------------
   ENDMETHOD.
 

@@ -65,11 +65,14 @@ define root view entity ZC_TGRC_CLAIM
           AboveClaimThreshold,
           _Threshold_PL.Threshold                      as Threshold,
           AboveDeductibleClaim,
+            @UI.hidden :#(HideAccidentType)
           @ObjectModel.text.element:  ['Accident_Type']
           @UI.textArrangement: #TEXT_ONLY
           @Consumption.valueHelpDefinition: [{ entity: { name: 'ZR_ACCIDENT_TYPE_PL', element: 'Id' } }]
           AccidentType,
           _AccidentType_PL.Accident_Type               as Accident_Type,
+           @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_GRC_VE_CONTROL_FIELDS'
+           virtual HideAccidentType         :abap_boolean,
           @ObjectModel.text.element:  ['Activity_PL']
           @UI.textArrangement: #TEXT_ONLY
           @Consumption.valueHelpDefinition: [{ entity: { name: 'ZR_ACTIVITY_PL', element: 'Id' } }]

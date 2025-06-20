@@ -27,7 +27,28 @@ authorization master ( global )
   draft action Discard;
   draft action Edit;
   draft action Resume;
-  draft determine action Prepare;
+//  draft determine action Prepare;
+
+  factory action copy[1];
+
+  validation validatePolicyAggregateLimit on save { create; update; }
+  validation validateCarrierPercentCoverage on save { create; update; }
+  validation validateDatePolicyEffective on save { create; update; }
+  validation validateDateExcesCarrierNotify on save { create; update; }
+  validation validateProRataShare on save { create; update; }
+
+  determination setMiasGrossPremium on modify { create; field GrossGrm,MiasPercentage;}
+  determination setMiasNetPremium on modify { create; field NetGrm, MiasPercentage;}
+  determination setPolicyYear on modify { create; field DatePolicyEffective; }
+
+  draft determine action Prepare
+  {
+    validation validatePolicyAggregateLimit;
+    validation validateCarrierPercentCoverage;
+    validation validateDatePolicyEffective;
+    validation validateDateExcesCarrierNotify;
+    validation validateProRataShare;
+  }
 
   association _Policyendo { create; with draft;}
   association _Policysec { create; with draft; }
@@ -60,7 +81,7 @@ authorization master ( global )
     DatePolicyExpiration = date_policy_expiration;
     Form = form;
     FrontingInsurer = fronting_insurer;
-//    GrossGrm = gross_grm;
+    GrossGrm = gross_grm;
     GrossPremiumPaid = gross_premium_paid;
     GrossReinsurancePremiumPaid = gross_reinsurance_premium_paid;
     GrossReinsurancePremiumRepo = gross_reinsurance_premium_repo;
@@ -83,7 +104,7 @@ authorization master ( global )
     RIPercent1 = r_i_percent_1;
     NamedInsured = named_insured;
     NamedInsuredAddress = named_insured_address;
-//    NetGrm = net_grm;
+    NetGrm = net_grm;
     Notes = notes;
     NotifyExcessCarrier = notify_excess_carrier;
     Ownerid = ownerid;
@@ -96,7 +117,7 @@ authorization master ( global )
     PolicyNumber = policy_number;
     PolicyOccurrenceLimit = policy_occurrence_limit;
     PolicyStatus = policy_status;
-    PolicyType = policy_type;
+    PolicyTypes = policy_type;
     PolicyYear = policy_year;
     PredecessorPolicy = predecessor_policy;
     PrimaryPolicy = primary_policy;
@@ -140,6 +161,11 @@ etag master Lastchangedat
   Locallastchangedat;
 
   field ( numbering : managed, readonly ) PolicysecUuid;
+
+  validation validateSectionAggregateLimit on save { create; update; }
+  validation validateSectionInceptionDate on save { create; update; }
+
+  factory action copy[1];
 
   association _Policy { with draft; }
 
@@ -207,6 +233,9 @@ etag master Lastchangedat
   association _Policy { with draft; }
   update;
   delete;
+
+  determination calTotalPremium on modify { field TransitPremium ,StoragePremium ,AdditionalLiabilityPremium ; create; }
+
   mapping for ztgrc_policy_end
   {
     PolicyendoUuid = policyendo_uuid;
@@ -284,6 +313,7 @@ etag master Lastchangedat
   Locallastchangedat;
 
   field ( numbering : managed, readonly ) PolicytranUuid;
+  determination setAccountingMonthQuarter on modify { field AccountingDate ; create; }
 
   association _Policy { with draft; }
 

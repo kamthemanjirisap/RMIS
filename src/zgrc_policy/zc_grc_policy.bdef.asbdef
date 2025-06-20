@@ -2,7 +2,7 @@ projection implementation in class ZBP_C_GRC_POLICY unique;
 strict ( 2 );
 use draft;
 
-define behavior for ZC_GRC_POLICY //alias <alias_name>
+define behavior for ZC_GRC_POLICY alias Policy
 {
   use create;
   use update;

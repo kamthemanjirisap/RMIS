@@ -7,7 +7,7 @@ annotate view ZC_TGRC_CLAIM with
 {
   @EndUserText.label: 'ClaimUuid'
   @UI.facet: [ {
-    label: 'Claim : General Information', 
+    label: 'Claim : Details', 
     id: 'GeneralInfo', 
     purpose: #STANDARD, 
     position: 10 , 
